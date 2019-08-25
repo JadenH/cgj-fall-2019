@@ -2,10 +2,10 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class camera_controller : MonoBehaviour
+public class CameraController : MonoBehaviour
 {
 
-    public GameObject right_door;
+    public GameObject RightDoor;
     
     // Start is called before the first frame update
     void Start()
