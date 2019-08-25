@@ -658,6 +658,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6452190085410174862}
   - component: {fileID: 6452190085410174861}
+  - component: {fileID: 5432987133126933302}
   m_Layer: 0
   m_Name: Room
   m_TagString: Untagged
@@ -697,6 +698,22 @@ Grid:
   m_CellGap: {x: 0, y: 0, z: 0}
   m_CellLayout: 0
   m_CellSwizzle: 0
+--- !u!114 &5432987133126933302
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6452190085410174860}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a2b3d3acaca8ed54588da541616a29ab, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  top_door: {fileID: 6452190086842739756}
+  right_door: {fileID: 6452190086527903058}
+  bottom_door: {fileID: 6452190085933715313}
+  left_door: {fileID: 6452190085581262340}
 --- !u!1 &6452190085581262346
 GameObject:
   m_ObjectHideFlags: 0

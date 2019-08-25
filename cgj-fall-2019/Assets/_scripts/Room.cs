@@ -13,10 +13,10 @@ public class Room : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        Door top_door = transform.GetChild(0).gameObject.GetComponent<Door>();
-        Door right_door = transform.GetChild(1).gameObject.GetComponent<Door>();
-        Door bottom_door = transform.GetChild(2).gameObject.GetComponent<Door>();
-        Door left_door = transform.GetChild(3).gameObject.GetComponent<Door>();
+        // top_door = transform.GetChild(0).gameObject.GetComponent<Door>();
+     //    right_door = transform.GetChild(1).gameObject.GetComponent<Door>();
+      //   bottom_door = transform.GetChild(2).gameObject.GetComponent<Door>();
+       //  left_door = transform.GetChild(3).gameObject.GetComponent<Door>();
     }
     //Top
     public bool Is_locked_top_door()
@@ -34,41 +34,42 @@ public class Room : MonoBehaviour
     //Right
     public bool Is_locked_right_door()
     {
-        return top_door.IsLocked();
+        return 
+            right_door.IsLocked();
     }
     public void Lock_right_door()
     {
-        top_door.LockDoor();
+        right_door.LockDoor();
     }
     public void Unlock_right_door()
     {
-        top_door.UnlockDoor();
+        right_door.UnlockDoor();
     }
     //Bottom
     public bool Is_locked_bottom_door()
     {
-        return top_door.IsLocked();
+        return bottom_door.IsLocked();
     }
     public void Lock_bottom_door()
     {
-        top_door.LockDoor();
+        bottom_door.LockDoor();
     }
     public void Unlock_bottom_door()
     {
-        top_door.UnlockDoor();
+        bottom_door.UnlockDoor();
     }
     //Left
     public bool Is_locked_left_door()
     {
-        return top_door.IsLocked();
+        return left_door.IsLocked();
     }
     public void Lock_left_door()
     {
-        top_door.LockDoor();
+        left_door.LockDoor();
     }
     public void Unlock_left_door()
     {
-        top_door.UnlockDoor();
+        left_door.UnlockDoor();
     }
 
 

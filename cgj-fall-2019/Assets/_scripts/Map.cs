@@ -17,10 +17,8 @@ public class Map : MonoBehaviour
     {
         CreateMap(rooms);
         GameObject tempRoom = Instantiate(room_prefab, new Vector3(0, 0, 0), Quaternion.identity);
-        Door top_door = tempRoom.transform.GetChild(0).gameObject.GetComponent<Door>();
-        Door right_door = tempRoom.transform.GetChild(1).gameObject.GetComponent<Door>();
-        Door bottom_door = tempRoom.transform.GetChild(2).gameObject.GetComponent<Door>();
-        Door left_door = tempRoom.transform.GetChild(3).gameObject.GetComponent<Door>();
+        Room room = tempRoom.GetComponent<Room>();
+        room.Lock_top_door();
     }
 
     void CreateMap(int rooms)
