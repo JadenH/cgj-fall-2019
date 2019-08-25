@@ -768,7 +768,7 @@ MonoBehaviour:
   cam_y: 0
   player_x: -4.5
   player_y: 0
-  collide: {fileID: 0}
+  collide: {fileID: 6452190085581262347}
 --- !u!61 &6452190085581262347
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -4221,7 +4221,7 @@ MonoBehaviour:
   cam_y: -14
   player_x: 0
   player_y: -4.5
-  collide: {fileID: 0}
+  collide: {fileID: 6452190085933715312}
 --- !u!61 &6452190085933715312
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -4302,7 +4302,7 @@ MonoBehaviour:
   cam_y: 0
   player_x: 4.5
   player_y: 0
-  collide: {fileID: 0}
+  collide: {fileID: 6452190086527903056}
 --- !u!61 &6452190086527903056
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -4382,7 +4382,7 @@ MonoBehaviour:
   cam_y: 14
   player_x: 0
   player_y: 4.5
-  collide: {fileID: 0}
+  collide: {fileID: 6452190086842739731}
 --- !u!61 &6452190086842739731
 BoxCollider2D:
   m_ObjectHideFlags: 0

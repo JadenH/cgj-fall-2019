@@ -24,14 +24,13 @@ public class Door : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        collide = GetComponent<BoxCollider2D>();
         if(Locked)
         {
-            LockDoor();
+       //     LockDoor();
         }
         else
         {
-            UnlockDoor();
+         //   UnlockDoor();
         }
         cam = GameObject.FindGameObjectWithTag("CameraTarget");
         player = GameObject.FindGameObjectWithTag("Player");
