@@ -40,6 +40,7 @@ public class Door : GameBehaviour
 
     private void OnTriggerEnter2D(Collider2D theCollision)
     {
+        print("wha??");
         if (theCollision.tag == "Player")
         {
             CameraTarget.transform.position = new Vector3(CameraTarget.transform.position.x + CamX,

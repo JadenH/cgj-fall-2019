@@ -762,10 +762,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   CamX: 0
-  CamY: 0
+  CamY: -25
   Collide: {fileID: 0}
   LockedDoorSprite: {fileID: 0}
-  PlayerX: 0
+  PlayerX: -4.8
   PlayerY: 0
   UnlockedDoorSprite: {fileID: 0}
 --- !u!61 &6452190085581262347
@@ -4214,11 +4214,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   CamX: 0
-  CamY: 0
+  CamY: -14
   Collide: {fileID: 0}
   LockedDoorSprite: {fileID: 0}
   PlayerX: 0
-  PlayerY: 0
+  PlayerY: -4.8
   UnlockedDoorSprite: {fileID: 0}
 --- !u!61 &6452190085933715312
 BoxCollider2D:
@@ -4293,11 +4293,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 437a72509fe20db4396c901412ea7bb4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  CamX: 0
+  CamX: 25
   CamY: 0
   Collide: {fileID: 0}
   LockedDoorSprite: {fileID: 0}
-  PlayerX: 0
+  PlayerX: 4.8
   PlayerY: 0
   UnlockedDoorSprite: {fileID: 0}
 --- !u!61 &6452190086527903056
@@ -4373,11 +4373,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   CamX: 0
-  CamY: 0
+  CamY: 14
   Collide: {fileID: 6452190086842739731}
   LockedDoorSprite: {fileID: 4603717047512556317}
   PlayerX: 0
-  PlayerY: 0
+  PlayerY: 4.8
   UnlockedDoorSprite: {fileID: 1238224999061499036}
 --- !u!61 &6452190086842739731
 BoxCollider2D:

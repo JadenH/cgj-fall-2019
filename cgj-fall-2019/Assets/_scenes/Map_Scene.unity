@@ -507,7 +507,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Dist: 0
-  SmoothTime: 0.3
+  SmoothTime: 0.2
   Target: {fileID: 2080715109}
 --- !u!1001 &1480383289
 PrefabInstance:
@@ -798,6 +798,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6452190085581262340, guid: 46220a094ed2ed44eb194fd6bcdfa82c,
+        type: 3}
+      propertyPath: CamY
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6452190085581262340, guid: 46220a094ed2ed44eb194fd6bcdfa82c,
+        type: 3}
+      propertyPath: CamX
+      value: -25
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 46220a094ed2ed44eb194fd6bcdfa82c, type: 3}
