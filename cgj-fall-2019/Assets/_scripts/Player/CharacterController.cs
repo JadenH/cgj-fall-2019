@@ -36,11 +36,8 @@ public class CharacterController : MonoBehaviour
 
             if (Input.GetButtonDown("Fire1"))
             {
-<<<<<<< HEAD
                 CurrentGun.FirePressed(Input.mousePosition - Camera.main.WorldToScreenPoint(transform.position));
-=======
                CurrentGun.FirePressed(Input.mousePosition - Camera.main.WorldToScreenPoint(transform.position));
->>>>>>> 3012a6d237468539510eb1430da6761c5077a458
             }
         }
         else

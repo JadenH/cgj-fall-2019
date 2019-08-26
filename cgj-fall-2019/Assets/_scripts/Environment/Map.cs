@@ -25,7 +25,7 @@ public class Map : MonoBehaviour
 
     private void CreateMap(int NumberOfRooms)
     {
-        //CreateRoom(0, 0);
+        CreateRoom(0, 0);
         NumberOfRooms--;
         while(NumberOfRooms > 0)
         {
