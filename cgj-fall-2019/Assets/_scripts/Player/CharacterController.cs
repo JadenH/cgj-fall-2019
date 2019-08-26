@@ -26,7 +26,6 @@ public class CharacterController : MonoBehaviour
             _horizontal = Input.GetAxisRaw("Horizontal");
             _vertical = Input.GetAxisRaw("Vertical");
             _rigidbody.velocity = new Vector2(_horizontal, _vertical).normalized * WalkSpeed;
-            _rigidbody.velocity = new Vector2(_horizontal, _vertical).normalized * WalkSpeed;
             var velocity = _rigidbody.velocity;
             if (velocity.magnitude > 0)
             {
@@ -34,12 +33,12 @@ public class CharacterController : MonoBehaviour
                 _sprite.transform.rotation = Quaternion.AngleAxis(angle - 90, Vector3.forward);
             }
 
-            if (Input.GetButtonDown("Fire1"))
+            if (Input.GetButtonDown("Fire"))
             {
                 CurrentGun.FirePressed(Input.mousePosition - Camera.main.WorldToScreenPoint(transform.position));
             }
 
-            if (Input.GetButton("Fire1"))
+            if (Input.GetButton("Fire"))
             {
                 CurrentGun.FireHold(Input.mousePosition - Camera.main.WorldToScreenPoint(transform.position));
             }
@@ -55,6 +54,12 @@ public class CharacterController : MonoBehaviour
 
     public void EquipWeapon(Gun gun)
     {
-
+        var gunTransform = gun.transform;
+        gunTransform.position = CurrentGun.transform.position;
+        CurrentGun.transform.parent = gunTransform.parent;
+        CurrentGun.GetComponent<Collider2D>().enabled = true;
+        gun.transform.parent = transform;
+        gun.GetComponent<Collider2D>().enabled = false;
+        CurrentGun = gun;
     }
 }
