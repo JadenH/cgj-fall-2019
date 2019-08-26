@@ -29,18 +29,22 @@ public class CharacterController : MonoBehaviour
             var velocity = _rigidbody.velocity;
             if (velocity.magnitude > 0)
             {
-                var angle = Mathf.Atan2(velocity.y, velocity.x) * Mathf.Rad2Deg;
-                _sprite.transform.rotation = Quaternion.AngleAxis(angle - 90, Vector3.forward);
+                //var angle = Mathf.Atan2(velocity.y, velocity.x) * Mathf.Rad2Deg;
+                //_sprite.transform.rotation = Quaternion.AngleAxis(angle - 90, Vector3.forward);
             }
+
+            var lookDir = Input.mousePosition - Camera.main.WorldToScreenPoint(CurrentGun.transform.position);
+            var angle = Mathf.Atan2(lookDir.y, lookDir.x) * Mathf.Rad2Deg;
+            transform.rotation = Quaternion.AngleAxis(angle - 90, Vector3.forward);
 
             if (Input.GetButtonDown("Fire"))
             {
-                CurrentGun.FirePressed(Input.mousePosition - Camera.main.WorldToScreenPoint(transform.position));
+                CurrentGun.FirePressed(lookDir);
             }
 
             if (Input.GetButton("Fire"))
             {
-                CurrentGun.FireHold(Input.mousePosition - Camera.main.WorldToScreenPoint(transform.position));
+                CurrentGun.FireHold(lookDir);
             }
         }
         else
