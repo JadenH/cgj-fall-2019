@@ -43,5 +43,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 042d5fb68773c3d41a4df072e2743595, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  BulletSprite: {fileID: 21300000, guid: 973b2fe3ef553dc469452c8afccdaaa7, type: 3}
+  BulletPrefab: {fileID: 2194320242603341528, guid: 0527b07cef8e8904a86cf8c97decd54e,
+    type: 3}
   BulletLife: 2
