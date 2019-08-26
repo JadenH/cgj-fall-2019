@@ -4,6 +4,7 @@ public class Door : GameBehaviour
 {
     private readonly bool _locked = true;
 
+ 
     public int CamX = 0;
     public int CamY = 0;
     public BoxCollider2D Collide;
@@ -13,6 +14,7 @@ public class Door : GameBehaviour
     public float PlayerX = 0;
     public float PlayerY = 0;
     public GameObject UnlockedDoorSprite;
+    public bool Taken = false;
 
     // Start is called before the first frame update
     private void Start()
@@ -40,7 +42,7 @@ public class Door : GameBehaviour
 
     private void OnTriggerEnter2D(Collider2D theCollision)
     {
-        print("wha??");
+      
         if (theCollision.tag == "Player")
         {
             CameraTarget.transform.position = new Vector3(CameraTarget.transform.position.x + CamX,
