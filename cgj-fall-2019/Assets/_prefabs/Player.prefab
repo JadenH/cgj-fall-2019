@@ -141,8 +141,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   LockMovement: 0
-  walkSpeed: 5
-  currentGun: {fileID: 0}
+  WalkSpeed: 5
+  CurrentGun: {fileID: 5471219059903163643, guid: f4ba5a38a1255184e81123b0ba38e534,
+    type: 3}
 --- !u!50 &754922684415524770
 Rigidbody2D:
   serializedVersion: 4

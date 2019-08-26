@@ -1,7 +1,7 @@
 ﻿using System.Collections;
 using UnityEngine;
 
-public abstract class Gun : MonoBehaviour
+public abstract class Gun : GameBehaviour
 {
     public Sprite BulletSprite;
 
@@ -19,7 +19,9 @@ public abstract class Gun : MonoBehaviour
     protected GameObject NewBullet()
     {
         var bullet = new GameObject("Bullet");
-        bullet.AddComponent<SpriteRenderer>().sprite = BulletSprite;
+        var bulletRenderer = bullet.AddComponent<SpriteRenderer>();
+        bulletRenderer.sprite = BulletSprite;
+        bulletRenderer.sortingOrder = 100;
         bullet.transform.SetParent(transform);
         bullet.transform.position = transform.position;
         bullet.transform.localScale /= 2;
