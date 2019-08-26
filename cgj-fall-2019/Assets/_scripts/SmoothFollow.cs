@@ -12,10 +12,7 @@ public class SmoothFollow : GameBehaviour
     private void Update()
     {
         Dist = Vector3.Distance(Target.position, transform.position);
-        if (Dist > 1.2f)
-            Player.CharacterController.LockMovment();
-        else
-            Player.CharacterController.UnlockMovment();
+        Player.Character.LockMovement = Dist > 1.2f;
         // Define a target position above and behind the target transform
         var targetPosition = Target.TransformPoint(new Vector3(0, 0, -1));
 

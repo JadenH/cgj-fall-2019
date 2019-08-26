@@ -1,7 +1,7 @@
 using UnityEngine;
 
-[RequireComponent(typeof(CharacterController))]
+[RequireComponent(typeof(UnityEngine.CharacterController))]
 public class Player : MonoBehaviour
 {
-    public CharacterController CharacterController;
+    public CharacterController Character;
 }

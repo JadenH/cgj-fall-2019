@@ -7,7 +7,7 @@ public class CharacterController : MonoBehaviour
     private float _horizontal;
     private float _vertical;
 
-    public bool LockMovement = false;
+    public bool LockMovement;
     public float WalkSpeed = 5;
     public Gun CurrentGun;
 
@@ -18,16 +18,6 @@ public class CharacterController : MonoBehaviour
         _sprite = GetComponentInChildren<SpriteRenderer>();
     }
 
-    public void LockMovment()
-    {
-        LockMovement = true;
-    }
-
-    public void UnlockMovment()
-    {
-        LockMovement = false;
-    }
-
     // Update is called once per frame
     private void Update()
     {
@@ -35,6 +25,7 @@ public class CharacterController : MonoBehaviour
         {
             _horizontal = Input.GetAxisRaw("Horizontal");
             _vertical = Input.GetAxisRaw("Vertical");
+            _rigidbody.velocity = new Vector2(_horizontal, _vertical).normalized * WalkSpeed;
             _rigidbody.velocity = new Vector2(_horizontal, _vertical).normalized * WalkSpeed;
             var velocity = _rigidbody.velocity;
             if (velocity.magnitude > 0)
@@ -45,7 +36,7 @@ public class CharacterController : MonoBehaviour
 
             if (Input.GetButtonDown("Fire1"))
             {
-             //   CurrentGun.FirePressed(Input.mousePosition - Camera.main.WorldToScreenPoint(transform.position));
+                CurrentGun.FirePressed(Input.mousePosition - Camera.main.WorldToScreenPoint(transform.position));
             }
         }
         else
