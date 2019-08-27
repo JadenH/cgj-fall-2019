@@ -26,22 +26,26 @@ public class CharacterController : MonoBehaviour
             _horizontal = Input.GetAxisRaw("Horizontal");
             _vertical = Input.GetAxisRaw("Vertical");
             _rigidbody.velocity = new Vector2(_horizontal, _vertical).normalized * WalkSpeed;
-            _rigidbody.velocity = new Vector2(_horizontal, _vertical).normalized * WalkSpeed;
             var velocity = _rigidbody.velocity;
             if (velocity.magnitude > 0)
             {
-                var angle = Mathf.Atan2(velocity.y, velocity.x) * Mathf.Rad2Deg;
-                _sprite.transform.rotation = Quaternion.AngleAxis(angle - 90, Vector3.forward);
+                //var angle = Mathf.Atan2(velocity.y, velocity.x) * Mathf.Rad2Deg;
+                //_sprite.transform.rotation = Quaternion.AngleAxis(angle - 90, Vector3.forward);
             }
 
-            if (Input.GetButtonDown("Fire1"))
+            var lookDir = Input.mousePosition - Camera.main.WorldToScreenPoint(transform.position);
+            var angle = Mathf.Atan2(lookDir.y, lookDir.x) * Mathf.Rad2Deg;
+            transform.rotation = Quaternion.AngleAxis(angle - 90, Vector3.forward);
+
+            var gunDir = Input.mousePosition - Camera.main.WorldToScreenPoint(CurrentGun.transform.position);
+            if (Input.GetButtonDown("Fire"))
             {
-                CurrentGun.FirePressed(Input.mousePosition - Camera.main.WorldToScreenPoint(transform.position));
+                CurrentGun.FirePressed(gunDir);
             }
 
-            if (Input.GetButton("Fire1"))
+            if (Input.GetButton("Fire"))
             {
-                CurrentGun.FireHold(Input.mousePosition - Camera.main.WorldToScreenPoint(transform.position));
+                CurrentGun.FireHold(gunDir);
             }
         }
         else
@@ -55,6 +59,12 @@ public class CharacterController : MonoBehaviour
 
     public void EquipWeapon(Gun gun)
     {
-
+        var gunTransform = gun.transform;
+        gunTransform.position = CurrentGun.transform.position;
+        CurrentGun.transform.parent = gunTransform.parent;
+        CurrentGun.GetComponent<Collider2D>().enabled = true;
+        gun.transform.parent = transform;
+        gun.GetComponent<Collider2D>().enabled = false;
+        CurrentGun = gun;
     }
 }
