@@ -27,6 +27,8 @@ public class Map : GameBehaviour
         while (numberOfRooms > Rooms.Count)
         {
             // Find a valid room and door to extend off from
+            // TODO: This is where we tweak our generation.
+            // TODO: Could make it less likely to pick rooms closer to middle? Etc...
             var validRooms = Rooms.Where(room => room.HasAvailableDoor()).ToArray();
             var randomRoom = validRooms[Random.Range(0, validRooms.Length)];
             var validDoors = randomRoom.UnusedDoors().ToArray();
