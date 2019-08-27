@@ -3,12 +3,20 @@ using UnityEngine;
 
 public abstract class Gun : GameBehaviour
 {
-    private GameObject _pickupInterface;
-    private bool _pickup;
-
     [Tooltip("Seconds")]
+    public float Cooldown;
+    [HideInInspector]
+    public float CurrentCooldown;
     public float BulletLife = 2;
     public GameObject BulletPrefab;
+    public double PickupRadius = 1.5;
+
+    public void Start()
+    {
+        var circleCollider = gameObject.AddComponent<CircleCollider2D>();
+        circleCollider.radius = (float)PickupRadius;
+        circleCollider.isTrigger = true;
+    }
 
     public virtual void FirePressed(Vector2 direction)
     {
@@ -18,25 +26,15 @@ public abstract class Gun : GameBehaviour
     {
     }
 
-    public void Start()
+    protected IEnumerator Shoot(Vector2 direction)
     {
-        _pickupInterface = Player.Character.transform.Find("PlayerInterface/Pickup").gameObject;
-    }
-
-    public void Update()
-    {
-        if (_pickup && Input.GetKeyDown(KeyCode.E))
-        {
-            var charController = Player.Character.GetComponent<CharacterController>();
-            charController.EquipWeapon(this);
-        }
-    }
-
-    protected IEnumerator Shoot(GameObject bullet, Vector2 direction)
-    {
+        var bullet = Instantiate(BulletPrefab);
+        bullet.transform.SetParent(null);
+        bullet.transform.position = transform.position;
+        Destroy(bullet, BulletLife);
         while (bullet.gameObject != null)
         {
-            var velocity = direction.normalized/4;
+            var velocity = direction.normalized * Random.Range(.5f, 1.5f) / 4;
 
             bullet.transform.position += (Vector3) velocity;
             var hit = Physics2D.Raycast(bullet.transform.position, velocity.normalized, velocity.magnitude);
@@ -54,21 +52,5 @@ public abstract class Gun : GameBehaviour
             }
             yield return null;
         }
-    }
-
-    public void OnTriggerEnter2D(Collider2D other)
-    {
-        var charController = other.GetComponent<CharacterController>();
-        if (charController)
-        {
-            _pickupInterface.SetActive(true);
-            _pickup = true;
-        }
-    }
-
-    public void OnTriggerExit2D(Collider2D other)
-    {
-        _pickupInterface.SetActive(false);
-        _pickup = false;
     }
 }
