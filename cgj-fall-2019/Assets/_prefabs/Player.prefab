@@ -92,7 +92,7 @@ GameObject:
   - component: {fileID: 5375112123966649509}
   - component: {fileID: 2681643243355934786}
   m_Layer: 5
-  m_Name: Pickup
+  m_Name: Text (TMP)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -302,7 +302,6 @@ MonoBehaviour:
   LockMovement: 0
   WalkSpeed: 5
   CurrentGun: {fileID: 5471219059199104918}
-  PickupInterface: {fileID: 688015435269677416}
 --- !u!50 &754922684415524770
 Rigidbody2D:
   serializedVersion: 4
@@ -446,6 +445,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 754922684415524782}
     m_Modifications:
+    - target: {fileID: 7073178915389285722, guid: f4ba5a38a1255184e81123b0ba38e534,
+        type: 3}
+      propertyPath: m_SortingOrder
+      value: 50
+      objectReference: {fileID: 0}
     - target: {fileID: 5471219059903163636, guid: f4ba5a38a1255184e81123b0ba38e534,
         type: 3}
       propertyPath: m_Name
@@ -488,13 +492,13 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5471219059903163642, guid: f4ba5a38a1255184e81123b0ba38e534,
         type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.21
+      objectReference: {fileID: 0}
+    - target: {fileID: 5471219059903163642, guid: f4ba5a38a1255184e81123b0ba38e534,
+        type: 3}
       propertyPath: m_LocalPosition.x
       value: -0.3
-      objectReference: {fileID: 0}
-    - target: {fileID: 7073178915389285722, guid: f4ba5a38a1255184e81123b0ba38e534,
-        type: 3}
-      propertyPath: m_SortingOrder
-      value: 50
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f4ba5a38a1255184e81123b0ba38e534, type: 3}
