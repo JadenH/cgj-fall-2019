@@ -1,5 +1,7 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 
+[Serializable]
 public struct Cell
 {
     public int X;
@@ -13,7 +15,7 @@ public struct Cell
 
     public static explicit operator Vector2(Cell cell)
     {
-        return new Vector2(cell.X * Game.CellSize, cell.Y * Game.CellSize);
+        return new Vector2(cell.X * 25, cell.Y * 15);
     }
 
     public static explicit operator Cell(Vector2 v2)

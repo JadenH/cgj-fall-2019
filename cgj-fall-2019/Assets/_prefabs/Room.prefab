@@ -542,10 +542,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a2b3d3acaca8ed54588da541616a29ab, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Cell:
+    X: 0
+    Y: 0
+  TopDoor: {fileID: 6452190086842739756}
+  RightDoor: {fileID: 6452190086527903058}
   BottomDoor: {fileID: 6452190085933715313}
   LeftDoor: {fileID: 6452190085581262340}
-  RightDoor: {fileID: 6452190086527903058}
-  TopDoor: {fileID: 6452190086842739756}
   LocationX: 0
   LocationY: 0
 --- !u!1 &6452190085581262346
@@ -594,8 +597,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 437a72509fe20db4396c901412ea7bb4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Direction: 3
   Locked: 1
   Used: 0
+  ConnectingRoom: {fileID: 0}
   Collide: {fileID: 6452190085581262347}
   LockedDoorSprite: {fileID: 3401848989934130031}
   PlayerX: 0
@@ -6036,8 +6041,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 437a72509fe20db4396c901412ea7bb4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Direction: 2
   Locked: 1
   Used: 0
+  ConnectingRoom: {fileID: 0}
   Collide: {fileID: 6452190085933715312}
   LockedDoorSprite: {fileID: 886399900662917851}
   PlayerX: 0
@@ -6115,8 +6122,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 437a72509fe20db4396c901412ea7bb4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Direction: 1
   Locked: 1
   Used: 0
+  ConnectingRoom: {fileID: 0}
   Collide: {fileID: 6452190086527903056}
   LockedDoorSprite: {fileID: 5735900223218343991}
   PlayerX: 0
@@ -6194,8 +6203,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 437a72509fe20db4396c901412ea7bb4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Direction: 0
   Locked: 1
   Used: 0
+  ConnectingRoom: {fileID: 0}
   Collide: {fileID: 6452190086842739731}
   LockedDoorSprite: {fileID: 4603717047512556317}
   PlayerX: 0
