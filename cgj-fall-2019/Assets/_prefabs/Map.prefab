@@ -44,6 +44,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   NumberOfRooms: 30
-  RoomPrefab: {fileID: 6452190085410174860, guid: 46220a094ed2ed44eb194fd6bcdfa82c,
+  RoomPrefab: {fileID: 5432987133126933302, guid: 46220a094ed2ed44eb194fd6bcdfa82c,
     type: 3}
-  rooms: []
+  Rooms: []
