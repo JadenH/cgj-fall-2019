@@ -2,8 +2,7 @@
 
 public class Door : GameBehaviour
 {
-    public bool Locked = true;
-    public bool Used = false;
+    private readonly bool _locked = true;
 
     public int CamX = 0;
     public int CamY = 0;
@@ -25,7 +24,6 @@ public class Door : GameBehaviour
         LockedDoorSprite.SetActive(true);
         UnlockedDoorSprite.SetActive(false);
         Collide.isTrigger = false;
-        Locked = true;
     }
 
     public void UnlockDoor()
@@ -33,23 +31,11 @@ public class Door : GameBehaviour
         LockedDoorSprite.SetActive(false);
         UnlockedDoorSprite.SetActive(true);
         Collide.isTrigger = true;
-        Locked = false;
     }
 
     public bool IsLocked()
     {
-        return Locked;
-    }
-
-    public bool IsUsed()
-    {
-        return Used;
-    }
-
-    public void MarkAsUsed()
-    {
-        Used = true;
-        UnlockDoor();
+        return _locked;
     }
 
     private void OnTriggerEnter2D(Collider2D theCollision)

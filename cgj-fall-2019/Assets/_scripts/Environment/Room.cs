@@ -8,14 +8,6 @@ public class Room : MonoBehaviour
     public Door RightDoor;
     public Door TopDoor;
 
-    public int LocationX;
-    public int LocationY;
-
-    Room()
-    {
-
-    }
-
     public Door GetDoorForDirection(Direction direction)
     {
         switch (direction)
@@ -33,11 +25,6 @@ public class Room : MonoBehaviour
         }
     }
 
-    public bool IsDoorUsed(Direction direction)
-    {
-        return GetDoorForDirection(direction).IsUsed();
-    }
-
     public bool IsDoorLocked(Direction direction)
     {
         return GetDoorForDirection(direction).IsLocked();
@@ -46,12 +33,6 @@ public class Room : MonoBehaviour
     public void LockDoor(Direction direction)
     {
         GetDoorForDirection(direction).LockDoor();
-    }
-    
-
-    public void MarkDoorAsUsed(Direction direction)
-    {
-        GetDoorForDirection(direction).MarkAsUsed();
     }
 
     public void UnlockDoor(Direction direction)

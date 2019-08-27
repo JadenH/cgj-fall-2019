@@ -96,7 +96,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &8925900400145037118
 Transform:
   m_ObjectHideFlags: 0
@@ -420,7 +420,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &8515665428490057975
 Transform:
   m_ObjectHideFlags: 0
@@ -714,8 +714,6 @@ MonoBehaviour:
   LeftDoor: {fileID: 6452190085581262340}
   RightDoor: {fileID: 6452190086527903058}
   TopDoor: {fileID: 6452190086842739756}
-  LocationX: 0
-  LocationY: 0
 --- !u!1 &6452190085581262346
 GameObject:
   m_ObjectHideFlags: 0
@@ -763,10 +761,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 437a72509fe20db4396c901412ea7bb4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Locked: 1
-  Used: 0
-  CamX: -25
-  CamY: 0
+  CamX: 0
+  CamY: -25
   Collide: {fileID: 6452190085581262347}
   LockedDoorSprite: {fileID: 3401848989934130031}
   PlayerX: -4.8
@@ -782,7 +778,7 @@ BoxCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
@@ -4217,8 +4213,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 437a72509fe20db4396c901412ea7bb4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Locked: 1
-  Used: 0
   CamX: 0
   CamY: -14
   Collide: {fileID: 6452190085933715312}
@@ -4236,7 +4230,7 @@ BoxCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
@@ -4299,8 +4293,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 437a72509fe20db4396c901412ea7bb4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Locked: 1
-  Used: 0
   CamX: 25
   CamY: 0
   Collide: {fileID: 6452190086527903056}
@@ -4318,7 +4310,7 @@ BoxCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
@@ -4380,8 +4372,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 437a72509fe20db4396c901412ea7bb4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Locked: 1
-  Used: 0
   CamX: 0
   CamY: 14
   Collide: {fileID: 6452190086842739731}
@@ -4399,7 +4389,7 @@ BoxCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
@@ -5751,7 +5741,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &5828271346344557027
 Transform:
   m_ObjectHideFlags: 0
@@ -5831,7 +5821,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &2349873341905972635
 Transform:
   m_ObjectHideFlags: 0
