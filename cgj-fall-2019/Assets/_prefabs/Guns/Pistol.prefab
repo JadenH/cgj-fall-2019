@@ -11,8 +11,7 @@ GameObject:
   - component: {fileID: 5471219059903163642}
   - component: {fileID: 5471219059903163643}
   - component: {fileID: 7073178915389285722}
-  - component: {fileID: 6286375425865341675}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Pistol
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -27,7 +26,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5471219059903163636}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0.2, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -48,6 +47,7 @@ MonoBehaviour:
   BulletLife: 2
   BulletPrefab: {fileID: 2194320242603341528, guid: 0527b07cef8e8904a86cf8c97decd54e,
     type: 3}
+  PickupRadius: 1.5
 --- !u!212 &7073178915389285722
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -97,19 +97,3 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!58 &6286375425865341675
-CircleCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5471219059903163636}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  serializedVersion: 2
-  m_Radius: 1.5
