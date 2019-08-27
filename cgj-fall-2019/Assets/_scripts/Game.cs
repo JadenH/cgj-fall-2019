@@ -8,6 +8,7 @@ public class Game : MonoBehaviour
     #region Singleton
 
     private static Game _game;
+    public const int CellSize = 32;
 
     public static Game Instance => _game != null ? _game : _game = FindObjectOfType<Game>();
 

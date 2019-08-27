@@ -2,11 +2,12 @@
 
 public class Door : GameBehaviour
 {
+    public Direction Direction;
     public bool Locked = true;
     public bool Used = false;
 
-    public int CamX = 0;
-    public int CamY = 0;
+    public Room ConnectingRoom;
+
     public BoxCollider2D Collide;
 
     public GameObject LockedDoorSprite;
@@ -56,11 +57,9 @@ public class Door : GameBehaviour
     {
         if (theCollision.tag == "Player")
         {
-            CameraTarget.transform.position = new Vector3(CameraTarget.transform.position.x + CamX,
-                CameraTarget.transform.position.y + CamY,
-                CameraTarget.transform.position.z);
-            Player.transform.position = new Vector3(Player.transform.position.x + PlayerX,
-                Player.transform.position.y + PlayerY, Player.transform.position.z);
+            Room room = GetComponentInParent<Room>();
+            CameraTarget.transform.position = ConnectingRoom.transform.position;
+            Player.transform.position = ConnectingRoom.transform.position;
         }
     }
 
