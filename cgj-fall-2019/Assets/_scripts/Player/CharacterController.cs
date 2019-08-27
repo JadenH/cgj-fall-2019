@@ -33,18 +33,19 @@ public class CharacterController : MonoBehaviour
                 //_sprite.transform.rotation = Quaternion.AngleAxis(angle - 90, Vector3.forward);
             }
 
-            var lookDir = Input.mousePosition - Camera.main.WorldToScreenPoint(CurrentGun.transform.position);
+            var lookDir = Input.mousePosition - Camera.main.WorldToScreenPoint(transform.position);
             var angle = Mathf.Atan2(lookDir.y, lookDir.x) * Mathf.Rad2Deg;
             transform.rotation = Quaternion.AngleAxis(angle - 90, Vector3.forward);
 
+            var gunDir = Input.mousePosition - Camera.main.WorldToScreenPoint(CurrentGun.transform.position);
             if (Input.GetButtonDown("Fire"))
             {
-                CurrentGun.FirePressed(lookDir);
+                CurrentGun.FirePressed(gunDir);
             }
 
             if (Input.GetButton("Fire"))
             {
-                CurrentGun.FireHold(lookDir);
+                CurrentGun.FireHold(gunDir);
             }
         }
         else
