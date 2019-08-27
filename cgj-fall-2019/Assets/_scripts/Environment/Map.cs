@@ -106,7 +106,7 @@ public class Map : MonoBehaviour
     void CreateRoom(int x, int y, Direction DoorToMark)
     {
 
-        var tempRoom = Instantiate(RoomPrefab, new Vector3(x * 25, y * 14, 0), Quaternion.identity);
+        var tempRoom = Instantiate(RoomPrefab, new Vector3(x * 25, y * 15, 0), Quaternion.identity);
         var room = tempRoom.GetComponent<Room>();
         room.LocationX = x;
         room.LocationY = y;
