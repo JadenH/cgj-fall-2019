@@ -12,6 +12,7 @@ public class Map : GameBehaviour
     public Room RoomPrefab;
 
     public List<Room> Rooms = new List<Room>();
+    public HashSet<Cell> Taken = new HashSet<Cell>();
 
     // Start is called before the first frame update
     private void Start()
@@ -33,16 +34,25 @@ public class Map : GameBehaviour
 
             // Create new room
             var neighborCell = GetNeighborCell(randomRoom.Cell, randomDoor.Direction);
-            var newRoom = CreateRoom(neighborCell);
-            var connectingDoor = newRoom.GetDoorForDirection(randomDoor.Direction.Opposite());
 
-            randomRoom.SetNeighborRoom(randomDoor.Direction, newRoom);
-            randomDoor.MarkAsUsed();
-            randomDoor.ConnectingRoom = newRoom;
+            // Check if that cell already has a room
+            if (!Taken.Contains(neighborCell))
+            {
+                var newRoom = CreateRoom(neighborCell);
+                var connectingDoor = newRoom.GetDoorForDirection(randomDoor.Direction.Opposite());
 
-            newRoom.SetNeighborRoom(randomDoor.Direction.Opposite(), randomRoom);
-            connectingDoor.MarkAsUsed();
-            connectingDoor.ConnectingRoom = randomRoom;
+                // Connect up our random picked room to the new one
+                randomRoom.SetNeighborRoom(randomDoor.Direction, newRoom);
+                randomDoor.MarkAsUsed();
+                randomDoor.ConnectingRoom = newRoom;
+
+                // Connect up our new room to our random picked room
+                newRoom.SetNeighborRoom(randomDoor.Direction.Opposite(), randomRoom);
+                connectingDoor.MarkAsUsed();
+                connectingDoor.ConnectingRoom = randomRoom;
+
+                Taken.Add(neighborCell);
+            }
         }
     }
 
