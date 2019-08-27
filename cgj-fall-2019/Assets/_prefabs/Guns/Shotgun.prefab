@@ -9,10 +9,10 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5471219059903163642}
-  - component: {fileID: 700535998695943961}
+  - component: {fileID: 8987159067516543987}
   - component: {fileID: 7073178915389285722}
   m_Layer: 2
-  m_Name: MachineGun
+  m_Name: Shotgun
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -32,7 +32,7 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &700535998695943961
+--- !u!114 &8987159067516543987
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -41,13 +41,15 @@ MonoBehaviour:
   m_GameObject: {fileID: 5471219059903163636}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d7303759f907676479f48d28e36fd2f8, type: 3}
+  m_Script: {fileID: 11500000, guid: b2085117c03d30846b377ac97a24fbdc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   BulletLife: 2
   BulletPrefab: {fileID: 2194320242603341528, guid: 0527b07cef8e8904a86cf8c97decd54e,
     type: 3}
   PickupRadius: 1.5
+  cooldown: 0
+  bulletCount: 0
 --- !u!212 &7073178915389285722
 SpriteRenderer:
   m_ObjectHideFlags: 0
