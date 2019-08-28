@@ -6,13 +6,12 @@ using Random = UnityEngine.Random;
 
 public class Map : GameBehaviour
 {
-    private List<GameObject> _exits = new List<GameObject>();
-
     public int NumberOfRooms = 3;
     public Room RoomPrefab;
 
-    public List<Room> Rooms = new List<Room>();
-    public HashSet<Cell> Taken = new HashSet<Cell>();
+    private Dictionary<Cell, Room> _map = new Dictionary<Cell, Room>();
+
+    private Room[] _rooms => _map.Values.ToArray();
 
     // Start is called before the first frame update
     private void Start()
@@ -24,75 +23,66 @@ public class Map : GameBehaviour
     {
         var startRoom = CreateRoom(Cell.zero);
         CameraTarget.position = startRoom.transform.position;
-        while (numberOfRooms > Rooms.Count)
+
+        while (numberOfRooms > _map.Count)
         {
             // Find a valid room and door to extend off from
             // TODO: This is where we tweak our generation.
             // TODO: Could make it less likely to pick rooms closer to middle? Etc...
-            var validRooms = Rooms.Where(room => room.HasAvailableDoor()).ToArray();
+            var validRooms = _rooms.Where(room => room.HasAvailableDoor()).ToArray();
             var randomRoom = validRooms[Random.Range(0, validRooms.Length)];
             var validDoors = randomRoom.UnusedDoors().ToArray();
             var randomDoor = validDoors[Random.Range(0, validDoors.Length)];
 
             // Create new room
-            var neighborCell = GetNeighborCell(randomRoom.Cell, randomDoor.Direction);
+            var neighborCell = randomRoom.Cell.GetNext(randomDoor.Direction);
 
             // Check if that cell already has a room
-            if (!Taken.Contains(neighborCell))
+            if (!_map.ContainsKey(neighborCell))
             {
                 var newRoom = CreateRoom(neighborCell);
-                var connectingDoor = newRoom.GetDoorForDirection(randomDoor.Direction.Opposite());
 
-                // Connect up our random picked room to the new one
-                randomRoom.SetNeighborRoom(randomDoor.Direction, newRoom);
-                randomDoor.MarkAsUsed();
-                randomDoor.ConnectingRoom = newRoom;
-
-                // Connect up our new room to our random picked room
-                newRoom.SetNeighborRoom(randomDoor.Direction.Opposite(), randomRoom);
-                connectingDoor.MarkAsUsed();
-                connectingDoor.ConnectingRoom = randomRoom;
-
-                Taken.Add(neighborCell);
+                ConnectDoors(newRoom);
+                ConnectDoors(randomRoom);
             }
         }
     }
 
-    private Cell GetNeighborCell(Cell randomRoomCell, Direction randomDoorDirection)
-    {
-        switch (randomDoorDirection)
-        {
-            case Direction.Up:
-                return randomRoomCell + Cell.up;
-            case Direction.Right:
-                return randomRoomCell + Cell.right;
-            case Direction.Down:
-                return randomRoomCell + Cell.down;
-            case Direction.Left:
-                return randomRoomCell + Cell.left;
-            default:
-                throw new ArgumentOutOfRangeException(nameof(randomDoorDirection), randomDoorDirection, null);
-        }
-    }
-
-
     private Room CreateRoom(Cell cell)
     {
         var room = Instantiate(RoomPrefab, (Vector2)cell, Quaternion.identity).GetComponent<Room>();
+        _map.Add(cell, room);
+        room.Map = this;
         room.Cell = cell;
         //room.LockAllDoors();
-        Rooms.Add(room);
-        UpdateAllDoors(room);
         // room.MarkDoorAsUsed(DoorToMark);
         return room;
     }
 
-    private void UpdateAllDoors(Room room)
+    private void ConnectDoors(Room room)
     {
-        Cell Currentcell = room.Cell;
-        Cell NeighborCellUp = GetNeighborCell(Currentcell, Direction.Up);
-        // check if cell has room
-        //if yes mark neignbor door down as used and current door up as used.
+        foreach (Direction direction in Enum.GetValues(typeof(Direction)))
+        {
+            var neighborRoom = room.GetNeighborRoom(direction);
+            if (neighborRoom)
+            {
+                var door = room.GetDoorForDirection(direction);
+                if (!door.Used)
+                {
+                    door.ConnectingRoom = neighborRoom;
+                    door.Used = true;
+                    door.UnlockDoor();
+                }
+
+                var neighborDoor = neighborRoom.GetDoorForDirection(direction.Opposite());
+                if (!neighborDoor.Used)
+                {
+                    neighborDoor.ConnectingRoom = room;
+                    neighborDoor.Used = true;
+                    neighborDoor.UnlockDoor();
+                }
+            }
+        }
     }
 
     private void LockDoors(Room room)
@@ -103,5 +93,10 @@ public class Map : GameBehaviour
     // Update is called once per frame
     private void Update()
     {
+    }
+
+    public Room GetRoomAtCell(Cell cell)
+    {
+        return _map.ContainsKey(cell) ? _map[cell] : null;
     }
 }

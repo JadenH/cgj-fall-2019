@@ -42,24 +42,15 @@ public class Door : GameBehaviour
         return Locked;
     }
 
-    public bool IsUsed()
-    {
-        return Used;
-    }
-
-    public void MarkAsUsed()
-    {
-        Used = true;
-        UnlockDoor();
-    }
-
     private void OnTriggerEnter2D(Collider2D theCollision)
     {
         if (theCollision.tag == "Player")
         {
-            Room room = GetComponentInParent<Room>();
-            CameraTarget.transform.position = ConnectingRoom.transform.position;
-            Player.transform.position = ConnectingRoom.transform.position;
+            if (ConnectingRoom)
+            {
+                CameraTarget.transform.position = ConnectingRoom.transform.position;
+                Player.transform.position = ConnectingRoom.transform.position;
+            }
         }
     }
 
