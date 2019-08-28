@@ -80,7 +80,7 @@ public class Map : GameBehaviour
     {
         var room = Instantiate(RoomPrefab, (Vector2)cell, Quaternion.identity).GetComponent<Room>();
         room.Cell = cell;
-        room.LockAllDoors();
+        //room.LockAllDoors();
         Rooms.Add(room);
 
         // room.MarkDoorAsUsed(DoorToMark);
