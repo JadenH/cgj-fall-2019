@@ -82,9 +82,17 @@ public class Map : GameBehaviour
         room.Cell = cell;
         //room.LockAllDoors();
         Rooms.Add(room);
-
+        UpdateAllDoors(cell);
         // room.MarkDoorAsUsed(DoorToMark);
         return room;
+    }
+
+    private void UpdateAllDoors(Room room)
+    {
+        Cell Currentcell = room.Cell;
+        Cell NeighborCellUp = GetNeighborCell(Currentcell, Direction.Up);
+        // check if cell has room
+        //if yes mark neignbor door down as used and current door up as used.
     }
 
     private void LockDoors(Room room)
