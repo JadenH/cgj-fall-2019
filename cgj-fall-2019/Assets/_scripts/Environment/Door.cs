@@ -49,7 +49,24 @@ public class Door : GameBehaviour
             if (ConnectingRoom)
             {
                 CameraTarget.transform.position = ConnectingRoom.transform.position;
-                Player.transform.position = ConnectingRoom.transform.position;
+                if(Direction == Direction.Up)
+                {
+                    Player.transform.position = ConnectingRoom.transform.position - new Vector3(0, +5, 0);
+                }
+                else if (Direction == Direction.Right)
+                {
+                    Player.transform.position = ConnectingRoom.transform.position - new Vector3(+10, 0, 0);
+                }
+                else if (Direction == Direction.Down)
+                {
+                    Player.transform.position = ConnectingRoom.transform.position - new Vector3(0, -5, 0);
+                }
+                else if (Direction == Direction.Left)
+                {
+                    Player.transform.position = ConnectingRoom.transform.position - new Vector3(-10, 0, 0);
+                }
+
+
             }
         }
     }
