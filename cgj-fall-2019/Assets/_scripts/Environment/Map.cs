@@ -82,7 +82,7 @@ public class Map : GameBehaviour
         room.Cell = cell;
         //room.LockAllDoors();
         Rooms.Add(room);
-        UpdateAllDoors(cell);
+        UpdateAllDoors(room);
         // room.MarkDoorAsUsed(DoorToMark);
         return room;
     }
