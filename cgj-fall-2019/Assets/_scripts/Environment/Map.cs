@@ -27,7 +27,7 @@ public class Map : GameBehaviour
         randomRoom.CreatePortals();
     }
 
-    private void CreateMap(int numberOfRooms)
+    public void CreateMap(int numberOfRooms)
     {
         var startRoom = CreateRoom(Cell.zero, false);
         CameraTarget.position = startRoom.transform.position;
