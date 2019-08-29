@@ -1,13 +1,7 @@
 using UnityEngine;
 
-[RequireComponent(typeof(CharacterController))]
+[RequireComponent(typeof(UnityEngine.CharacterController))]
 public class Player : MonoBehaviour
 {
     public Character Character;
-    public Room CurrentRoom;
-
-    public void EnterRoom(Room room)
-    {
-        CurrentRoom = room;
-    }
 }
