@@ -79,6 +79,7 @@ public class Character : MonoBehaviour
         if (_nearbyGun)
         {
             PickupInterface.SetActive(true);
+            PickupInterface.transform.position = Camera.main.WorldToScreenPoint(other.transform.position) + Vector3.up*20;
         }
     }
 
