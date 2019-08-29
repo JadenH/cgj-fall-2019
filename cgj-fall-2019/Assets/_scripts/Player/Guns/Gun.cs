@@ -28,6 +28,7 @@ public abstract class Gun : GameBehaviour
 
     protected IEnumerator Shoot(Vector2 direction)
     {
+        CurrentCooldown = Time.time + Cooldown / 100;
         var bullet = Instantiate(BulletPrefab);
         bullet.transform.SetParent(null);
         bullet.transform.position = transform.position;
@@ -36,9 +37,7 @@ public abstract class Gun : GameBehaviour
         {
             var velocity = direction.normalized * Random.Range(.5f, 1.5f) / 4;
 
-            bullet.transform.position += (Vector3) velocity;
             var hit = Physics2D.Raycast(bullet.transform.position, velocity.normalized, velocity.magnitude);
-            Debug.DrawRay(bullet.transform.position, velocity.normalized);
             if (hit.collider && hit.transform.gameObject.tag != "Player")
             {
                 if (hit.transform.gameObject.layer == LayerMask.NameToLayer("Enemy"))
@@ -48,8 +47,15 @@ public abstract class Gun : GameBehaviour
                         hit.transform.GetComponent<Health>().TakeDamage(10);
                     }
                 }
-                Destroy(bullet.gameObject);
+                bullet.GetComponent<Animator>().SetTrigger("Dead");
+                bullet.transform.localScale *= 2 * Random.Range(.8f, 1.2f);
+                bullet.transform.position = hit.point;
+                bullet.transform.rotation = Quaternion.AngleAxis(Random.Range(-10, 10), Vector3.back) * Quaternion.LookRotation(Vector3.forward, -hit.normal);
+                Destroy(bullet.gameObject, .5f);
+                break;
             }
+            bullet.transform.position += (Vector3)velocity;
+            bullet.transform.rotation = Quaternion.LookRotation(Vector3.forward, velocity);
             yield return null;
         }
     }

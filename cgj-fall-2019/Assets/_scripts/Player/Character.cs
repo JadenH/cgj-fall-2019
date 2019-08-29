@@ -49,7 +49,6 @@ public class Character : MonoBehaviour
                 {
                     CurrentGun.FireHold(gunDir);
                 }
-                CurrentGun.CurrentCooldown = Time.time + CurrentGun.Cooldown;
             }
         }
         else
