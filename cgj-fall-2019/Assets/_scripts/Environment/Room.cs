@@ -1,22 +1,41 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using Unity.Collections;
 using UnityEngine;
+using UnityEngine.Tilemaps;
 
 public class Room : MonoBehaviour
 {
+    public Map Map;
     public Cell Cell;
 
     public Door TopDoor;
     public Door RightDoor;
     public Door BottomDoor;
     public Door LeftDoor;
+    public Tilemap Tilemap;
 
-    private Dictionary<Direction, Room> NeighborRooms = new Dictionary<Direction, Room>();
+    public GameObject Portals;
 
-    public int LocationX;
-    public int LocationY;
+
+    public Dictionary<Cell, bool> Pathable = new Dictionary<Cell, bool>();
+
+    private void Start()
+    {
+        SetupPathables();
+    }
+
+    private void SetupPathables()
+    {
+        foreach (var pos in Tilemap.cellBounds.allPositionsWithin)
+        {
+            var localPlace = new Vector3Int(pos.x, pos.y, pos.z);
+            var place = Tilemap.CellToWorld(localPlace);
+            Pathable.Add((Cell)place, !Tilemap.HasTile(localPlace));
+        }
+    }
 
     public Door GetDoorForDirection(Direction direction)
     {
@@ -37,17 +56,7 @@ public class Room : MonoBehaviour
 
     public Room GetNeighborRoom(Direction direction)
     {
-        return NeighborRooms[direction];
-    }
-
-    public void SetNeighborRoom(Direction direction, Room newRoom)
-    {
-        if (NeighborRooms.ContainsKey(direction))
-        {
-            throw new UnityException("Room already has a neighbor for direction!!");
-        }
-
-        NeighborRooms.Add(direction, newRoom);
+        return Map.GetRoomAtCell(Cell.GetNext(direction));
     }
 
     public IEnumerable<Door> AllDoors()
@@ -60,12 +69,7 @@ public class Room : MonoBehaviour
 
     public IEnumerable<Door> UnusedDoors()
     {
-        return AllDoors().Where(door => !door.IsUsed());
-    }
-
-    public bool IsDoorUsed(Direction direction)
-    {
-        return GetDoorForDirection(direction).IsUsed();
+        return AllDoors().Where(door => door.Used == false);
     }
 
     public bool IsDoorLocked(Direction direction)
@@ -86,11 +90,6 @@ public class Room : MonoBehaviour
         }
     }
 
-    public void MarkDoorAsUsed(Direction direction)
-    {
-        GetDoorForDirection(direction).MarkAsUsed();
-    }
-
     public void UnlockDoor(Direction direction)
     {
         GetDoorForDirection(direction).UnlockDoor();
@@ -99,5 +98,10 @@ public class Room : MonoBehaviour
     public bool HasAvailableDoor()
     {
         return UnusedDoors().Any();
+    }
+
+    public void CreatePortals()
+    {
+        if (Portals != null) Portals.SetActive(true);
     }
 }
