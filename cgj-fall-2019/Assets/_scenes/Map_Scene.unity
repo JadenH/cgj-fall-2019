@@ -971,7 +971,7 @@ MonoBehaviour:
   CameraTarget: {fileID: 2080715109}
   Player: {fileID: 118734262}
   Map: {fileID: 1167233651}
-  CurrentLevel: 8
+  CurrentLevel: 1
 --- !u!4 &1490127924
 Transform:
   m_ObjectHideFlags: 0
@@ -1167,6 +1167,11 @@ PrefabInstance:
       propertyPath: cam1
       value: 
       objectReference: {fileID: 1090676518}
+    - target: {fileID: 4478883202534611080, guid: 178325075a2fe0641b60458ca792d19c,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 178325075a2fe0641b60458ca792d19c, type: 3}
 --- !u!1001 &5787231703305154037
@@ -1180,11 +1185,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Map
-      objectReference: {fileID: 0}
-    - target: {fileID: 5787231702038532699, guid: 76370abe159f91941a241c3f5ebdb227,
-        type: 3}
-      propertyPath: NumberOfRooms
-      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 5787231702038532698, guid: 76370abe159f91941a241c3f5ebdb227,
         type: 3}
@@ -1240,6 +1240,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5787231702038532699, guid: 76370abe159f91941a241c3f5ebdb227,
+        type: 3}
+      propertyPath: NumberOfRooms
+      value: 3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 76370abe159f91941a241c3f5ebdb227, type: 3}
