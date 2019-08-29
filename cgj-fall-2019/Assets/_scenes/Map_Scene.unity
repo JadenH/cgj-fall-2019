@@ -243,11 +243,6 @@ PrefabInstance:
       propertyPath: m_LocalPosition.y
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 3170585695016997572, guid: e921a1afe7cacf0468b76a52fc0d1320,
-        type: 3}
-      propertyPath: m_SizeDelta.x
-      value: 200
-      objectReference: {fileID: 0}
     - target: {fileID: 2681643243355934786, guid: e921a1afe7cacf0468b76a52fc0d1320,
         type: 3}
       propertyPath: m_text
@@ -279,6 +274,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_textInfo.lineCount
       value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3170585695016997572, guid: e921a1afe7cacf0468b76a52fc0d1320,
+        type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 200
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e921a1afe7cacf0468b76a52fc0d1320, type: 3}
@@ -800,6 +800,18 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 46220a094ed2ed44eb194fd6bcdfa82c, type: 3}
+--- !u!114 &1482968593 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5787231702038532699, guid: 76370abe159f91941a241c3f5ebdb227,
+    type: 3}
+  m_PrefabInstance: {fileID: 5787231703305154037}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b379b0bba04da5140a22ff9d3f895783, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1490127922
 GameObject:
   m_ObjectHideFlags: 0
@@ -831,6 +843,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   CameraTarget: {fileID: 2080715109}
   Player: {fileID: 118734262}
+  Map: {fileID: 1482968593}
 --- !u!4 &1490127924
 Transform:
   m_ObjectHideFlags: 0

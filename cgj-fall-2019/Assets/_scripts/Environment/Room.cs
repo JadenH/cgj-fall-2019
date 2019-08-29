@@ -85,4 +85,8 @@ public class Room : MonoBehaviour
         GetDoorForDirection(direction).MarkAsLie();
     }
 
+    public void CreatePortals()
+    {
+        // TODO: RIGHT HERE MAN
+    }
 }

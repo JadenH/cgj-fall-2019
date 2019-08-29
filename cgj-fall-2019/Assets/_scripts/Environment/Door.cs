@@ -48,31 +48,30 @@ public class Door : GameBehaviour
         return Locked;
     }
 
-    private void OnTriggerEnter2D(Collider2D theCollision)
+    private void OnTriggerEnter2D(Collider2D col)
     {
-        if (theCollision.tag == "Player")
+        if (col.GetComponent<Player>())
         {
             if (ConnectingRoom)
             {
                 CameraTarget.transform.position = ConnectingRoom.transform.position;
-                if(Direction == Direction.Up)
+                switch (Direction)
                 {
-                    Player.transform.position = ConnectingRoom.transform.position - new Vector3(0, +5, 0);
-                }
-                else if (Direction == Direction.Right)
-                {
-                    Player.transform.position = ConnectingRoom.transform.position - new Vector3(+10, 0, 0);
-                }
-                else if (Direction == Direction.Down)
-                {
-                    Player.transform.position = ConnectingRoom.transform.position - new Vector3(0, -5, 0);
-                }
-                else if (Direction == Direction.Left)
-                {
-                    Player.transform.position = ConnectingRoom.transform.position - new Vector3(-10, 0, 0);
+                    case Direction.Up:
+                        Player.transform.position = ConnectingRoom.transform.position - new Vector3(0, +5, 0);
+                        break;
+                    case Direction.Right:
+                        Player.transform.position = ConnectingRoom.transform.position - new Vector3(+10, 0, 0);
+                        break;
+                    case Direction.Down:
+                        Player.transform.position = ConnectingRoom.transform.position - new Vector3(0, -5, 0);
+                        break;
+                    case Direction.Left:
+                        Player.transform.position = ConnectingRoom.transform.position - new Vector3(-10, 0, 0);
+                        break;
                 }
 
-
+                Player.EnterRoom(ConnectingRoom);
             }
         }
     }

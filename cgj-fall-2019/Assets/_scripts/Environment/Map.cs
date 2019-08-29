@@ -6,30 +6,34 @@ using Random = UnityEngine.Random;
 
 public class Map : GameBehaviour
 {
-    public int NumberOfRooms = 3;
     public Room RoomPrefab;
-    public Room LieRoomPrefab;
-
 
     private Dictionary<Cell, Room> _map = new Dictionary<Cell, Room>();
 
     private Room[] _rooms => _map.Values.ToArray();
 
-    // Start is called before the first frame update
-    private void Start()
+    public void Generate(int level)
     {
-        CreateMap(NumberOfRooms);
+        // Destroy
+
+        // Number of rooms is equal to level
+        CreateMap(level);
+        CreatePortals();
+    }
+
+    private void CreatePortals()
+    {
+        var randomRoom = _rooms[Random.Range(0, _rooms.Length)];
+        randomRoom.CreatePortals();
     }
 
     private void CreateMap(int numberOfRooms)
     {
         var startRoom = CreateRoom(Cell.zero, false);
-       
         CameraTarget.position = startRoom.transform.position;
 
-        while ((numberOfRooms +3) > _map.Count)
+        while (numberOfRooms > _map.Count)
         {
-
             // Find a valid room and door to extend off from
             // TODO: This is where we tweak our generation.
             // TODO: Could make it less likely to pick rooms closer to middle? Etc...
@@ -44,58 +48,25 @@ public class Map : GameBehaviour
             // Check if that cell already has a room
             if (!_map.ContainsKey(neighborCell))
             {
-                if(numberOfRooms > _map.Count)
-                {
-                    var newRoom = CreateRoom(neighborCell, false);
+                var newRoom = CreateRoom(neighborCell, false);
 
-                    ConnectDoors(newRoom);
-                    ConnectDoors(randomRoom);
-                }
-                else
-                {
-                    var newRoom = CreateRoom(neighborCell, true);
-
-                    ConnectDoors(newRoom);
-                    ConnectDoors(randomRoom);
-                }
-                
+                ConnectDoors(newRoom);
+                ConnectDoors(randomRoom);
             }
-
-           
         }
-
-
-
     }
 
     private Room CreateRoom(Cell cell, bool isLie)
     {
-        if(isLie)
-        {
-            var room = Instantiate(LieRoomPrefab, (Vector2)cell, Quaternion.identity).GetComponent<Room>();
-            _map.Add(cell, room);
-            room.Map = this;
-            room.Cell = cell;
-           
+        var room = Instantiate(RoomPrefab, (Vector2)cell, Quaternion.identity).GetComponent<Room>();
 
+        _map.Add(cell, room);
+        room.Map = this;
+        room.Cell = cell;
 
-            //room.LockAllDoors();
-            // room.MarkDoorAsUsed(DoorToMark);
-            return room;
-        }
-        else
-        {
-            var room = Instantiate(RoomPrefab, (Vector2)cell, Quaternion.identity).GetComponent<Room>();
-
-            _map.Add(cell, room);
-            room.Map = this;
-            room.Cell = cell;
-
-            //room.LockAllDoors();
-            // room.MarkDoorAsUsed(DoorToMark);
-            return room;
-        }
-        
+        //room.LockAllDoors();
+        // room.MarkDoorAsUsed(DoorToMark);
+        return room;
     }
 
     private void ConnectDoors(Room room)
