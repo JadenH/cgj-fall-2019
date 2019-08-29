@@ -37,38 +37,29 @@ public class Door : GameBehaviour
         Locked = false;
     }
 
-
-
     public bool IsLocked()
     {
         return Locked;
     }
 
-    private void OnTriggerEnter2D(Collider2D col)
+    public bool IsUsed()
     {
-        if (col.GetComponent<Player>())
-        {
-            if (ConnectingRoom)
-            {
-                CameraTarget.transform.position = ConnectingRoom.transform.position;
-                switch (Direction)
-                {
-                    case Direction.Up:
-                        Player.transform.position = ConnectingRoom.transform.position - new Vector3(0, +5, 0);
-                        break;
-                    case Direction.Right:
-                        Player.transform.position = ConnectingRoom.transform.position - new Vector3(+10, 0, 0);
-                        break;
-                    case Direction.Down:
-                        Player.transform.position = ConnectingRoom.transform.position - new Vector3(0, -5, 0);
-                        break;
-                    case Direction.Left:
-                        Player.transform.position = ConnectingRoom.transform.position - new Vector3(-10, 0, 0);
-                        break;
-                }
+        return Used;
+    }
 
-                Player.EnterRoom(ConnectingRoom);
-            }
+    public void MarkAsUsed()
+    {
+        Used = true;
+        UnlockDoor();
+    }
+
+    private void OnTriggerEnter2D(Collider2D theCollision)
+    {
+        if (theCollision.tag == "Player")
+        {
+            Room room = GetComponentInParent<Room>();
+            CameraTarget.transform.position = ConnectingRoom.transform.position;
+            Player.transform.position = ConnectingRoom.transform.position;
         }
     }
 
