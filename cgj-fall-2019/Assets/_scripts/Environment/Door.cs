@@ -11,10 +11,12 @@ public class Door : GameBehaviour
     public BoxCollider2D Collide;
 
     public GameObject LockedDoorSprite;
+    public GameObject UnlockedDoorSprite;
+    public GameObject SealedDoorSprite;
 
     public float PlayerX = 0;
     public float PlayerY = 0;
-    public GameObject UnlockedDoorSprite;
+    
 
     // Start is called before the first frame update
     private void Start()
@@ -25,6 +27,8 @@ public class Door : GameBehaviour
     {
         LockedDoorSprite.SetActive(true);
         UnlockedDoorSprite.SetActive(false);
+        SealedDoorSprite.SetActive(false);
+
         Collide.isTrigger = false;
         Locked = true;
     }
@@ -33,6 +37,8 @@ public class Door : GameBehaviour
     {
         LockedDoorSprite.SetActive(false);
         UnlockedDoorSprite.SetActive(true);
+        SealedDoorSprite.SetActive(false);
+
         Collide.isTrigger = true;
         Locked = false;
     }
