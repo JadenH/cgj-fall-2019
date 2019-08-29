@@ -13,9 +13,14 @@ public struct Cell
         Y = y;
     }
 
+    public override string ToString()
+    {
+        return $"({X}, {Y})";
+    }
+
     public static explicit operator Vector2(Cell cell)
     {
-        return new Vector2(cell.X, cell.Y);
+        return new Vector2(cell.X + .5f, cell.Y + .5f);
     }
 
     public static explicit operator Cell(Vector2 v2)

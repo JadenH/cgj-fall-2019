@@ -30,7 +30,7 @@ public class Map : GameBehaviour
     public void CreateMap(int numberOfRooms)
     {
         var startRoom = CreateRoom(Cell.zero);
-        CameraTarget.position = startRoom.transform.position;
+        CameraTarget.position = startRoom.transform.position + new Vector3(0.5f, 0.5f);
 
         while (numberOfRooms > _map.Count)
         {
@@ -81,7 +81,7 @@ public class Map : GameBehaviour
                 {
                     door.ConnectingRoom = neighborRoom;
                     door.Used = true;
-                    door.UnlockDoor();
+                    door.LockDoor();
                 }
 
                 var neighborDoor = neighborRoom.GetDoorForDirection(direction.Opposite());
@@ -89,7 +89,7 @@ public class Map : GameBehaviour
                 {
                     neighborDoor.ConnectingRoom = room;
                     neighborDoor.Used = true;
-                    neighborDoor.UnlockDoor();
+                    neighborDoor.LockDoor();
                 }
             }
         }
