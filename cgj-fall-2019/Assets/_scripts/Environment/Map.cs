@@ -18,10 +18,10 @@ public class Map : GameBehaviour
     // Start is called before the first frame update
     private void Start()
     {
-        CreateMap(NumberOfRooms);
+     //   CreateMap(NumberOfRooms);
     }
 
-    private void CreateMap(int numberOfRooms)
+    public void CreateMap(int numberOfRooms)
     {
         var startRoom = CreateRoom(Cell.zero, false);
        

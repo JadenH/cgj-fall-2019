@@ -4,6 +4,7 @@ public class Game : MonoBehaviour
 {
     public Transform CameraTarget;
     public Player Player;
+    public Map Map;
 
     #region Singleton
 
