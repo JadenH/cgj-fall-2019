@@ -5,7 +5,6 @@ public class Door : GameBehaviour
     public Direction Direction;
     public bool Locked = true;
     public bool Used = false;
-    public bool Lie = false;
 
     public Room ConnectingRoom;
 
@@ -38,10 +37,7 @@ public class Door : GameBehaviour
         Locked = false;
     }
 
-    public void MarkAsLie()
-    {
-        Lie = true;
-    }
+
 
     public bool IsLocked()
     {
