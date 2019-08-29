@@ -14,6 +14,8 @@ public class Room : MonoBehaviour
     public Door BottomDoor;
     public Door LeftDoor;
 
+    public GameObject Portals;
+
     public int LocationX;
     public int LocationY;
 
@@ -84,6 +86,6 @@ public class Room : MonoBehaviour
 
     public void CreatePortals()
     {
-        // TODO: RIGHT HERE MAN
+        Portals.SetActive(true);
     }
 }

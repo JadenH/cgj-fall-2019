@@ -241,7 +241,12 @@ PrefabInstance:
     - target: {fileID: 754922684415524782, guid: e921a1afe7cacf0468b76a52fc0d1320,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3170585695016997572, guid: e921a1afe7cacf0468b76a52fc0d1320,
+        type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 200
       objectReference: {fileID: 0}
     - target: {fileID: 2681643243355934786, guid: e921a1afe7cacf0468b76a52fc0d1320,
         type: 3}
@@ -274,11 +279,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_textInfo.lineCount
       value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 3170585695016997572, guid: e921a1afe7cacf0468b76a52fc0d1320,
-        type: 3}
-      propertyPath: m_SizeDelta.x
-      value: 200
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e921a1afe7cacf0468b76a52fc0d1320, type: 3}
@@ -844,6 +844,7 @@ MonoBehaviour:
   CameraTarget: {fileID: 2080715109}
   Player: {fileID: 118734262}
   Map: {fileID: 1482968593}
+  CurrentLevel: 1
 --- !u!4 &1490127924
 Transform:
   m_ObjectHideFlags: 0
