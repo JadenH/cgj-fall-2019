@@ -20,4 +20,9 @@ public static class CellHelpers
                 throw new ArgumentOutOfRangeException(nameof(direction), direction, null);
         }
     }
+
+    public static Vector2 RoomPosition(this Cell cell)
+    {
+        return new Vector2(cell.X * 25, cell.Y * 15);
+    }
 }

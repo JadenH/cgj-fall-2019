@@ -1,8 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using Unity.Collections;
 using UnityEngine;
+using UnityEngine.Tilemaps;
 
 public class Room : MonoBehaviour
 {
@@ -13,11 +15,27 @@ public class Room : MonoBehaviour
     public Door RightDoor;
     public Door BottomDoor;
     public Door LeftDoor;
+    public Tilemap Tilemap;
 
     public GameObject Portals;
 
-    public int LocationX;
-    public int LocationY;
+
+    public Dictionary<Cell, bool> Pathable = new Dictionary<Cell, bool>();
+
+    private void Start()
+    {
+        SetupPathables();
+    }
+
+    private void SetupPathables()
+    {
+        foreach (var pos in Tilemap.cellBounds.allPositionsWithin)
+        {
+            var localPlace = new Vector3Int(pos.x, pos.y, pos.z);
+            var place = Tilemap.CellToWorld(localPlace);
+            Pathable.Add((Cell)place, !Tilemap.HasTile(localPlace));
+        }
+    }
 
     public Door GetDoorForDirection(Direction direction)
     {
@@ -82,10 +100,8 @@ public class Room : MonoBehaviour
         return UnusedDoors().Any();
     }
 
-
-
     public void CreatePortals()
     {
-        Portals.SetActive(true);
+        if (Portals != null) Portals.SetActive(true);
     }
 }

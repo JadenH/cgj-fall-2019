@@ -29,7 +29,7 @@ public class Map : GameBehaviour
 
     public void CreateMap(int numberOfRooms)
     {
-        var startRoom = CreateRoom(Cell.zero, false);
+        var startRoom = CreateRoom(Cell.zero);
         CameraTarget.position = startRoom.transform.position;
 
         while (numberOfRooms > _map.Count)
@@ -48,7 +48,7 @@ public class Map : GameBehaviour
             // Check if that cell already has a room
             if (!_map.ContainsKey(neighborCell))
             {
-                var newRoom = CreateRoom(neighborCell, false);
+                var newRoom = CreateRoom(neighborCell);
 
                 ConnectDoors(newRoom);
                 ConnectDoors(randomRoom);
@@ -56,9 +56,9 @@ public class Map : GameBehaviour
         }
     }
 
-    private Room CreateRoom(Cell cell, bool isLie)
+    private Room CreateRoom(Cell cell)
     {
-        var room = Instantiate(RoomPrefab, (Vector2)cell, Quaternion.identity).GetComponent<Room>();
+        var room = Instantiate(RoomPrefab, cell.RoomPosition(), Quaternion.identity).GetComponent<Room>();
 
         _map.Add(cell, room);
         room.Map = this;
