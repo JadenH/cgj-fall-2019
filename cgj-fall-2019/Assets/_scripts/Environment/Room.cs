@@ -79,4 +79,10 @@ public class Room : MonoBehaviour
     {
         return UnusedDoors().Any();
     }
+
+    public void MarkAsLie(Direction direction)
+    {
+        GetDoorForDirection(direction).MarkAsLie();
+    }
+
 }

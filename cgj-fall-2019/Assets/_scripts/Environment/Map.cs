@@ -8,6 +8,8 @@ public class Map : GameBehaviour
 {
     public int NumberOfRooms = 3;
     public Room RoomPrefab;
+    public Room LieRoomPrefab;
+
 
     private Dictionary<Cell, Room> _map = new Dictionary<Cell, Room>();
 
@@ -21,11 +23,13 @@ public class Map : GameBehaviour
 
     private void CreateMap(int numberOfRooms)
     {
-        var startRoom = CreateRoom(Cell.zero);
+        var startRoom = CreateRoom(Cell.zero, false);
+       
         CameraTarget.position = startRoom.transform.position;
 
-        while (numberOfRooms > _map.Count)
+        while ((numberOfRooms +3) > _map.Count)
         {
+
             // Find a valid room and door to extend off from
             // TODO: This is where we tweak our generation.
             // TODO: Could make it less likely to pick rooms closer to middle? Etc...
@@ -40,23 +44,58 @@ public class Map : GameBehaviour
             // Check if that cell already has a room
             if (!_map.ContainsKey(neighborCell))
             {
-                var newRoom = CreateRoom(neighborCell);
+                if(numberOfRooms > _map.Count)
+                {
+                    var newRoom = CreateRoom(neighborCell, false);
 
-                ConnectDoors(newRoom);
-                ConnectDoors(randomRoom);
+                    ConnectDoors(newRoom);
+                    ConnectDoors(randomRoom);
+                }
+                else
+                {
+                    var newRoom = CreateRoom(neighborCell, true);
+
+                    ConnectDoors(newRoom);
+                    ConnectDoors(randomRoom);
+                }
+                
             }
+
+           
         }
+
+
+
     }
 
-    private Room CreateRoom(Cell cell)
+    private Room CreateRoom(Cell cell, bool isLie)
     {
-        var room = Instantiate(RoomPrefab, (Vector2)cell, Quaternion.identity).GetComponent<Room>();
-        _map.Add(cell, room);
-        room.Map = this;
-        room.Cell = cell;
-        //room.LockAllDoors();
-        // room.MarkDoorAsUsed(DoorToMark);
-        return room;
+        if(isLie)
+        {
+            var room = Instantiate(LieRoomPrefab, (Vector2)cell, Quaternion.identity).GetComponent<Room>();
+            _map.Add(cell, room);
+            room.Map = this;
+            room.Cell = cell;
+           
+
+
+            //room.LockAllDoors();
+            // room.MarkDoorAsUsed(DoorToMark);
+            return room;
+        }
+        else
+        {
+            var room = Instantiate(RoomPrefab, (Vector2)cell, Quaternion.identity).GetComponent<Room>();
+
+            _map.Add(cell, room);
+            room.Map = this;
+            room.Cell = cell;
+
+            //room.LockAllDoors();
+            // room.MarkDoorAsUsed(DoorToMark);
+            return room;
+        }
+        
     }
 
     private void ConnectDoors(Room room)
