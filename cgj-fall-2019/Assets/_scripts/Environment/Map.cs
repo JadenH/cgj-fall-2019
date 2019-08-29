@@ -81,7 +81,7 @@ public class Map : GameBehaviour
                 {
                     door.ConnectingRoom = neighborRoom;
                     door.Used = true;
-                    door.UnlockDoor();
+                    door.LockDoor();
                 }
 
                 var neighborDoor = neighborRoom.GetDoorForDirection(direction.Opposite());
@@ -89,7 +89,7 @@ public class Map : GameBehaviour
                 {
                     neighborDoor.ConnectingRoom = room;
                     neighborDoor.Used = true;
-                    neighborDoor.UnlockDoor();
+                    neighborDoor.LockDoor();
                 }
             }
         }

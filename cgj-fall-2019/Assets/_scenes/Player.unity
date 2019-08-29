@@ -193,6 +193,31 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 7454881130690021542, guid: e921a1afe7cacf0468b76a52fc0d1320,
+        type: 3}
+      propertyPath: m_textInfo.characterCount
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7454881130690021542, guid: e921a1afe7cacf0468b76a52fc0d1320,
+        type: 3}
+      propertyPath: m_textInfo.spaceCount
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7454881130690021542, guid: e921a1afe7cacf0468b76a52fc0d1320,
+        type: 3}
+      propertyPath: m_textInfo.wordCount
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7454881130690021542, guid: e921a1afe7cacf0468b76a52fc0d1320,
+        type: 3}
+      propertyPath: m_textInfo.lineCount
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7454881130690021542, guid: e921a1afe7cacf0468b76a52fc0d1320,
+        type: 3}
+      propertyPath: m_textInfo.pageCount
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 754922684415524773, guid: e921a1afe7cacf0468b76a52fc0d1320,
         type: 3}
       propertyPath: m_Name
@@ -246,6 +271,16 @@ PrefabInstance:
     - target: {fileID: 688015435269677416, guid: e921a1afe7cacf0468b76a52fc0d1320,
         type: 3}
       propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2770989079999843264, guid: e921a1afe7cacf0468b76a52fc0d1320,
+        type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2770989079999843264, guid: e921a1afe7cacf0468b76a52fc0d1320,
+        type: 3}
+      propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -821,6 +856,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   CameraTarget: {fileID: 2080715109}
   Player: {fileID: 118734262}
+  Map: {fileID: 0}
+  CurrentLevel: 1
 --- !u!4 &1490127924
 Transform:
   m_ObjectHideFlags: 0
@@ -864,10 +901,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b379b0bba04da5140a22ff9d3f895783, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  NumberOfRooms: 30
-  RoomPrefab: {fileID: 6452190085410174860, guid: 46220a094ed2ed44eb194fd6bcdfa82c,
-    type: 3}
-  rooms: []
+  RoomPrefab: {fileID: 0}
 --- !u!4 &1552105391
 Transform:
   m_ObjectHideFlags: 0
