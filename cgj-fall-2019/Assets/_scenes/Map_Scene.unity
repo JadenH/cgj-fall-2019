@@ -358,6 +358,7 @@ GameObject:
   - component: {fileID: 489395723}
   - component: {fileID: 489395725}
   - component: {fileID: 489395726}
+  - component: {fileID: 489395727}
   m_Layer: 8
   m_Name: Enemy
   m_TagString: Untagged
@@ -421,8 +422,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 489395722}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 367.75, y: 211.94, z: 0}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -466,7 +467,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bac5f2b4aaa1c2c478bc64f3a2130583, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  MaxHealth: 100
   CurrentHealth: 100
+--- !u!114 &489395727
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 489395722}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 69f31b49918dbf5498ce77a9991a0234, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Room: {fileID: 0}
+  Speed: 0.05
 --- !u!4 &491913538 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6452190085410174862, guid: 46220a094ed2ed44eb194fd6bcdfa82c,
@@ -1165,6 +1181,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Map
       objectReference: {fileID: 0}
+    - target: {fileID: 5787231702038532699, guid: 76370abe159f91941a241c3f5ebdb227,
+        type: 3}
+      propertyPath: NumberOfRooms
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 5787231702038532698, guid: 76370abe159f91941a241c3f5ebdb227,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1219,11 +1240,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5787231702038532699, guid: 76370abe159f91941a241c3f5ebdb227,
-        type: 3}
-      propertyPath: NumberOfRooms
-      value: 3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 76370abe159f91941a241c3f5ebdb227, type: 3}

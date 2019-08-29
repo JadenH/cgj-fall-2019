@@ -30,7 +30,7 @@ public class Map : GameBehaviour
     public void CreateMap(int numberOfRooms)
     {
         var startRoom = CreateRoom(Cell.zero);
-        CameraTarget.position = startRoom.transform.position;
+        CameraTarget.position = startRoom.transform.position + new Vector3(0.5f, 0.5f);
 
         while (numberOfRooms > _map.Count)
         {

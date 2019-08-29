@@ -33,6 +33,7 @@ public class Room : MonoBehaviour
         {
             var localPlace = new Vector3Int(pos.x, pos.y, pos.z);
             var place = Tilemap.CellToWorld(localPlace);
+            Debug.Log((Cell)place);
             Pathable.Add((Cell)place, !Tilemap.HasTile(localPlace));
         }
     }
