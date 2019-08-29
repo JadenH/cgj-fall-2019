@@ -6,6 +6,7 @@ using UnityEngine;
 
 public class Room : MonoBehaviour
 {
+    public Map Map;
     public Cell Cell;
 
     public Door TopDoor;
@@ -13,7 +14,7 @@ public class Room : MonoBehaviour
     public Door BottomDoor;
     public Door LeftDoor;
 
-    private Dictionary<Direction, Room> NeighborRooms = new Dictionary<Direction, Room>();
+    public GameObject Portals;
 
     public int LocationX;
     public int LocationY;
@@ -37,17 +38,7 @@ public class Room : MonoBehaviour
 
     public Room GetNeighborRoom(Direction direction)
     {
-        return NeighborRooms[direction];
-    }
-
-    public void SetNeighborRoom(Direction direction, Room newRoom)
-    {
-        if (NeighborRooms.ContainsKey(direction))
-        {
-            throw new UnityException("Room already has a neighbor for direction!!");
-        }
-
-        NeighborRooms.Add(direction, newRoom);
+        return Map.GetRoomAtCell(Cell.GetNext(direction));
     }
 
     public IEnumerable<Door> AllDoors()
@@ -60,12 +51,7 @@ public class Room : MonoBehaviour
 
     public IEnumerable<Door> UnusedDoors()
     {
-        return AllDoors().Where(door => !door.IsUsed());
-    }
-
-    public bool IsDoorUsed(Direction direction)
-    {
-        return GetDoorForDirection(direction).IsUsed();
+        return AllDoors().Where(door => door.Used == false);
     }
 
     public bool IsDoorLocked(Direction direction)
@@ -86,11 +72,6 @@ public class Room : MonoBehaviour
         }
     }
 
-    public void MarkDoorAsUsed(Direction direction)
-    {
-        GetDoorForDirection(direction).MarkAsUsed();
-    }
-
     public void UnlockDoor(Direction direction)
     {
         GetDoorForDirection(direction).UnlockDoor();
@@ -99,5 +80,12 @@ public class Room : MonoBehaviour
     public bool HasAvailableDoor()
     {
         return UnusedDoors().Any();
+    }
+
+
+
+    public void CreatePortals()
+    {
+        Portals.SetActive(true);
     }
 }

@@ -38,4 +38,6 @@ public struct Cell
     public static Cell down => new Cell(0, -1);
     public static Cell right => new Cell(1,0);
     public static Cell left => new Cell(-1,0);
+
+    
 }
