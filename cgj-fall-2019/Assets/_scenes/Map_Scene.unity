@@ -243,11 +243,6 @@ PrefabInstance:
       propertyPath: m_LocalPosition.y
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 3170585695016997572, guid: e921a1afe7cacf0468b76a52fc0d1320,
-        type: 3}
-      propertyPath: m_SizeDelta.x
-      value: 200
-      objectReference: {fileID: 0}
     - target: {fileID: 2681643243355934786, guid: e921a1afe7cacf0468b76a52fc0d1320,
         type: 3}
       propertyPath: m_text
@@ -279,6 +274,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_textInfo.lineCount
       value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3170585695016997572, guid: e921a1afe7cacf0468b76a52fc0d1320,
+        type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 200
       objectReference: {fileID: 0}
     - target: {fileID: 2770989079999843264, guid: e921a1afe7cacf0468b76a52fc0d1320,
         type: 3}
@@ -478,11 +478,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 489395722}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 69f31b49918dbf5498ce77a9991a0234, type: 3}
+  m_Script: {fileID: 11500000, guid: 348f257b0795bf6449fe0da4e94a03cf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Room: {fileID: 0}
   Speed: 0.05
+  RepathDelay: 0.05
 --- !u!4 &491913538 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6452190085410174862, guid: 46220a094ed2ed44eb194fd6bcdfa82c,
@@ -971,7 +971,7 @@ MonoBehaviour:
   CameraTarget: {fileID: 2080715109}
   Player: {fileID: 118734262}
   Map: {fileID: 1167233651}
-  CurrentLevel: 1
+  CurrentLevel: 2
 --- !u!4 &1490127924
 Transform:
   m_ObjectHideFlags: 0
@@ -1186,6 +1186,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Map
       objectReference: {fileID: 0}
+    - target: {fileID: 5787231702038532699, guid: 76370abe159f91941a241c3f5ebdb227,
+        type: 3}
+      propertyPath: NumberOfRooms
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 5787231702038532698, guid: 76370abe159f91941a241c3f5ebdb227,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1240,11 +1245,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5787231702038532699, guid: 76370abe159f91941a241c3f5ebdb227,
-        type: 3}
-      propertyPath: NumberOfRooms
-      value: 3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 76370abe159f91941a241c3f5ebdb227, type: 3}

@@ -5,57 +5,12 @@ using UnityEngine;
 
 public class Mover : GameBehaviour
 {
-    public Room Room;
-    public float Speed;
-
-    private Cell[] _path;
-    private Coroutine _pathingCoroutine;
-
-    private void Start()
-    {
-        StartCoroutine(PathLoop());
-    }
-
-    private IEnumerator PathLoop()
-    {
-        while (enabled)
-        {
-            if (Room && Room == Player.CurrentRoom)
-            {
-                var path = Pathfind((Cell)transform.position, (Cell)Player.Character.transform.position);
-                if (path != null && path.Any())
-                {
-                    _path = path;
-                    if (_pathingCoroutine != null) StopCoroutine(_pathingCoroutine);
-                    _pathingCoroutine = StartCoroutine(Move(new Queue<Cell>(path)));
-                }
-            }
-
-            yield return new WaitForSeconds(1f);
-        }
-    }
-
-    private IEnumerator Move(Queue<Cell> path)
-    {
-        var dest = path.Last();
-        var current = path.Dequeue();
-        while (Vector2.Distance(transform.position, (Vector2)dest) > 0.1f)
-        {
-            if (Vector2.Distance(transform.position, (Vector2)current) <= 0.1f)
-            {
-                current = path.Dequeue();
-            }
-            transform.position = Vector3.MoveTowards(transform.position, (Vector2)current, Speed);
-            yield return new WaitForEndOfFrame();
-        }
-    }
-
     private struct CostCell
     {
-        public Cell Cell;
+        public Vector2Int Cell;
         public int Cost;
 
-        public CostCell(Cell cell, int cost = 0)
+        public CostCell(Vector2Int cell, int cost = 0)
         {
             Cell = cell;
             Cost = cost;
@@ -63,13 +18,13 @@ public class Mover : GameBehaviour
     }
 
     // A* from https://www.redblobgames.com/pathfinding/a-star/introduction.html
-    public Cell[] Pathfind(Cell start, Cell dest)
+    public Vector2Int[] Pathfind(Vector2Int start, Vector2Int dest)
     {
         if (!Pathable(start, dest)) return null;
 
         var frontier = new HashSet<CostCell>();
-        var cameFrom = new Dictionary<Cell, Cell?>();
-        var costSoFar = new Dictionary<Cell, int> { [start] = 0 };
+        var cameFrom = new Dictionary<Vector2Int, Vector2Int?>();
+        var costSoFar = new Dictionary<Vector2Int, int> { [start] = 0 };
 
         frontier.Add(new CostCell(start));
         cameFrom.Add(start, null);
@@ -100,7 +55,7 @@ public class Mover : GameBehaviour
 
         if (!cameFrom.ContainsKey(dest)) return null;
 
-        var result = new List<Cell> { dest };
+        var result = new List<Vector2Int> { dest };
         var currentCell = cameFrom[dest];
         while (currentCell.HasValue)
         {
@@ -112,61 +67,36 @@ public class Mover : GameBehaviour
         return result.ToArray();
     }
 
-    private int Heuristic(Cell current, Cell next)
+    private int Heuristic(Vector2Int current, Vector2Int next)
     {
         return Mathf.FloorToInt(Vector2.Distance((Vector2)current, (Vector2)next));
     }
 
-    private Cell[] GetNeighbors(Cell cell)
+    private Vector2Int[] GetNeighbors(Vector2Int cell)
     {
         return new[]
         {
-            cell + Cell.up,
-            cell + Cell.right,
-            cell + Cell.down,
-            cell + Cell.left
+            cell + Vector2Int.up,
+            cell + Vector2Int.right,
+            cell + Vector2Int.down,
+            cell + Vector2Int.left
         };
     }
 
-    private bool Pathable(Cell start, Cell dest)
+    private bool Pathable(Vector2Int start, Vector2Int dest)
     {
-        if (!Room.Pathable.ContainsKey(start))
-        {
-            Debug.LogError("Start is not in room!");
-            return false;
-        }
-
-        if (!Room.Pathable.ContainsKey(dest))
-        {
-            Debug.LogError("Destination is not in room!");
-            return false;
-        }
-
-        if (!Room.Pathable[dest])
-        {
-            Debug.LogError("Destination is not pathable!");
-            return false;
-        }
-
-        if (!Room.Pathable[start])
+        if (!Map.IsPathable(start))
         {
             Debug.LogError("Start is not pathable!");
             return false;
         }
 
-        return true;
-    }
-
-    private void OnDrawGizmos()
-    {
-        // Draw a yellow sphere at the transform's position
-        if (_path != null)
+        if (!Map.IsPathable(dest))
         {
-            Gizmos.color = Color.yellow;
-            foreach (var cell in _path)
-            {
-                Gizmos.DrawSphere((Vector2)cell, 0.25f);
-            }
+            Debug.LogError("Destination is not pathable!");
+            return false;
         }
+
+        return true;
     }
 }
