@@ -44,7 +44,7 @@ public class Door : GameBehaviour
     {
         if (col.GetComponent<Player>())
         {
-            if (ConnectingRoom)
+            if (ConnectingRoom && !Locked)
             {
                 CameraTarget.transform.position = ConnectingRoom.transform.position + new Vector3(0.5f, 0.5f);
                 Player.transform.position = ConnectingDoor.transform.position + Direction.V3();

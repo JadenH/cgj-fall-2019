@@ -15,6 +15,8 @@ public class HealthSlider : MonoBehaviour
         Health.HealthChanged.AddListener(UpdateUI);
         Slider.maxValue = Health.MaxHealth;
         Slider.minValue = 0;
+
+        UpdateUI(Health.CurrentHealth, Health.MaxHealth);
     }
 
     private void UpdateUI(float current, float max)

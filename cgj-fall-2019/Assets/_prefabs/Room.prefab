@@ -1929,6 +1929,7 @@ GameObject:
   - component: {fileID: 6452190085410174862}
   - component: {fileID: 6452190085410174861}
   - component: {fileID: 5432987133126933302}
+  - component: {fileID: 493736737469334120}
   m_Layer: 0
   m_Name: Room
   m_TagString: Untagged
@@ -1981,7 +1982,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a2b3d3acaca8ed54588da541616a29ab, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Map: {fileID: 0}
   RoomCell: {x: 0, y: 0}
   TopDoor: {fileID: 6452190086842739756}
   RightDoor: {fileID: 6452190086527903058}
@@ -1989,7 +1989,20 @@ MonoBehaviour:
   LeftDoor: {fileID: 6452190085581262340}
   ColliderTilemap: {fileID: 6452190087015727734}
   RenderTilemap: {fileID: 6452190085849905373}
+  Spawner: {fileID: 493736737469334120}
   Portals: {fileID: 4683026578226516345}
+--- !u!114 &493736737469334120
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6452190085410174860}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d36e1041975e6b840be8f91739851dcf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &6452190085581262346
 GameObject:
   m_ObjectHideFlags: 0
@@ -2041,6 +2054,7 @@ MonoBehaviour:
   Locked: 1
   Used: 0
   ConnectingRoom: {fileID: 0}
+  ConnectingDoor: {fileID: 0}
   Collide: {fileID: 6452190085581262347}
   LockedDoorSprite: {fileID: 6681421017200752567}
   UnlockedDoorSprite: {fileID: 3327020815414449774}
@@ -7485,6 +7499,7 @@ MonoBehaviour:
   Locked: 1
   Used: 0
   ConnectingRoom: {fileID: 0}
+  ConnectingDoor: {fileID: 0}
   Collide: {fileID: 6452190085933715312}
   LockedDoorSprite: {fileID: 3689331283276504732}
   UnlockedDoorSprite: {fileID: 5814654389084355204}
@@ -7566,6 +7581,7 @@ MonoBehaviour:
   Locked: 1
   Used: 0
   ConnectingRoom: {fileID: 0}
+  ConnectingDoor: {fileID: 0}
   Collide: {fileID: 6452190086527903056}
   LockedDoorSprite: {fileID: 4688977099982658270}
   UnlockedDoorSprite: {fileID: 9203500976197191101}
@@ -7647,6 +7663,7 @@ MonoBehaviour:
   Locked: 1
   Used: 0
   ConnectingRoom: {fileID: 0}
+  ConnectingDoor: {fileID: 0}
   Collide: {fileID: 6452190086842739731}
   LockedDoorSprite: {fileID: 4603717047512556317}
   UnlockedDoorSprite: {fileID: 1238224999061499036}

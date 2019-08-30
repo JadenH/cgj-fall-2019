@@ -5,6 +5,7 @@ public class Game : MonoBehaviour
     public Transform CameraTarget;
     public Player Player;
     public Map Map;
+    public EnemyManager EnemyManager;
 
     public int CurrentLevel = 1;
 

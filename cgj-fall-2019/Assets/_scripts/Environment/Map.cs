@@ -65,14 +65,11 @@ public class Map : GameBehaviour
         var room = Instantiate(RoomPrefab, roomCell.RoomPosition(), Quaternion.identity).GetComponent<Room>();
 
         _mapRoomCell.Add(roomCell, room);
-        room.Map = this;
         room.RoomCell = roomCell;
 
-        foreach (var cell in room.GetCells())
+        foreach (var cell in room.GetWorldCells())
         {
-            var world = room.RenderTilemap.CellToWorld(cell);
-            var worldCell = new Vector2Int((int)world.x, (int)world.y);
-            _mapWorldCell.Add(worldCell, room);
+            _mapWorldCell.Add(cell, room);
         }
 
         return room;

@@ -519,6 +519,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e65bd7222cecb1d459dc2cbeef977c28, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Room: {fileID: 0}
   Chaser: {fileID: 8783207210169755599}
 --- !u!61 &8783207210169755597
 BoxCollider2D:

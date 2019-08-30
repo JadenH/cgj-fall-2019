@@ -2,13 +2,22 @@
 using System.Collections;
 
 [RequireComponent(typeof(Chaser))]
-public class Bat : GameBehaviour
+public class Bat : Enemy
 {
     public Chaser Chaser;
-    public Health Health;
 
-    private void Start()
+    protected override void PlayerChangedRooms(Room room)
     {
-        Chaser.Target = Player.transform;
+        Debug.Log("HERE");
+        if (room == CurrentRoom)
+        {
+            Chaser.enabled = true;
+            Chaser.Target = Player.transform;
+        }
+        else
+        {
+            Chaser.enabled = false;
+            Chaser.Move(StartCell);
+        }
     }
 }
