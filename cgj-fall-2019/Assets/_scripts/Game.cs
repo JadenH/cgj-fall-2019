@@ -5,6 +5,7 @@ public class Game : MonoBehaviour
     public Transform CameraTarget;
     public Player Player;
     public Map Map;
+    public EnemyManager EnemyManager;
 
     public int CurrentLevel = 1;
 
@@ -25,6 +26,6 @@ public class Game : MonoBehaviour
     private void StartLevel(int level)
     {
         Map.Generate(level);
-        Player.EnterRoom(Map.GetRoomAtCell(Cell.zero));
+        Player.EnterRoom(Map.GetRoomForRoomCell(Vector2Int.zero));
     }
 }

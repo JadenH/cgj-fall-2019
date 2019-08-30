@@ -8,9 +8,10 @@ public class Map : GameBehaviour
 {
     public Room RoomPrefab;
 
-    private Dictionary<Cell, Room> _map = new Dictionary<Cell, Room>();
+    private Dictionary<Vector2Int, Room> _mapRoomCell = new Dictionary<Vector2Int, Room>();
+    private Dictionary<Vector2Int, Room> _mapWorldCell = new Dictionary<Vector2Int, Room>();
 
-    private Room[] _rooms => _map.Values.ToArray();
+    private Room[] _rooms => _mapRoomCell.Values.ToArray();
 
     public void Generate(int level)
     {
@@ -29,10 +30,10 @@ public class Map : GameBehaviour
 
     public void CreateMap(int numberOfRooms)
     {
-        var startRoom = CreateRoom(Cell.zero);
+        var startRoom = CreateRoom(Vector2Int.zero);
         CameraTarget.position = startRoom.transform.position + new Vector3(0.5f, 0.5f);
 
-        while (numberOfRooms > _map.Count)
+        while (numberOfRooms > _mapRoomCell.Count)
         {
             // Find a valid room and door to extend off from
             // TODO: This is where we tweak our generation.
@@ -43,29 +44,34 @@ public class Map : GameBehaviour
             var randomDoor = validDoors[Random.Range(0, validDoors.Length)];
 
             // Create new room
-            var neighborCell = randomRoom.Cell.GetNext(randomDoor.Direction);
+            var neighborRoomCell = randomRoom.RoomCell.GetNextRoomCell(randomDoor.Direction);
 
-            // Check if that cell already has a room
-            if (!_map.ContainsKey(neighborCell))
+            // Check if that roomCell already has a room
+            if (!_mapRoomCell.ContainsKey(neighborRoomCell))
             {
-                var newRoom = CreateRoom(neighborCell);
+                var newRoom = CreateRoom(neighborRoomCell);
 
                 ConnectDoors(newRoom);
                 ConnectDoors(randomRoom);
+
+                newRoom.UnlockAllDoors();
+                randomRoom.UnlockAllDoors();
             }
         }
     }
 
-    private Room CreateRoom(Cell cell)
+    private Room CreateRoom(Vector2Int roomCell)
     {
-        var room = Instantiate(RoomPrefab, cell.RoomPosition(), Quaternion.identity).GetComponent<Room>();
+        var room = Instantiate(RoomPrefab, roomCell.RoomPosition(), Quaternion.identity).GetComponent<Room>();
 
-        _map.Add(cell, room);
-        room.Map = this;
-        room.Cell = cell;
+        _mapRoomCell.Add(roomCell, room);
+        room.RoomCell = roomCell;
 
-        //room.LockAllDoors();
-        // room.MarkDoorAsUsed(DoorToMark);
+        foreach (var cell in room.GetWorldCells())
+        {
+            _mapWorldCell.Add(cell, room);
+        }
+
         return room;
     }
 
@@ -77,16 +83,19 @@ public class Map : GameBehaviour
             if (neighborRoom)
             {
                 var door = room.GetDoorForDirection(direction);
+                var neighborDoor = neighborRoom.GetDoorForDirection(direction.Opposite());
+
                 if (!door.Used)
                 {
+                    door.ConnectingDoor = neighborDoor;
                     door.ConnectingRoom = neighborRoom;
                     door.Used = true;
                     door.LockDoor();
                 }
 
-                var neighborDoor = neighborRoom.GetDoorForDirection(direction.Opposite());
                 if (!neighborDoor.Used)
                 {
+                    neighborDoor.ConnectingDoor = door;
                     neighborDoor.ConnectingRoom = room;
                     neighborDoor.Used = true;
                     neighborDoor.LockDoor();
@@ -95,18 +104,28 @@ public class Map : GameBehaviour
         }
     }
 
-    private void LockDoors(Room room)
+    public Room GetRoomForRoomCell(Vector2Int roomCell)
     {
-
+        return _mapRoomCell.ContainsKey(roomCell) ? _mapRoomCell[roomCell] : null;
     }
 
-    // Update is called once per frame
-    private void Update()
+    public Room GetRoomForCell(Vector2Int cell)
     {
+        if (!_mapWorldCell.ContainsKey(cell)) return null;
+        return _mapWorldCell[cell];
     }
 
-    public Room GetRoomAtCell(Cell cell)
+    public bool IsPathable(Vector2Int worldCell)
     {
-        return _map.ContainsKey(cell) ? _map[cell] : null;
+        var room = GetRoomForCell(worldCell);
+        if (!room) return false;
+        return room.IsPathable(worldCell);
+    }
+
+    public Vector2 GetCellCenter(Vector2Int cell)
+    {
+        var room = GetRoomForCell(cell);
+        if (!room) return cell;
+        return room.RenderTilemap.GetCellCenterWorld((Vector3Int) cell);
     }
 }

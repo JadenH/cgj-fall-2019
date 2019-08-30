@@ -2,40 +2,81 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-using Unity.Collections;
 using UnityEngine;
 using UnityEngine.Tilemaps;
+using Random = UnityEngine.Random;
 
-public class Room : MonoBehaviour
+public class Room : GameBehaviour
 {
-    public Map Map;
-    public Cell Cell;
+    public Vector2Int RoomCell;
 
     public Door TopDoor;
     public Door RightDoor;
     public Door BottomDoor;
     public Door LeftDoor;
-    public Tilemap Tilemap;
+
+    public Tilemap ColliderTilemap;
+    public Tilemap RenderTilemap;
+
+    public Spawner Spawner;
 
     public GameObject Portals;
 
-
-    public Dictionary<Cell, bool> Pathable = new Dictionary<Cell, bool>();
-
-    private void Start()
+    private void Awake()
     {
-        SetupPathables();
+        if (Portals != null) Portals.SetActive(false);
     }
 
-    private void SetupPathables()
+    public void PlayerEnter()
     {
-        foreach (var pos in Tilemap.cellBounds.allPositionsWithin)
+        if (Spawner != null) Spawner.Spawn(this);
+    }
+
+    public IEnumerable<Vector2Int> GetLocalCells()
+    {
+        foreach (var cell in RenderTilemap.cellBounds.allPositionsWithin)
         {
-            var localPlace = new Vector3Int(pos.x, pos.y, pos.z);
-            var place = Tilemap.CellToWorld(localPlace);
-            Debug.Log((Cell)place);
-            Pathable.Add((Cell)place, !Tilemap.HasTile(localPlace));
+            if (RenderTilemap.HasTile(cell))
+            {
+                yield return (Vector2Int) cell;
+            }
         }
+    }
+
+    public IEnumerable<Vector2Int> GetWorldCells()
+    {
+        foreach (var pos in RenderTilemap.cellBounds.allPositionsWithin)
+        {
+            if (RenderTilemap.HasTile(pos))
+            {
+                var world = RenderTilemap.CellToWorld(pos);
+                var worldCell = new Vector2Int((int)world.x, (int)world.y);
+                yield return worldCell;
+            }
+        }
+    }
+
+    public IEnumerable<Vector3Int> PathableWorldCells()
+    {
+        foreach (var pos in RenderTilemap.cellBounds.allPositionsWithin)
+        {
+            if (RenderTilemap.HasTile(pos) && IsPathable((Vector2Int) pos))
+            {
+                yield return pos;
+            }
+        }
+    }
+
+    public Vector2Int GetRandomPathableCell()
+    {
+        var cells = PathableWorldCells().ToArray();
+        return (Vector2Int) cells[Random.Range(0, cells.Length)];
+    } 
+
+    public bool IsPathable(Vector2Int worldCell)
+    {
+        var cell = ColliderTilemap.WorldToCell(new Vector3(worldCell.x, worldCell.y));
+        return !ColliderTilemap.HasTile(cell);
     }
 
     public Door GetDoorForDirection(Direction direction)
@@ -57,7 +98,7 @@ public class Room : MonoBehaviour
 
     public Room GetNeighborRoom(Direction direction)
     {
-        return Map.GetRoomAtCell(Cell.GetNext(direction));
+        return Map.GetRoomForRoomCell(RoomCell.GetNextRoomCell(direction));
     }
 
     public IEnumerable<Door> AllDoors()
@@ -91,6 +132,14 @@ public class Room : MonoBehaviour
         }
     }
 
+    public void UnlockAllDoors()
+    {
+        foreach (Direction direction in Enum.GetValues(typeof(Direction)))
+        {
+            UnlockDoor(direction);
+        }
+    }
+
     public void UnlockDoor(Direction direction)
     {
         GetDoorForDirection(direction).UnlockDoor();
@@ -104,5 +153,14 @@ public class Room : MonoBehaviour
     public void CreatePortals()
     {
         if (Portals != null) Portals.SetActive(true);
+    }
+
+    private void OnDrawGizmos()
+    {
+        foreach (var cell in GetLocalCells())
+        {
+            Gizmos.color = IsPathable((Vector2Int) cell) ? Color.blue : Color.red;
+            Gizmos.DrawSphere(RenderTilemap.GetCellCenterWorld((Vector3Int) cell), 0.15f);
+        }
     }
 }
