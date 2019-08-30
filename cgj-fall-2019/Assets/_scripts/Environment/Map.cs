@@ -124,4 +124,11 @@ public class Map : GameBehaviour
         if (!room) return false;
         return room.IsPathable(worldCell);
     }
+
+    public Vector2 GetCellCenter(Vector2Int cell)
+    {
+        var room = GetRoomForCell(cell);
+        if (!room) return cell;
+        return room.RenderTilemap.GetCellCenterWorld((Vector3Int) cell);
+    }
 }
