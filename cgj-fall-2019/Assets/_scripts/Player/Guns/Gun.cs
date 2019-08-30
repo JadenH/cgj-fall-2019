@@ -54,7 +54,7 @@ public abstract class Gun : GameBehaviour
                 Destroy(bullet.gameObject, .5f);
                 break;
             }
-            bullet.transform.position += (Vector3)velocity;
+            bullet.transform.position += (Vector3) velocity * Time.deltaTime * 100;
             bullet.transform.rotation = Quaternion.LookRotation(Vector3.forward, velocity);
             yield return null;
         }

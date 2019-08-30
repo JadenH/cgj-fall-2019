@@ -6,6 +6,8 @@ public class Character : MonoBehaviour
     private float _horizontal;
     private float _vertical;
     private Gun _nearbyGun;
+    private Animator _animator;
+    private SpriteRenderer _renderer;
 
     public bool LockMovement;
     public float WalkSpeed = 5;
@@ -14,7 +16,9 @@ public class Character : MonoBehaviour
 
     private void Start()
     {
+        _animator = GetComponentInChildren<Animator>();
         _rigidbody = GetComponent<Rigidbody2D>();
+        _renderer = _animator.GetComponent<SpriteRenderer>();
         if (CurrentGun)
         {
             CurrentGun.GetComponent<CircleCollider2D>().enabled = false;
@@ -33,9 +37,8 @@ public class Character : MonoBehaviour
             _vertical = Input.GetAxisRaw("Vertical");
             _rigidbody.velocity = new Vector2(_horizontal, _vertical).normalized * WalkSpeed;
 
-            var lookDir = Input.mousePosition - Camera.main.WorldToScreenPoint(transform.position);
-            var angle = Mathf.Atan2(lookDir.y, lookDir.x) * Mathf.Rad2Deg;
-            transform.rotation = Quaternion.AngleAxis(angle - 90, Vector3.forward);
+            //var angle = Mathf.Atan2(lookDir.y, lookDir.x) * Mathf.Rad2Deg;
+            //transform.rotation = Quaternion.AngleAxis(angle - 90, Vector3.forward);
 
             var gunDir = Input.mousePosition - Camera.main.WorldToScreenPoint(CurrentGun.transform.position);
             if (CurrentGun.CurrentCooldown <= Time.time)
@@ -58,6 +61,21 @@ public class Character : MonoBehaviour
             _rigidbody.velocity = new Vector2(0, 0);
         }
 
+        var lookDir = (Input.mousePosition - Camera.main.WorldToScreenPoint(transform.position)).normalized;
+        if (Mathf.Round(lookDir.y) <= 0)
+        {
+            CurrentGun.GetComponent<SpriteRenderer>().sortingOrder = _renderer.sortingOrder + 1;
+        }
+        else
+        {
+            CurrentGun.GetComponent<SpriteRenderer>().sortingOrder = _renderer.sortingOrder - 1;
+        }
+        _renderer.flipX = Mathf.Round(lookDir.x) > 0;
+
+        CurrentGun.transform.localPosition = new Vector3(Mathf.Round(lookDir.x) * .25f, 0);
+        _animator.SetFloat("Horizontal", -Mathf.Abs(lookDir.x));
+        _animator.SetFloat("Vertical", lookDir.y);
+        _animator.SetFloat("Magnitude", _rigidbody.velocity.magnitude);
     }
 
     public void EquipWeapon(Gun gun)
