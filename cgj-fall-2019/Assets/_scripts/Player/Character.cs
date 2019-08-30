@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 
 public class Character : MonoBehaviour
 {
@@ -71,8 +72,18 @@ public class Character : MonoBehaviour
             CurrentGun.GetComponent<SpriteRenderer>().sortingOrder = _renderer.sortingOrder - 1;
         }
         _renderer.flipX = Mathf.Round(lookDir.x) > 0;
+        if (Vector3.Dot(lookDir, _rigidbody.velocity.normalized) > 0)
+        {
+            _animator.SetFloat("Multiplier", 1);
+        }
+        else
+        {
+            _animator.SetFloat("Multiplier", -1);
+        }
 
-        CurrentGun.transform.localPosition = new Vector3(Mathf.Round(lookDir.x) * .25f, 0);
+        CurrentGun.GetComponent<SpriteRenderer>().flipX = Math.Abs(Mathf.Sign(lookDir.x) - 1) > .01;
+
+        CurrentGun.transform.localPosition = new Vector3(Mathf.Round(lookDir.x) * .25f, -.4f);
         _animator.SetFloat("Horizontal", -Mathf.Abs(lookDir.x));
         _animator.SetFloat("Vertical", lookDir.y);
         _animator.SetFloat("Magnitude", _rigidbody.velocity.magnitude);
