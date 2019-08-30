@@ -53,6 +53,9 @@ public class Map : GameBehaviour
 
                 ConnectDoors(newRoom);
                 ConnectDoors(randomRoom);
+
+                newRoom.UnlockAllDoors();
+                randomRoom.UnlockAllDoors();
             }
         }
     }
@@ -68,11 +71,10 @@ public class Map : GameBehaviour
         foreach (var cell in room.GetCells())
         {
             var world = room.RenderTilemap.CellToWorld(cell);
-            var worldCell = new Vector2Int((int) world.x, (int) world.y);
+            var worldCell = new Vector2Int((int)world.x, (int)world.y);
             _mapWorldCell.Add(worldCell, room);
         }
 
-        room.UnlockAllDoors();
         return room;
     }
 
@@ -84,16 +86,19 @@ public class Map : GameBehaviour
             if (neighborRoom)
             {
                 var door = room.GetDoorForDirection(direction);
+                var neighborDoor = neighborRoom.GetDoorForDirection(direction.Opposite());
+
                 if (!door.Used)
                 {
+                    door.ConnectingDoor = neighborDoor;
                     door.ConnectingRoom = neighborRoom;
                     door.Used = true;
                     door.LockDoor();
                 }
 
-                var neighborDoor = neighborRoom.GetDoorForDirection(direction.Opposite());
                 if (!neighborDoor.Used)
                 {
+                    neighborDoor.ConnectingDoor = door;
                     neighborDoor.ConnectingRoom = room;
                     neighborDoor.Used = true;
                     neighborDoor.LockDoor();

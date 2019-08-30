@@ -39,6 +39,7 @@ public class Mover : GameBehaviour
             var neighbors = GetNeighbors(current.Cell);
             foreach (var next in neighbors)
             {
+                if (!Map.IsPathable(next)) continue;
                 var newCost = costSoFar[current.Cell] + 1;
 
                 if (!costSoFar.ContainsKey(next) || newCost < costSoFar[next])

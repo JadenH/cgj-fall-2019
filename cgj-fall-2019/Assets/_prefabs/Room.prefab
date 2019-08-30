@@ -325,7 +325,7 @@ GameObject:
   - component: {fileID: 8925900400145037118}
   - component: {fileID: 3609561293304529741}
   m_Layer: 0
-  m_Name: oepn_door_sprite
+  m_Name: open_door_sprite
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2045,8 +2045,6 @@ MonoBehaviour:
   LockedDoorSprite: {fileID: 6681421017200752567}
   UnlockedDoorSprite: {fileID: 3327020815414449774}
   SealedDoorSprite: {fileID: 7885627446649221638}
-  PlayerX: 0
-  PlayerY: 0
 --- !u!61 &6452190085581262347
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -7491,8 +7489,6 @@ MonoBehaviour:
   LockedDoorSprite: {fileID: 3689331283276504732}
   UnlockedDoorSprite: {fileID: 5814654389084355204}
   SealedDoorSprite: {fileID: 2656755783593823134}
-  PlayerX: 0
-  PlayerY: 0
 --- !u!61 &6452190085933715312
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -7574,8 +7570,6 @@ MonoBehaviour:
   LockedDoorSprite: {fileID: 4688977099982658270}
   UnlockedDoorSprite: {fileID: 9203500976197191101}
   SealedDoorSprite: {fileID: 1641011985135435840}
-  PlayerX: 0
-  PlayerY: 0
 --- !u!61 &6452190086527903056
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -7657,8 +7651,6 @@ MonoBehaviour:
   LockedDoorSprite: {fileID: 4603717047512556317}
   UnlockedDoorSprite: {fileID: 1238224999061499036}
   SealedDoorSprite: {fileID: 345317478983692049}
-  PlayerX: 0
-  PlayerY: 0
 --- !u!61 &6452190086842739731
 BoxCollider2D:
   m_ObjectHideFlags: 0

@@ -7,21 +7,13 @@ public class Door : GameBehaviour
     public bool Used = false;
 
     public Room ConnectingRoom;
+    public Door ConnectingDoor;
 
     public BoxCollider2D Collide;
 
     public GameObject LockedDoorSprite;
     public GameObject UnlockedDoorSprite;
     public GameObject SealedDoorSprite;
-
-    public float PlayerX = 0;
-    public float PlayerY = 0;
-    
-
-    // Start is called before the first frame update
-    private void Start()
-    {
-    }
 
     public void LockDoor()
     {
@@ -37,13 +29,11 @@ public class Door : GameBehaviour
     {
         LockedDoorSprite.SetActive(false);
         UnlockedDoorSprite.SetActive(true);
-        SealedDoorSprite.SetActive(false);
+//        SealedDoorSprite.SetActive(false);
 
         Collide.isTrigger = true;
         Locked = false;
     }
-
-
 
     public bool IsLocked()
     {
@@ -57,29 +47,9 @@ public class Door : GameBehaviour
             if (ConnectingRoom)
             {
                 CameraTarget.transform.position = ConnectingRoom.transform.position;
-                switch (Direction)
-                {
-                    case Direction.Up:
-                        Player.transform.position = ConnectingRoom.transform.position - new Vector3(0, +5, 0);
-                        break;
-                    case Direction.Right:
-                        Player.transform.position = ConnectingRoom.transform.position - new Vector3(+10, 0, 0);
-                        break;
-                    case Direction.Down:
-                        Player.transform.position = ConnectingRoom.transform.position - new Vector3(0, -5, 0);
-                        break;
-                    case Direction.Left:
-                        Player.transform.position = ConnectingRoom.transform.position - new Vector3(-10, 0, 0);
-                        break;
-                }
-
+                Player.transform.position = ConnectingDoor.transform.position + Direction.V3();
                 Player.EnterRoom(ConnectingRoom);
             }
         }
-    }
-
-    // Update is called once per frame
-    private void Update()
-    {
     }
 }
