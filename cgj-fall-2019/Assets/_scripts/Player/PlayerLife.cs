@@ -5,7 +5,7 @@ using System.Diagnostics.Eventing.Reader;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class PlayerHealth : Health
+public class PlayerLife : GameBehaviour
 {
     public int CurrentLives = 5;
     public GameObject Heart;
@@ -40,23 +40,10 @@ public class PlayerHealth : Health
         {
             RemoveLife();
         }
-        //Matches the slider to the player's health
-        Slider.value = CurrentHealth / MaxHealth;
-        if (CurrentHealth <= 0)
-        {
-            IsDead();
-        }
     }
 
     public void GameOver()
     {
         //What happens when player loses all lives
-    }
-
-    public override void IsDead()
-    {
-        CurrentLives -= 1;
-        CurrentHealth = MaxHealth;
-        //Restart Game
     }
 }

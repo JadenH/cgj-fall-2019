@@ -5,6 +5,7 @@ using System.Collections;
 public class Bat : GameBehaviour
 {
     public Chaser Chaser;
+    public Health Health;
 
     private void Start()
     {
