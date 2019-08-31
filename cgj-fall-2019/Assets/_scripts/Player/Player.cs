@@ -35,6 +35,8 @@ public class Player : GameBehaviour
             case DamageType.Bite:
                 CameraController.Shake(0.1f, 0.1f);
                 break;
+            case DamageType.Heal:
+                break;
             default:
                 throw new ArgumentOutOfRangeException(nameof(damageType), damageType, null);
         }
