@@ -49,7 +49,7 @@ MonoBehaviour:
   BulletLife: 2
   BulletPrefab: {fileID: 2194320242603341528, guid: 0527b07cef8e8904a86cf8c97decd54e,
     type: 3}
-  PickupRadius: 1.5
+  PickupRadius: 0.5
 --- !u!212 &7073178915389285722
 SpriteRenderer:
   m_ObjectHideFlags: 0

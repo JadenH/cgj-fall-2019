@@ -2,43 +2,22 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Diagnostics.Eventing.Reader;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
 public class PlayerLife : GameBehaviour
 {
     public int CurrentLives = 5;
-    public GameObject Heart;
+    public TextMeshProUGUI HeartCount;
     public Slider Slider;
-    private readonly List<GameObject> _hearts = new List<GameObject>();
-
-    private void AddLife()
-    {
-        var heart = Instantiate(Heart, Slider.transform.parent);
-        heart.GetComponent<RectTransform>().localPosition = new Vector3((_hearts.Count - 1) * 30, 0, 0);
-        _hearts.Add(heart);
-    }
-
-    private void RemoveLife()
-    {
-        Destroy(_hearts[_hearts.Count-1].gameObject);
-        _hearts.Remove(_hearts[_hearts.Count - 1]);
-        if (_hearts.Count < 0)
-        {
-            GameOver();
-        }
-    }
 
     void Update()
     {
-        //Updates the hearts on the screen
-        if (_hearts.Count < CurrentLives)
+        HeartCount.text = "X" + CurrentLives;
+        if (CurrentLives < 0)
         {
-            AddLife();
-        }
-        else if (_hearts.Count > CurrentLives && _hearts.Count > 0)
-        {
-            RemoveLife();
+            GameOver();
         }
     }
 
