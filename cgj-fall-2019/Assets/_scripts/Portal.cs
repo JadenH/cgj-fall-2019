@@ -7,6 +7,7 @@ public class Portal : GameBehaviour
     public TextMeshProUGUI TextField;
     public Animator Ani;
     public ParticleSystem Parts;
+    public AudioSource AudioSource;
 
     private bool _onPortal = false;
     private Scenario _scenario;
@@ -20,6 +21,7 @@ public class Portal : GameBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
+        AudioSource.Play();
         _onPortal = true;
         Canvas.SetActive(true);
         Ani.SetBool("PortalOn", true);
