@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: potion_health_100
   m_EditorClassIdentifier: 
   TruthDescription: There is a room with a health potion
-  LockedWhileEnemies: 1
+  LockedWhileEnemies: 0
   EnemySpawns: []
   ItemSpawns:
   - Item: {fileID: 2284663273017154263, guid: 4cdad946c0e75bf4ebc46cd5b12bb875, type: 3}

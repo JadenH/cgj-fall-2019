@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: potion_damage_100
   m_EditorClassIdentifier: 
   TruthDescription: There is a room with a gun damage upgrade potion
-  LockedWhileEnemies: 1
+  LockedWhileEnemies: 0
   EnemySpawns: []
   ItemSpawns:
   - Item: {fileID: 5190765945258930482, guid: 15d243753a8af72429af5923744dd3a5, type: 3}
