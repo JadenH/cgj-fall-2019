@@ -263,12 +263,6 @@ PrefabInstance:
       propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 7454881130690021542, guid: e921a1afe7cacf0468b76a52fc0d1320,
-        type: 3}
-      propertyPath: m_sharedMaterial
-      value: 
-      objectReference: {fileID: -74164601390235196, guid: ed316c8dd7469c24fb1df63afc8e526e,
-        type: 2}
     - target: {fileID: 536322064959729893, guid: e921a1afe7cacf0468b76a52fc0d1320,
         type: 3}
       propertyPath: m_Name
@@ -295,6 +289,12 @@ PrefabInstance:
       propertyPath: m_WasSpriteAssigned
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 7454881130690021542, guid: e921a1afe7cacf0468b76a52fc0d1320,
+        type: 3}
+      propertyPath: m_sharedMaterial
+      value: 
+      objectReference: {fileID: -74164601390235196, guid: ed316c8dd7469c24fb1df63afc8e526e,
+        type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e921a1afe7cacf0468b76a52fc0d1320, type: 3}
 --- !u!114 &118734262 stripped
@@ -831,7 +831,7 @@ MonoBehaviour:
   Player: {fileID: 118734262}
   Map: {fileID: 1167233651}
   EnemyManager: {fileID: 1490127925}
-  CurrentLevel: 5
+  CurrentLevel: 2
 --- !u!4 &1490127924
 Transform:
   m_ObjectHideFlags: 0
@@ -859,7 +859,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   EnemyPrefabs:
-  - {fileID: 475843749752243473, guid: 8c374b662d973494591ba6da4feb86ac, type: 3}
+  - {fileID: 2868749707578189608, guid: 8c374b662d973494591ba6da4feb86ac, type: 3}
 --- !u!1 &1895135813
 GameObject:
   m_ObjectHideFlags: 0

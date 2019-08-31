@@ -2,21 +2,29 @@
 using System.Collections;
 
 [RequireComponent(typeof(Chaser))]
+[RequireComponent(typeof(Mover))]
 public class Bat : Enemy
 {
-    public Chaser Chaser;
+    private Chaser _chaser;
+    private Mover _mover;
+
+    private void Awake()
+    {
+        _chaser = GetComponent<Chaser>();
+        _mover = GetComponent<Mover>();
+    }
 
     protected override void PlayerChangedRooms(Room room)
     {
         if (room == CurrentRoom)
         {
-            Chaser.enabled = true;
-            Chaser.Target = Player.transform;
+            _chaser.enabled = true;
+            _chaser.Target = Player.transform;
         }
         else
         {
-            Chaser.enabled = false;
-            Chaser.Move(StartCell);
+            _chaser.enabled = false;
+            _mover.Move(StartCell);
         }
     }
 }

@@ -126,4 +126,9 @@ public class Map : GameBehaviour
     {
         return cell + Vector2.one * .5f;
     }
+
+    public Vector2Int GetCellForPosition(Vector3 pos)
+    {
+        return new Vector2Int(Mathf.FloorToInt(pos.x), Mathf.FloorToInt(pos.y));
+    }
 }

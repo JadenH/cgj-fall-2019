@@ -6,14 +6,13 @@ using System.Linq;
 public class Mover : Pathfinder
 {
     public float Speed = .01f;
-    public float RepathDelay = 0.05f;
 
     public Queue<Vector2Int> CurrentPath { get; private set; }
     public Vector2Int? Next { get; private set; }
 
     public void Move(Vector2Int dest)
     {
-        var start = Next ?? new Vector2Int((int)transform.position.x, (int)transform.position.y);
+        var start = Next ?? Map.GetCellForPosition(transform.position);
         var path = Pathfind(start, dest);
         if (path != null && path.Any())
         {

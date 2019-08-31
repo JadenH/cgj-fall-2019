@@ -9,8 +9,7 @@ public class EnemyManager : GameBehaviour
     {
         var randomEnemy = EnemyPrefabs[Random.Range(0, EnemyPrefabs.Length)];
         var randomCell = room.GetRandomPathableCell();
-        Debug.Log(randomCell, room);
-        Instantiate(randomEnemy, Map.GetCellCenter(randomCell), Quaternion.identity, room.transform);
-        randomEnemy.Initialize(room, randomCell);
+        var newEnemy = Instantiate(randomEnemy, Map.GetCellCenter(randomCell), Quaternion.identity);
+        newEnemy.Initialize(room, randomCell);
     }
 }
