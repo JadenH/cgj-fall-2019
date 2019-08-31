@@ -38,7 +38,7 @@ public abstract class Gun : GameBehaviour
     {
         CurrentCooldown = Time.time + Cooldown / 100;
         var bullet = Instantiate(BulletPrefab);
-        _audioSource.Play();
+        if (_audioSource != null) _audioSource.Play();
         bullet.transform.SetParent(null);
         bullet.transform.position = transform.position;
         Destroy(bullet, BulletLife);
