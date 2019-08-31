@@ -23,11 +23,14 @@ public class Spawner : GameBehaviour
         if (!_spawned)
         {
             _spawned = true;
-            foreach (var spawn in _room.Scenario.EnemySpawns)
+            foreach (var scenario in _room.Scenarios)
             {
-                for (int i = 0; i < spawn.Amount; i++)
+                foreach (var spawn in scenario.EnemySpawns)
                 {
-                    SpawnEnemy(spawn);
+                    for (int i = 0; i < spawn.Amount; i++)
+                    {
+                        SpawnEnemy(spawn);
+                    }
                 }
             }
         }

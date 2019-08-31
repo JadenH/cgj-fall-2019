@@ -1,0 +1,20 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8423c4fb862c2cb48b391b0a1bf2221e, type: 3}
+  m_Name: potion_life_10
+  m_EditorClassIdentifier: 
+  TruthDescription: There is a room with a green +1 life potion
+  LockedWhileEnemies: 1
+  EnemySpawns: []
+  ItemSpawns:
+  - Item: {fileID: 2284663273017154263, guid: 57d5693526de11041a1cf399a002616f, type: 3}
+    Chance: 100

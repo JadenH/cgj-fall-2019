@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Potion: MonoBehaviour
+public class Potion: Item
 {
     public float Healing = 10;
     public float DamageIncrease = 10;

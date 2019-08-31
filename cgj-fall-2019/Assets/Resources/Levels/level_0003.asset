@@ -18,4 +18,5 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 43cecfc828d52f846aefd2c48b58908d, type: 2}
   - {fileID: 11400000, guid: 2ef31815e197ef94cbdf935e9cb40812, type: 2}
   - {fileID: 11400000, guid: 4b551a761b26d41488672d46e76b2362, type: 2}
+  - {fileID: 11400000, guid: bae5d86827b0caa499dae01d526f8609, type: 2}
   SetLieScenario: {fileID: 0}

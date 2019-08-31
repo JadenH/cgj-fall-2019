@@ -8,7 +8,7 @@ using Random = UnityEngine.Random;
 public class Room : GameBehaviour
 {
     public Vector2Int RoomCell;
-    public Scenario Scenario;
+    public Scenario[] Scenarios;
 
     public Door TopDoor;
     public Door RightDoor;
@@ -26,20 +26,23 @@ public class Room : GameBehaviour
     private void Awake()
     {
         SetPortalsActive(false);
-        Scenario = Game.RandomTruth();
+        Scenarios = new []{ Game.RandomTruth() };
         GenerateItems();
     }
 
     private void GenerateItems()
     {
-        if (Scenario.ItemSpawns != null)
+        foreach (var scenario in Scenarios)
         {
-            foreach (var itemSpawn in Scenario.ItemSpawns)
+            if (scenario.ItemSpawns != null)
             {
-                if (Random.Range(0f, 100f) <= itemSpawn.Chance)
+                foreach (var itemSpawn in scenario.ItemSpawns)
                 {
-                    var cell = GetRandomPathableCell();
-                    Instantiate(itemSpawn.Item, Map.GetCellCenter(cell), Quaternion.identity, transform);
+                    if (Random.Range(0f, 100f) <= itemSpawn.Chance)
+                    {
+                        var cell = GetRandomPathableCell();
+                        Instantiate(itemSpawn.Item, Map.GetCellCenter(cell), Quaternion.identity, transform);
+                    }
                 }
             }
         }
@@ -47,9 +50,12 @@ public class Room : GameBehaviour
 
     public void PlayerEntered()
     {
-        if (Scenario.LockedWhileEnemies && !_visited)
+        foreach (var scenario in Scenarios)
         {
-            LockAllDoors();
+            if (scenario.LockedWhileEnemies && !_visited)
+            {
+                LockAllDoors();
+            }
         }
 
         _visited = true;
@@ -198,9 +204,12 @@ public class Room : GameBehaviour
     public void EnemyDied()
     {
         _enemyCount--;
-        if (_enemyCount <= 0 && Scenario.LockedWhileEnemies)
+        foreach (var scenario in Scenarios)
         {
-            UnlockAllDoors();
+            if (_enemyCount <= 0 && scenario.LockedWhileEnemies)
+            {
+                UnlockAllDoors();
+            }
         }
     }
 
