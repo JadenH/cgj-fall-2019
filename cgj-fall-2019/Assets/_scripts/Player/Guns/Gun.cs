@@ -45,10 +45,14 @@ public abstract class Gun : GameBehaviour
                     if (hit.transform.GetComponent<Health>())
                     {
                         hit.transform.GetComponent<Health>().TakeDamage(10);
+                        bullet.transform.position = hit.transform.position;
+                    }
+                    else
+                    {
+                        bullet.transform.position = hit.point;
                     }
                     bullet.GetComponent<Animator>().SetTrigger("Dead");
                     bullet.transform.localScale *= 2 * Random.Range(.8f, 1.2f);
-                    bullet.transform.position = hit.point;
                     bullet.transform.rotation = Quaternion.AngleAxis(Random.Range(-10, 10), Vector3.back) * Quaternion.LookRotation(Vector3.forward, -hit.normal);
                     Destroy(bullet.gameObject, .5f);
                     break;
