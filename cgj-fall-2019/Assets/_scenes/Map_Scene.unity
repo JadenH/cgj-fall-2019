@@ -427,6 +427,11 @@ PrefabInstance:
       propertyPath: m_WasSpriteAssigned
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 4611951649560956130, guid: e921a1afe7cacf0468b76a52fc0d1320,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7454881130690021542, guid: e921a1afe7cacf0468b76a52fc0d1320,
         type: 3}
       propertyPath: m_sharedMaterial
@@ -436,11 +441,6 @@ PrefabInstance:
     - target: {fileID: 7454881130690021542, guid: e921a1afe7cacf0468b76a52fc0d1320,
         type: 3}
       propertyPath: m_fontStyle
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4611951649560956130, guid: e921a1afe7cacf0468b76a52fc0d1320,
-        type: 3}
-      propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2937193875191745384, guid: e921a1afe7cacf0468b76a52fc0d1320,
@@ -1193,6 +1193,7 @@ GameObject:
   - component: {fileID: 1090676518}
   - component: {fileID: 1090676517}
   - component: {fileID: 1090676520}
+  - component: {fileID: 1090676521}
   m_Layer: 0
   m_Name: '[Camera]'
   m_TagString: MainCamera
@@ -1280,6 +1281,18 @@ MonoBehaviour:
   Dist: 0
   SmoothTime: 0.2
   Target: {fileID: 2080715109}
+--- !u!114 &1090676521
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1090676516}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e04105b4c873fea41bd0c5ab6262b078, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &1167233651 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 5787231702038532699, guid: 76370abe159f91941a241c3f5ebdb227,
@@ -1401,6 +1414,7 @@ MonoBehaviour:
   Map: {fileID: 1167233651}
   EnemyManager: {fileID: 1490127925}
   LevelText: {fileID: 1895135815}
+  CameraController: {fileID: 1090676521}
   CurrentLevelNumber: 3
   CurrentLevel: {fileID: 0}
 --- !u!4 &1490127924

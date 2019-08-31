@@ -14,7 +14,7 @@ public class Weapon : GameBehaviour
         if (Vector2.Distance(transform.position, Player.Character.transform.position) < 1.5f)
         {
             _cooldown = true;
-            Player.Health.TakeDamage(Damage);
+            Player.Health.TakeDamage(Damage, DamageType.Bite);
             StartCoroutine(Cooldown());
         }
     }

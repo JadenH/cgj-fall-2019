@@ -10,20 +10,13 @@ public class Health : MonoBehaviour
     public float CurrentHealth = 100;
 
     [Serializable]
-    public class HealthUpdate : UnityEvent<float, float> { }
+    public class HealthUpdate : UnityEvent<float, float, DamageType> { }
 
     public HealthUpdate HealthChanged;
 
-    // Start is called before the first frame update
-
-    private void UpdateHealth()
-    {
-        HealthChanged?.Invoke(CurrentHealth, MaxHealth);
-    }
-
-    public void TakeDamage(float amount)
+    public void TakeDamage(float amount, DamageType damageType)
     {
         CurrentHealth -= amount;
-        UpdateHealth();
+        HealthChanged?.Invoke(CurrentHealth, amount, damageType);
     }
 }
