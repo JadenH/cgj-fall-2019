@@ -625,6 +625,9 @@ MonoBehaviour:
   CurrentRoom: {fileID: 0}
   Damage: 25
   Range: 2
+  TimeToExplode: 1
+  ExplosionEffect: {fileID: 7277129611893154685, guid: cf59dcc5306ba0a448feb85f2372928a,
+    type: 3}
   Animator: {fileID: 3306446067637649608}
   ExplodeCurve:
     serializedVersion: 2

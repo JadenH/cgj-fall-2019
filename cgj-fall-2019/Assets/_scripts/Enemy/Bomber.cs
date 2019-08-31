@@ -9,6 +9,7 @@ public class Bomber : Enemy
     public float Damage;
     public float Range = 2f;
     public float TimeToExplode = 1f;
+    public GameObject ExplosionEffect;
 
     public Animator Animator;
     public AnimationCurve ExplodeCurve;
@@ -52,6 +53,9 @@ public class Bomber : Enemy
             Player.Health.TakeDamage(Damage);
         }
 
+        var effect = Instantiate(ExplosionEffect, null);
+        effect.transform.position = transform.position;
+        Destroy(effect, 2);
         Die();
     }
 }
