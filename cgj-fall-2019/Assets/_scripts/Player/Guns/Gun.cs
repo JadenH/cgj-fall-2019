@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using UnityEngine;
 
+[RequireComponent(typeof(AudioSource))]
 public abstract class Gun : GameBehaviour
 {
     [Tooltip("Seconds")]
@@ -10,6 +11,13 @@ public abstract class Gun : GameBehaviour
     public float BulletLife = 2;
     public GameObject BulletPrefab;
     public double PickupRadius = 1.5;
+
+    private AudioSource _audioSource;
+
+    private void Awake()
+    {
+        _audioSource = GetComponent<AudioSource>();
+    }
 
     public void Start()
     {
@@ -30,6 +38,7 @@ public abstract class Gun : GameBehaviour
     {
         CurrentCooldown = Time.time + Cooldown / 100;
         var bullet = Instantiate(BulletPrefab);
+        _audioSource.Play();
         bullet.transform.SetParent(null);
         bullet.transform.position = transform.position;
         Destroy(bullet, BulletLife);
