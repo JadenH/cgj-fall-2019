@@ -1,7 +1,6 @@
-﻿using UnityEngine;
-using System.Collections;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
+using UnityEngine;
 
 public class Mover : Pathfinder
 {
@@ -27,7 +26,7 @@ public class Mover : Pathfinder
             var targetPos = Map.GetCellCenter(Next.Value);
             if (Vector2.Distance(transform.position, targetPos) > 0.1f)
             {
-                transform.position = Vector3.MoveTowards(transform.position, targetPos, Speed);
+                transform.position = Vector3.MoveTowards(transform.position, targetPos, Time.deltaTime * Speed);
             }
             else
             {
