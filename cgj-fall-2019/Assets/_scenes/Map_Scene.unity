@@ -427,11 +427,6 @@ PrefabInstance:
       propertyPath: m_WasSpriteAssigned
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 4611951649560956130, guid: e921a1afe7cacf0468b76a52fc0d1320,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 7454881130690021542, guid: e921a1afe7cacf0468b76a52fc0d1320,
         type: 3}
       propertyPath: m_sharedMaterial
@@ -441,6 +436,11 @@ PrefabInstance:
     - target: {fileID: 7454881130690021542, guid: e921a1afe7cacf0468b76a52fc0d1320,
         type: 3}
       propertyPath: m_fontStyle
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4611951649560956130, guid: e921a1afe7cacf0468b76a52fc0d1320,
+        type: 3}
+      propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2937193875191745384, guid: e921a1afe7cacf0468b76a52fc0d1320,
@@ -1732,17 +1732,17 @@ PrefabInstance:
     - target: {fileID: 4478883202534611082, guid: 178325075a2fe0641b60458ca792d19c,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 375
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4478883202534611082, guid: 178325075a2fe0641b60458ca792d19c,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 210
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4478883202534611082, guid: 178325075a2fe0641b60458ca792d19c,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -1
+      value: -6.28
       objectReference: {fileID: 0}
     - target: {fileID: 4478883202534611082, guid: 178325075a2fe0641b60458ca792d19c,
         type: 3}
