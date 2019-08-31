@@ -9,6 +9,7 @@ public class Game : MonoBehaviour
     public Map Map;
     public EnemyManager EnemyManager;
     public TextMeshProUGUI LevelText;
+    public CameraController CameraController;
 
     public int CurrentLevelNumber = 1;
     public Level CurrentLevel;
@@ -120,6 +121,8 @@ public class Game : MonoBehaviour
         {
             // Incorrect
             Debug.Log("INCORRECT");
+            CurrentLevelNumber = Mathf.Max(1, CurrentLevelNumber - 5);
+            StartLevel(CurrentLevelNumber);
         }
     }
 }
