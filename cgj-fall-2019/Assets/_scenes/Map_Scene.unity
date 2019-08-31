@@ -269,6 +269,32 @@ PrefabInstance:
       value: 
       objectReference: {fileID: -74164601390235196, guid: ed316c8dd7469c24fb1df63afc8e526e,
         type: 2}
+    - target: {fileID: 536322064959729893, guid: e921a1afe7cacf0468b76a52fc0d1320,
+        type: 3}
+      propertyPath: m_Name
+      value: Sprite
+      objectReference: {fileID: 0}
+    - target: {fileID: 3238287151146192802, guid: e921a1afe7cacf0468b76a52fc0d1320,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 1163294531811954323, guid: 49eb0a689dc9f274196e538c08065e2d,
+        type: 3}
+    - target: {fileID: 7073178916700593719, guid: e921a1afe7cacf0468b76a52fc0d1320,
+        type: 3}
+      propertyPath: m_Size.x
+      value: 0.23
+      objectReference: {fileID: 0}
+    - target: {fileID: 7073178916700593719, guid: e921a1afe7cacf0468b76a52fc0d1320,
+        type: 3}
+      propertyPath: m_Size.y
+      value: 0.15
+      objectReference: {fileID: 0}
+    - target: {fileID: 7073178916700593719, guid: e921a1afe7cacf0468b76a52fc0d1320,
+        type: 3}
+      propertyPath: m_WasSpriteAssigned
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e921a1afe7cacf0468b76a52fc0d1320, type: 3}
 --- !u!114 &118734262 stripped

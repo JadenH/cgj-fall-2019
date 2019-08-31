@@ -38,8 +38,6 @@ public class Character : MonoBehaviour
             _vertical = Input.GetAxisRaw("Vertical");
             _rigidbody.velocity = new Vector2(_horizontal, _vertical).normalized * WalkSpeed;
 
-            //var angle = Mathf.Atan2(lookDir.y, lookDir.x) * Mathf.Rad2Deg;
-            //transform.rotation = Quaternion.AngleAxis(angle - 90, Vector3.forward);
 
             var gunDir = Input.mousePosition - Camera.main.WorldToScreenPoint(CurrentGun.transform.position);
             if (CurrentGun.CurrentCooldown <= Time.time)
@@ -63,6 +61,15 @@ public class Character : MonoBehaviour
         }
 
         var lookDir = (Input.mousePosition - Camera.main.WorldToScreenPoint(transform.position)).normalized;
+        var angle = Mathf.Atan2(lookDir.y, lookDir.x) * Mathf.Rad2Deg;
+        if (Math.Abs(Mathf.Sign(lookDir.x) - 1) > .01)
+        {
+            CurrentGun.transform.rotation = Quaternion.AngleAxis(angle + 180, Vector3.forward);
+        }
+        else
+        {
+            CurrentGun.transform.rotation = Quaternion.AngleAxis(angle, Vector3.forward);
+        }
         if (Mathf.Round(lookDir.y) <= 0)
         {
             CurrentGun.GetComponent<SpriteRenderer>().sortingOrder = _renderer.sortingOrder + 1;
