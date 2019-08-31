@@ -8,6 +8,7 @@ public class HealthSlider : MonoBehaviour
     public Health Health;
 
     public Slider Slider;
+    public const float SliderSpeed = 10f;
 
     // Use this for initialization
     private void Start()
@@ -29,9 +30,8 @@ public class HealthSlider : MonoBehaviour
     {
         while (Math.Abs(Slider.value - dest) > 0.1f)
         {
-            if (dest > Slider.value) Slider.value++;
-            else Slider.value--;
-            yield return new WaitForSeconds(0.01f);
+            Slider.value = Mathf.Lerp(Slider.value, dest, Time.deltaTime * SliderSpeed);
+            yield return null;
         }
     }
 
