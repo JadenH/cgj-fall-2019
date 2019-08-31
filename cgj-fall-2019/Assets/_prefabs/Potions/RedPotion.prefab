@@ -93,4 +93,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fcda3a5cc9fdd7945a2135f338f31363, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Healing: 0
+  Healing: 25
+  DamageIncrease: 0
+  Life: 0

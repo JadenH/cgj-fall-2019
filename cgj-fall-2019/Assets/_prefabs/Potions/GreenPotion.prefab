@@ -94,3 +94,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Healing: 0
+  DamageIncrease: 0
+  Life: 1

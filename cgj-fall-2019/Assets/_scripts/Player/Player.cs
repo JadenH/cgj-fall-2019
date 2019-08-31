@@ -16,6 +16,7 @@ public class Player : GameBehaviour
     public class ChangeRoomEvent : UnityEvent<Room> { }
 
     public ChangeRoomEvent ChangedRoom;
+    public float DamageModifier;
 
     private void Start()
     {
