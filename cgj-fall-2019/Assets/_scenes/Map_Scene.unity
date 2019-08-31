@@ -305,6 +305,26 @@ PrefabInstance:
       value: 
       objectReference: {fileID: -74164601390235196, guid: ed316c8dd7469c24fb1df63afc8e526e,
         type: 2}
+    - target: {fileID: 2937193875191745384, guid: e921a1afe7cacf0468b76a52fc0d1320,
+        type: 3}
+      propertyPath: m_textInfo.characterCount
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2937193875191745384, guid: e921a1afe7cacf0468b76a52fc0d1320,
+        type: 3}
+      propertyPath: m_textInfo.wordCount
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2937193875191745384, guid: e921a1afe7cacf0468b76a52fc0d1320,
+        type: 3}
+      propertyPath: m_textInfo.lineCount
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2937193875191745384, guid: e921a1afe7cacf0468b76a52fc0d1320,
+        type: 3}
+      propertyPath: m_textInfo.pageCount
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e921a1afe7cacf0468b76a52fc0d1320, type: 3}
 --- !u!114 &118734262 stripped
@@ -842,7 +862,7 @@ MonoBehaviour:
   Map: {fileID: 1167233651}
   EnemyManager: {fileID: 1490127925}
   LevelText: {fileID: 1895135815}
-  CurrentLevelNumber: 1
+  CurrentLevelNumber: 3
   CurrentLevel: {fileID: 0}
 --- !u!4 &1490127924
 Transform:

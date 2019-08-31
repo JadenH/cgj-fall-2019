@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: bats_10
   m_EditorClassIdentifier: 
   TruthDescription: There is a room with 10 bats
+  LockedWhileEnemies: 1
   EnemySpawns:
   - EnemyPrefab: {fileID: 2868749707578189608, guid: 8c374b662d973494591ba6da4feb86ac,
       type: 3}

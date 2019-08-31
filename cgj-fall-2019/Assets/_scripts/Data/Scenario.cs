@@ -7,6 +7,7 @@ public class Scenario : ScriptableObject
 {
     public string TruthDescription;
 
+    public bool LockedWhileEnemies;
     public EnemySpawn[] EnemySpawns;
 }
 

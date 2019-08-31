@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.IO;
 using System.Linq;
 using UnityEngine;
 using UnityEngine.Tilemaps;
@@ -9,6 +8,7 @@ using Random = UnityEngine.Random;
 public class Room : GameBehaviour
 {
     public Vector2Int RoomCell;
+    public Scenario Scenario;
 
     public Door TopDoor;
     public Door RightDoor;
@@ -20,9 +20,20 @@ public class Room : GameBehaviour
 
     public Portal[] Portals;
 
+    private int _enemyCount;
+
     private void Awake()
     {
         SetPortalsActive(false);
+        Scenario = Game.RandomTruth();
+    }
+
+    public void PlayerEntered()
+    {
+        if (Scenario.LockedWhileEnemies)
+        {
+            LockAllDoors();
+        }
     }
 
     private IEnumerable<Vector3Int> GetLocalCells()
@@ -108,16 +119,15 @@ public class Room : GameBehaviour
         return GetDoorForDirection(direction).IsLocked();
     }
 
-    public void LockDoor(Direction direction)
-    {
-        GetDoorForDirection(direction).LockDoor();
-    }
-
     public void LockAllDoors()
     {
         foreach (Direction direction in Enum.GetValues(typeof(Direction)))
         {
-            LockDoor(direction);
+            var door = GetDoorForDirection(direction);
+            if (door.Used)
+            {
+                door.LockDoor();
+            }
         }
     }
 
@@ -125,13 +135,12 @@ public class Room : GameBehaviour
     {
         foreach (Direction direction in Enum.GetValues(typeof(Direction)))
         {
-            UnlockDoor(direction);
+            var door = GetDoorForDirection(direction);
+            if (door.Used)
+            {
+                door.UnlockDoor();
+            }
         }
-    }
-
-    public void UnlockDoor(Direction direction)
-    {
-        GetDoorForDirection(direction).UnlockDoor();
     }
 
     public bool HasAvailableDoor()
@@ -165,5 +174,19 @@ public class Room : GameBehaviour
             Gizmos.color = IsPathable(cell) ? Color.blue : Color.red;
             Gizmos.DrawSphere(Map.GetCellCenter(cell), 0.15f);
         }
+    }
+
+    public void EnemyDied()
+    {
+        _enemyCount--;
+        if (_enemyCount <= 0 && Scenario.LockedWhileEnemies)
+        {
+            UnlockAllDoors();
+        }
+    }
+
+    public void EnemyCreated()
+    {
+        _enemyCount++;
     }
 }

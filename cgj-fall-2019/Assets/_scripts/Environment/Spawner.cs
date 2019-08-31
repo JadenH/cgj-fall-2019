@@ -5,13 +5,11 @@ public class Spawner : GameBehaviour
 {
     private Room _room;
     private bool _spawned = false;
-    public Scenario Scenario;
 
     private void Awake()
     {
         _room = GetComponent<Room>();
         Player.ChangedRoom.AddListener(PlayerEnter);
-        Scenario = Game.RandomTruth();
     }
 
     private void PlayerEnter(Room room)
@@ -25,7 +23,7 @@ public class Spawner : GameBehaviour
         if (!_spawned)
         {
             _spawned = true;
-            foreach (var spawn in Scenario.EnemySpawns)
+            foreach (var spawn in _room.Scenario.EnemySpawns)
             {
                 for (int i = 0; i < spawn.Amount; i++)
                 {
