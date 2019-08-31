@@ -19,7 +19,6 @@ public class Player : MonoBehaviour
     {
         Debug.Log("Change room", room);
         CurrentRoom = room;
-        room.PlayerEnter();
         ChangedRoom?.Invoke(room);
     }
 }

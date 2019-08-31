@@ -18,8 +18,6 @@ public class Room : GameBehaviour
     public Tilemap ColliderTilemap;
     public Tilemap RenderTilemap;
 
-    public Spawner Spawner;
-
     public GameObject Portals;
 
     private void Awake()
@@ -27,56 +25,47 @@ public class Room : GameBehaviour
         if (Portals != null) Portals.SetActive(false);
     }
 
-    public void PlayerEnter()
-    {
-        if (Spawner != null) Spawner.Spawn(this);
-    }
-
-    public IEnumerable<Vector2Int> GetLocalCells()
+    private IEnumerable<Vector3Int> GetLocalCells()
     {
         foreach (var cell in RenderTilemap.cellBounds.allPositionsWithin)
         {
             if (RenderTilemap.HasTile(cell))
             {
-                yield return (Vector2Int) cell;
+                yield return cell;
             }
         }
     }
 
     public IEnumerable<Vector2Int> GetWorldCells()
     {
-        foreach (var pos in RenderTilemap.cellBounds.allPositionsWithin)
-        {
-            if (RenderTilemap.HasTile(pos))
-            {
-                var world = RenderTilemap.CellToWorld(pos);
-                var worldCell = new Vector2Int((int)world.x, (int)world.y);
-                yield return worldCell;
-            }
-        }
+        return GetLocalCells().Select(LocalCellToWorldCell);
     }
 
-    public IEnumerable<Vector3Int> PathableWorldCells()
+    public IEnumerable<Vector2Int> PathableWorldCells()
     {
-        foreach (var pos in RenderTilemap.cellBounds.allPositionsWithin)
-        {
-            if (RenderTilemap.HasTile(pos) && IsPathable((Vector2Int) pos))
-            {
-                yield return pos;
-            }
-        }
+        return GetWorldCells().Where(IsPathable);
     }
 
     public Vector2Int GetRandomPathableCell()
     {
         var cells = PathableWorldCells().ToArray();
-        return (Vector2Int) cells[Random.Range(0, cells.Length)];
-    } 
+        return cells[Random.Range(0, cells.Length)];
+    }
+
+    public Vector3Int WorldCellToLocalCell(Vector2Int worldCell)
+    {
+        return ColliderTilemap.WorldToCell(new Vector3(worldCell.x, worldCell.y));
+    }
+
+    public Vector2Int LocalCellToWorldCell(Vector3Int localCell)
+    {
+        var world = RenderTilemap.CellToWorld((Vector3Int)localCell);
+        return new Vector2Int((int)world.x, (int)world.y);
+    }
 
     public bool IsPathable(Vector2Int worldCell)
     {
-        var cell = ColliderTilemap.WorldToCell(new Vector3(worldCell.x, worldCell.y));
-        return !ColliderTilemap.HasTile(cell);
+        return !ColliderTilemap.HasTile(WorldCellToLocalCell(worldCell));
     }
 
     public Door GetDoorForDirection(Direction direction)
@@ -157,10 +146,10 @@ public class Room : GameBehaviour
 
     private void OnDrawGizmos()
     {
-        foreach (var cell in GetLocalCells())
+        foreach (var cell in GetWorldCells())
         {
-            Gizmos.color = IsPathable((Vector2Int) cell) ? Color.blue : Color.red;
-            Gizmos.DrawSphere(RenderTilemap.GetCellCenterWorld((Vector3Int) cell), 0.15f);
+            Gizmos.color = IsPathable(cell) ? Color.blue : Color.red;
+            Gizmos.DrawSphere(Map.GetCellCenter(cell), 0.15f);
         }
     }
 }

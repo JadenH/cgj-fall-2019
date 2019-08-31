@@ -124,8 +124,6 @@ public class Map : GameBehaviour
 
     public Vector2 GetCellCenter(Vector2Int cell)
     {
-        var room = GetRoomForCell(cell);
-        if (!room) return cell;
-        return room.RenderTilemap.GetCellCenterWorld((Vector3Int) cell);
+        return cell + Vector2.one * .5f;
     }
 }

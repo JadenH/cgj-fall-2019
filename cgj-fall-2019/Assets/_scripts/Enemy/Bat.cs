@@ -8,7 +8,6 @@ public class Bat : Enemy
 
     protected override void PlayerChangedRooms(Room room)
     {
-        Debug.Log("HERE");
         if (room == CurrentRoom)
         {
             Chaser.enabled = true;
