@@ -16,7 +16,15 @@ public class Weapon : GameBehaviour
             _cooldown = true;
             Player.Health.TakeDamage(Damage, DamageType.Bite);
             StartCoroutine(Cooldown());
+            StartCoroutine(Damaged());
         }
+    }
+
+    private IEnumerator Damaged()
+    {
+        Player.GetComponentInChildren<SpriteRenderer>().color = Color.red;
+        yield return new WaitForSeconds(.2f);
+        Player.GetComponentInChildren<SpriteRenderer>().color = Color.white;
     }
 
     private IEnumerator Cooldown()
