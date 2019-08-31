@@ -45,7 +45,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b2085117c03d30846b377ac97a24fbdc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Cooldown: 0
+  Damage: 10
+  Cooldown: 20
   CurrentCooldown: 0
   BulletLife: 2
   BulletPrefab: {fileID: 2194320242603341528, guid: 0527b07cef8e8904a86cf8c97decd54e,
