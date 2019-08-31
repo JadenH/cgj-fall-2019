@@ -680,7 +680,7 @@ MonoBehaviour:
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_text: '[E] Equip'
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 0}
+  m_fontAsset: {fileID: 11400000, guid: 128764be991cdf54c8388b2b23fab137, type: 2}
   m_sharedMaterial: {fileID: 0}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
@@ -837,7 +837,7 @@ MonoBehaviour:
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_text: x3
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: f45309719def4d44389aefdd912fb780, type: 2}
+  m_fontAsset: {fileID: 0}
   m_sharedMaterial: {fileID: -74164601390235196, guid: f45309719def4d44389aefdd912fb780,
     type: 2}
   m_fontSharedMaterials: []
