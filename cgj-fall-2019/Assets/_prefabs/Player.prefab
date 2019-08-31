@@ -174,7 +174,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   LockMovement: 0
   WalkSpeed: 5
-  CurrentGun: {fileID: 0}
+  CurrentGun: {fileID: 3871142782867210603}
   PickupInterface: {fileID: 4611951649560956130}
 --- !u!50 &754922684415524770
 Rigidbody2D:
@@ -828,6 +828,18 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: cf958da9ae1d33a489efb50c4be7071a, type: 3}
+--- !u!114 &3871142782867210603 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8987159067516543987, guid: cf958da9ae1d33a489efb50c4be7071a,
+    type: 3}
+  m_PrefabInstance: {fileID: 5260699520825500312}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b2085117c03d30846b377ac97a24fbdc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &210665228663311970 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5471219059903163642, guid: cf958da9ae1d33a489efb50c4be7071a,
