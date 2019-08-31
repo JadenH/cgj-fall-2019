@@ -54,7 +54,7 @@ public abstract class Gun : Item
                 {
                     if (hit.transform.GetComponent<Health>())
                     {
-                        hit.transform.GetComponent<Health>().TakeDamage(Damage, DamageType.Gun);
+                        hit.transform.GetComponent<Health>().TakeDamage(Damage + Player.DamageModifier, DamageType.Gun);
                         bullet.transform.position = hit.transform.position;
                     }
                     else

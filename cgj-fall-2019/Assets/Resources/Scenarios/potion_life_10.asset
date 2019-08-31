@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: potion_life_10
   m_EditorClassIdentifier: 
   TruthDescription: There is a room with a green +1 life potion
-  LockedWhileEnemies: 1
+  LockedWhileEnemies: 0
   EnemySpawns: []
   ItemSpawns:
   - Item: {fileID: 2284663273017154263, guid: 57d5693526de11041a1cf399a002616f, type: 3}
