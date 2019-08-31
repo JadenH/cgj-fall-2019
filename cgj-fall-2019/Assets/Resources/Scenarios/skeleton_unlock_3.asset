@@ -10,12 +10,12 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 8423c4fb862c2cb48b391b0a1bf2221e, type: 3}
-  m_Name: bats_lock_10
+  m_Name: skeleton_unlock_3
   m_EditorClassIdentifier: 
-  TruthDescription: There is a room that locks when you enter with 10 bats
+  TruthDescription: There is a room with 3 skeletons
   LockedWhileEnemies: 1
   EnemySpawns:
-  - EnemyPrefab: {fileID: 2868749707578189608, guid: 8c374b662d973494591ba6da4feb86ac,
+  - EnemyPrefab: {fileID: 2758477342638312603, guid: bf35af0f2309f384188ce119433262a2,
       type: 3}
-    Amount: 10
+    Amount: 3
   ItemSpawns: []
