@@ -1,0 +1,19 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bb4340e3d3d53bb49b021ce7930f4bcf, type: 3}
+  m_Name: level_0010
+  m_EditorClassIdentifier: 
+  PossibleScenarios:
+  - {fileID: 11400000, guid: 3649fb84851fd774cb6bb1ade65f93c6, type: 2}
+  - {fileID: 11400000, guid: 6ee834ab85a6e864fa6de1347854247e, type: 2}
+  - {fileID: 11400000, guid: e8459be182abc6844a571fe241051d3f, type: 2}
+  SetLieScenario: {fileID: 11400000, guid: 4b551a761b26d41488672d46e76b2362, type: 2}

@@ -20,6 +20,7 @@ public class EnemySpawn
     public int Amount;
 }
 
+[Serializable]
 public class ItemSpawn
 {
     public Item Item;
