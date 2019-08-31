@@ -70,7 +70,7 @@ public class Pathfinder : GameBehaviour
 
     private float Heuristic(Vector2Int current, Vector2Int next)
     {
-        return Vector2.Distance((Vector2)current, (Vector2)next);
+        return Vector2.Distance(current, next);
     }
 
     private Vector2Int[] GetNeighbors(Vector2Int cell)
