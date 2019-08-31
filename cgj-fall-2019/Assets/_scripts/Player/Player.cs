@@ -61,7 +61,7 @@ public class Player : GameBehaviour
             {
                 SentLifeData = true;
                 PlayerLife.CurrentLives--;
-                Game.CurrentLevelNumber = Mathf.Max(1, Game.CurrentLevelNumber - 5);
+                Game.CurrentLevelNumber = Mathf.Max(1, Game.CurrentLevelNumber - 1);
                 Game.StartLevel(Game.CurrentLevelNumber);
                 Game._answer = "Lost a life! Back to Level" + Game.CurrentLevelNumber;
                 StartCoroutine("WaitAndPrint");
