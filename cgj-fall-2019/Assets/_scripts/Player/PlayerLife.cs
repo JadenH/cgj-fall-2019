@@ -5,6 +5,8 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
+
 
 public class PlayerLife : GameBehaviour
 {
@@ -15,7 +17,7 @@ public class PlayerLife : GameBehaviour
     void Update()
     {
         HeartCount.text = "X" + CurrentLives;
-        if (CurrentLives < 0)
+        if (CurrentLives <= 0)
         {
             GameOver();
         }
@@ -23,6 +25,6 @@ public class PlayerLife : GameBehaviour
 
     public void GameOver()
     {
-        //What happens when player loses all lives
+        SceneManager.LoadScene("GameOver", LoadSceneMode.Single);
     }
 }

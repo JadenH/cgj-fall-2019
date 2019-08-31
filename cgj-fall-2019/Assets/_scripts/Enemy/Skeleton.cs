@@ -1,7 +1,7 @@
 ﻿using System;
 using UnityEngine;
 using System.Collections;
-using UnityEditorInternal;
+//using UnityEditorInternal;
 
 [RequireComponent(typeof(Chaser))]
 [RequireComponent(typeof(Mover))]

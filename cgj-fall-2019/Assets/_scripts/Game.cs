@@ -2,6 +2,9 @@ using System.Collections.Generic;
 using System.Linq;
 using TMPro;
 using UnityEngine;
+using System.Collections;
+using TMPro;
+
 
 public class Game : MonoBehaviour
 {
@@ -13,6 +16,10 @@ public class Game : MonoBehaviour
     public CameraController CameraController;
     public AnimationCurve DifficultyCurve;
     public PlayerLife PlayerLife;
+
+    public GameObject Canvas;
+    public TextMeshProUGUI CanText;
+    public string _answer;
 
     public int CurrentLevelNumber = 1;
     public Level CurrentLevel;
@@ -35,7 +42,7 @@ public class Game : MonoBehaviour
         StartLevel(CurrentLevelNumber);
     }
 
-    private void StartLevel(int levelNumber)
+    public void StartLevel(int levelNumber)
     {
         Map.DestroyLevel();
 
@@ -117,6 +124,9 @@ public class Game : MonoBehaviour
             // Correct
             Debug.Log("CORRECT");
             StartLevel(++CurrentLevelNumber);
+            _answer = "Correct! On to Level: " + CurrentLevelNumber;
+            StartCoroutine("WaitAndPrint");
+
         }
         else
         {
@@ -125,11 +135,29 @@ public class Game : MonoBehaviour
             PlayerLife.CurrentLives--;
             CurrentLevelNumber = Mathf.Max(1, CurrentLevelNumber - 5);
             StartLevel(CurrentLevelNumber);
+            _answer = "Incorrect! Back to Level: " + CurrentLevelNumber + " Life -1";
+            StartCoroutine("WaitAndPrint");
         }
     }
 
     public float Multiplier()
     {
         return CurrentLevelNumber <= 20 ? DifficultyCurve.Evaluate(CurrentLevelNumber) : CurrentLevelNumber;
+    }
+
+
+    IEnumerator WaitAndPrint()
+    {
+        CanText.text = _answer.ToString();
+        Canvas.SetActive(true);
+        print("WaitAndPrint " + Time.time);
+   
+        yield return new WaitForSeconds(5);
+        Canvas.SetActive(false);
+        yield return new WaitForSeconds(1);
+        Player.ResetHealth();
+        Player.SentLifeData = false;
+        
+
     }
 }

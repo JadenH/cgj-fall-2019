@@ -10,6 +10,8 @@ public class Player : GameBehaviour
     public PlayerLife Life;
     public Health Health;
 
+    public bool SentLifeData = false;
+
     [Serializable]
     public class ChangeRoomEvent : UnityEvent<Room> { }
 
@@ -42,5 +44,30 @@ public class Player : GameBehaviour
         CurrentRoom = room;
         room.PlayerEntered();
         ChangedRoom?.Invoke(room);
+    }
+
+    public void ResetHealth()
+    {
+        Health.CurrentHealth = Health.MaxHealth;
+        Player.Health.TakeDamage(0, DamageType.Bite);
+        Health.HealthChanged.AddListener(HandleHealthChanged);
+    }
+
+    private void Update()
+    {
+        if(!SentLifeData)
+        {
+            if (Health.CurrentHealth <= 0)
+            {
+                SentLifeData = true;
+                PlayerLife.CurrentLives--;
+                Game.CurrentLevelNumber = Mathf.Max(1, Game.CurrentLevelNumber - 5);
+                Game.StartLevel(Game.CurrentLevelNumber);
+                Game._answer = "Lost a life! Back to Level" + Game.CurrentLevelNumber;
+                StartCoroutine("WaitAndPrint");
+                ResetHealth();
+            }
+        }
+
     }
 }
