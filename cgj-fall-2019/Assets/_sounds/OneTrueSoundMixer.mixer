@@ -53,6 +53,39 @@ AudioMixerGroupController:
   m_Mute: 0
   m_Solo: 0
   m_BypassEffects: 0
+--- !u!243 &-3465642782224690070
+AudioMixerGroupController:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: Steps
+  m_AudioMixer: {fileID: 24100000}
+  m_GroupID: e010f5ede0fd5da45adfba65b6eca72b
+  m_Children: []
+  m_Volume: 719cca3b64baa704c9edb6149742f6b1
+  m_Pitch: 2cd7811b06160c04abe3322c3d9bb0a4
+  m_Send: 00000000000000000000000000000000
+  m_Effects:
+  - {fileID: -1800439262480393158}
+  m_UserColorIndex: 0
+  m_Mute: 0
+  m_Solo: 0
+  m_BypassEffects: 0
+--- !u!244 &-1800439262480393158
+AudioMixerEffectController:
+  m_ObjectHideFlags: 3
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: 
+  m_EffectID: 7b3f3c576f7c925479a16290d0b9221b
+  m_EffectName: Attenuation
+  m_MixLevel: ca69b38a8f2081140ac147898b8fc6de
+  m_Parameters: []
+  m_SendTarget: {fileID: 0}
+  m_EnableWetMix: 0
+  m_Bypass: 0
 --- !u!241 &24100000
 AudioMixerController:
   m_ObjectHideFlags: 0
@@ -75,6 +108,7 @@ AudioMixerController:
     - d2db4cc26c2e26d4eaefa33cfce03518
     - cd28141211dd8714980eace25d84b49c
     - f9fc7fb9c70974b4f8310dd37d7299e6
+    - e010f5ede0fd5da45adfba65b6eca72b
     name: View
   m_CurrentViewIndex: 0
   m_TargetSnapshot: {fileID: 586404006086072790}
@@ -90,6 +124,7 @@ AudioMixerGroupController:
   m_Children:
   - {fileID: -8686615029587891866}
   - {fileID: -6104615965477881027}
+  - {fileID: -3465642782224690070}
   m_Volume: 8abb3a3d5ffe2c14d9601b519623b27c
   m_Pitch: fb49d3a97c2ea274b9f6d55f1fa49569
   m_Send: 00000000000000000000000000000000
@@ -142,6 +177,7 @@ AudioMixerSnapshotController:
     6daf7273dccf207489a1fec46153d756: -6.133707
     e69d71e5acf82e040b8c4864c37d228e: 8.3
     816545f7852cc3347bce8423cf3c94ce: 120
+    719cca3b64baa704c9edb6149742f6b1: -4.5603504
     7e44439d2964c9b46b857ca29aa14b7d: 1
     d0ca13bf02fdb60468464890f4ead46d: 22000
   m_TransitionOverrides: {}

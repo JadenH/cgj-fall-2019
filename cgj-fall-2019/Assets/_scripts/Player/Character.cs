@@ -9,11 +9,13 @@ public class Character : MonoBehaviour
     private Gun _nearbyGun;
     private Animator _animator;
     private SpriteRenderer _renderer;
+    private bool _audioPlaying;
 
     public bool LockMovement;
     public float WalkSpeed = 5;
     public Gun CurrentGun;
     public GameObject PickupInterface;
+    public AudioSource AudioSource;
 
     private void Start()
     {
@@ -38,7 +40,6 @@ public class Character : MonoBehaviour
             _vertical = Input.GetAxisRaw("Vertical");
             _rigidbody.velocity = new Vector2(_horizontal, _vertical).normalized * WalkSpeed;
 
-
             var gunDir = Input.mousePosition - Camera.main.WorldToScreenPoint(CurrentGun.transform.position);
             if (CurrentGun.CurrentCooldown <= Time.time)
             {
@@ -58,6 +59,17 @@ public class Character : MonoBehaviour
             _horizontal = 0;
             _vertical = 0;
             _rigidbody.velocity = new Vector2(0, 0);
+        }
+
+        if (!_audioPlaying && (Math.Abs(_vertical) > 0.001 || Math.Abs(_horizontal) > 0.001))
+        {
+            _audioPlaying = true;
+            AudioSource.Play();
+        }
+        else if (_audioPlaying && (Math.Abs(_vertical) < 0.001 && Math.Abs(_horizontal) < 0.001))
+        {
+            AudioSource.Stop();
+            _audioPlaying = false;
         }
 
         var lookDir = (Input.mousePosition - Camera.main.WorldToScreenPoint(transform.position)).normalized;
