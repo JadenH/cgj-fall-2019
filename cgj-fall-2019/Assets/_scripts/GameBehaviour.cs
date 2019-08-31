@@ -7,4 +7,5 @@ public abstract class GameBehaviour : MonoBehaviour
     public Map Map => Game.Instance.Map;
     public EnemyManager EnemyManager => Game.Instance.EnemyManager;
     public Level CurrentLevel => Game.Instance.CurrentLevel;
+    public Game Game => Game.Instance;
 }

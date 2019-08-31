@@ -13,4 +13,7 @@ MonoBehaviour:
   m_Name: level_0002
   m_EditorClassIdentifier: 
   PossibleTrueScenarios:
+  - {fileID: 11400000, guid: f8dda90b9f3afb6499f7e8d517417202, type: 2}
+  - {fileID: 11400000, guid: a70e9a14c6e83c74a93d582c67d53137, type: 2}
+  PossibleLieScenarios:
   - {fileID: 11400000, guid: c608802fc0edb8d468f9502698bef8c6, type: 2}

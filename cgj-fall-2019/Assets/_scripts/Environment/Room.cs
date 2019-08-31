@@ -146,16 +146,7 @@ public class Room : GameBehaviour
         for (var i = 0; i < Portals.Length; i++)
         {
             var portal = Portals[i];
-            if (randomIndex == i)
-            {
-                portal.SetText(CurrentLevel.RandomLie().TruthDescription);
-                portal.Truth = false;
-            }
-            else
-            {
-                portal.SetText(CurrentLevel.RandomTruth().TruthDescription);
-                portal.Truth = true;
-            }
+            portal.SetScenario(randomIndex == i ? Game.RandomLie() : Game.RandomTruth());
         }
     }
 
