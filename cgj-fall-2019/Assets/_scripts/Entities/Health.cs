@@ -19,15 +19,6 @@ public class Health : MonoBehaviour
     private void UpdateHealth()
     {
         HealthChanged?.Invoke(CurrentHealth, MaxHealth);
-        if (CurrentHealth <= 0)
-        {
-            IsDead();
-        }
-    }
-
-    public virtual void IsDead()
-    {
-        Destroy(gameObject);
     }
 
     public void TakeDamage(float amount)
