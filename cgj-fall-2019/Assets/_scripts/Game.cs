@@ -75,6 +75,10 @@ public class Game : MonoBehaviour
         _scenarios = level.PossibleScenarios.OrderBy(scenario => Random.Range(0f, 1f)).ToList();
         SetupLieScenario();
 
+        if (_scenarios.Count > CurrentLevelNumber)
+        {
+            _scenarios = _scenarios.GetRange(0, Mathf.Max(2, CurrentLevelNumber));
+        }
         _currentScenario = 0;
     }
 
