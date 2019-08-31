@@ -13,5 +13,9 @@ MonoBehaviour:
   m_Name: level_0015
   m_EditorClassIdentifier: 
   PossibleScenarios:
-  - {fileID: 11400000, guid: 816c2c852d0b62943afe53fa6accabca, type: 2}
+  - {fileID: 11400000, guid: d5613b16885625740bd54aad58a909c9, type: 2}
+  - {fileID: 11400000, guid: e6801f91fee9f3a429612c17e09e8d81, type: 2}
+  - {fileID: 11400000, guid: ae3ec7d6afc492b4ab8b625c21094469, type: 2}
+  - {fileID: 11400000, guid: 0ea26ff411b022d45ae7360f711176a2, type: 2}
+  - {fileID: 11400000, guid: 422f3f982eca2cf418c0541d9b904d3b, type: 2}
   SetLieScenario: {fileID: 0}
