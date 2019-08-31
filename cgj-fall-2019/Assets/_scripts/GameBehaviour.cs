@@ -9,4 +9,5 @@ public abstract class GameBehaviour : MonoBehaviour
     public Level CurrentLevel => Game.Instance.CurrentLevel;
     public Game Game => Game.Instance;
     public CameraController CameraController => Game.Instance.CameraController;
+    public PlayerLife PlayerLife => Game.Instance.PlayerLife;
 }

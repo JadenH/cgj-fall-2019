@@ -12,6 +12,7 @@ public class Game : MonoBehaviour
     public TextMeshProUGUI LevelText;
     public CameraController CameraController;
     public AnimationCurve DifficultyCurve;
+    public PlayerLife PlayerLife;
 
     public int CurrentLevelNumber = 1;
     public Level CurrentLevel;
@@ -121,6 +122,7 @@ public class Game : MonoBehaviour
         {
             // Incorrect
             Debug.Log("INCORRECT");
+            PlayerLife.CurrentLives--;
             CurrentLevelNumber = Mathf.Max(1, CurrentLevelNumber - 5);
             StartLevel(CurrentLevelNumber);
         }

@@ -305,7 +305,7 @@ MonoBehaviour:
   m_material: {fileID: 0}
   m_sharedMaterial: {fileID: 0}
   m_isDefaultMaterial: 0
-  m_padding: 1.898
+  m_padding: 0
   m_canvasRenderer: {fileID: 2458850885140473304}
   m_TextComponent: {fileID: 6096835413452603384}
   m_materialReferenceIndex: 1
@@ -1225,10 +1225,10 @@ RectTransform:
   m_Father: {fileID: 3210374046823895900}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchorMin: {x: 0, y: 0.5}
+  m_AnchorMax: {x: 1, y: 0.5}
   m_AnchoredPosition: {x: -8, y: 52}
-  m_SizeDelta: {x: 200, y: 50}
+  m_SizeDelta: {x: -714, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &8886585812753000595
 CanvasRenderer:
@@ -1261,7 +1261,8 @@ MonoBehaviour:
   m_text: This Room has No doors
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 128764be991cdf54c8388b2b23fab137, type: 2}
-  m_sharedMaterial: {fileID: 0}
+  m_sharedMaterial: {fileID: -5230352994548381814, guid: 128764be991cdf54c8388b2b23fab137,
+    type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -1286,8 +1287,8 @@ MonoBehaviour:
   m_outlineColor:
     serializedVersion: 2
     rgba: 4278190080
-  m_fontSize: 36
-  m_fontSizeBase: 36
+  m_fontSize: 28.6
+  m_fontSizeBase: 28.6
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -1324,7 +1325,7 @@ MonoBehaviour:
   m_firstVisibleCharacter: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: -557.4655, y: 0, z: -586.74756, w: -52.51013}
+  m_margin: {x: -321.57828, y: 0, z: -350.8603, w: -52.51013}
   m_textInfo:
     textComponent: {fileID: 532306149143615346}
     characterCount: 22
@@ -1338,7 +1339,7 @@ MonoBehaviour:
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_spriteAnimator: {fileID: 0}
-  m_hasFontAssetChanged: 1
+  m_hasFontAssetChanged: 0
   m_subTextObjects:
   - {fileID: 0}
   - {fileID: 0}
@@ -1419,7 +1420,8 @@ MonoBehaviour:
   m_text: Press [space] To Enter Portal
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 128764be991cdf54c8388b2b23fab137, type: 2}
-  m_sharedMaterial: {fileID: 0}
+  m_sharedMaterial: {fileID: -5230352994548381814, guid: 128764be991cdf54c8388b2b23fab137,
+    type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -1485,14 +1487,14 @@ MonoBehaviour:
   m_margin: {x: -555.51276, y: 0, z: -588.07007, w: -52.51013}
   m_textInfo:
     textComponent: {fileID: 6096835413452603384}
-    characterCount: 34
+    characterCount: 29
     spriteCount: 0
     spaceCount: 4
     wordCount: 5
     linkCount: 0
     lineCount: 1
     pageCount: 1
-    materialCount: 2
+    materialCount: 1
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_spriteAnimator: {fileID: 0}
@@ -1737,7 +1739,8 @@ MonoBehaviour:
   m_text: Press [space] To Enter Portal
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 128764be991cdf54c8388b2b23fab137, type: 2}
-  m_sharedMaterial: {fileID: 0}
+  m_sharedMaterial: {fileID: -5230352994548381814, guid: 128764be991cdf54c8388b2b23fab137,
+    type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -1803,14 +1806,14 @@ MonoBehaviour:
   m_margin: {x: -555.51276, y: 0, z: -588.07007, w: -52.51013}
   m_textInfo:
     textComponent: {fileID: 3387968493810984074}
-    characterCount: 34
+    characterCount: 29
     spriteCount: 0
     spaceCount: 4
     wordCount: 5
     linkCount: 0
     lineCount: 1
     pageCount: 1
-    materialCount: 2
+    materialCount: 1
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_spriteAnimator: {fileID: 0}
@@ -1895,7 +1898,8 @@ MonoBehaviour:
   m_text: Press [space] To Enter Portal
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 128764be991cdf54c8388b2b23fab137, type: 2}
-  m_sharedMaterial: {fileID: 0}
+  m_sharedMaterial: {fileID: -5230352994548381814, guid: 128764be991cdf54c8388b2b23fab137,
+    type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -1961,14 +1965,14 @@ MonoBehaviour:
   m_margin: {x: -555.51276, y: 0, z: -588.07007, w: -52.51013}
   m_textInfo:
     textComponent: {fileID: 2290146081390883772}
-    characterCount: 34
+    characterCount: 29
     spriteCount: 0
     spaceCount: 4
     wordCount: 5
     linkCount: 0
     lineCount: 1
     pageCount: 1
-    materialCount: 2
+    materialCount: 1
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_spriteAnimator: {fileID: 0}
@@ -25845,7 +25849,7 @@ MonoBehaviour:
   m_material: {fileID: 0}
   m_sharedMaterial: {fileID: 0}
   m_isDefaultMaterial: 0
-  m_padding: 1.898
+  m_padding: 0
   m_canvasRenderer: {fileID: 1313923502875663259}
   m_TextComponent: {fileID: 3387968493810984074}
   m_materialReferenceIndex: 1
@@ -26196,10 +26200,10 @@ RectTransform:
   m_Father: {fileID: 1674106375197800736}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchorMin: {x: 0, y: 0.5}
+  m_AnchorMax: {x: 1, y: 0.5}
   m_AnchoredPosition: {x: -8, y: 52}
-  m_SizeDelta: {x: 200, y: 50}
+  m_SizeDelta: {x: -714, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &4921827673795337256
 CanvasRenderer:
@@ -26232,7 +26236,8 @@ MonoBehaviour:
   m_text: This Room has No doors
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 128764be991cdf54c8388b2b23fab137, type: 2}
-  m_sharedMaterial: {fileID: 0}
+  m_sharedMaterial: {fileID: -5230352994548381814, guid: 128764be991cdf54c8388b2b23fab137,
+    type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -26257,8 +26262,8 @@ MonoBehaviour:
   m_outlineColor:
     serializedVersion: 2
     rgba: 4278190080
-  m_fontSize: 36
-  m_fontSizeBase: 36
+  m_fontSize: 28.6
+  m_fontSizeBase: 28.6
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -26295,7 +26300,7 @@ MonoBehaviour:
   m_firstVisibleCharacter: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: -557.4655, y: 0, z: -586.74756, w: -52.51013}
+  m_margin: {x: -321.57828, y: 0, z: -353.35638, w: -52.51013}
   m_textInfo:
     textComponent: {fileID: 2299664379212652590}
     characterCount: 22
@@ -26309,7 +26314,7 @@ MonoBehaviour:
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_spriteAnimator: {fileID: 0}
-  m_hasFontAssetChanged: 1
+  m_hasFontAssetChanged: 0
   m_subTextObjects:
   - {fileID: 0}
   - {fileID: 0}
@@ -26468,7 +26473,7 @@ MonoBehaviour:
   m_material: {fileID: 0}
   m_sharedMaterial: {fileID: 0}
   m_isDefaultMaterial: 0
-  m_padding: 1.898
+  m_padding: 0
   m_canvasRenderer: {fileID: 6109741073184198983}
   m_TextComponent: {fileID: 2290146081390883772}
   m_materialReferenceIndex: 1
@@ -26581,10 +26586,10 @@ RectTransform:
   m_Father: {fileID: 6438309689286211621}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchorMin: {x: 0, y: 0.5}
+  m_AnchorMax: {x: 1, y: 0.5}
   m_AnchoredPosition: {x: -8, y: 52}
-  m_SizeDelta: {x: 200, y: 50}
+  m_SizeDelta: {x: -714, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &6485590816016237592
 CanvasRenderer:
@@ -26617,7 +26622,8 @@ MonoBehaviour:
   m_text: This Room has No doors
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 128764be991cdf54c8388b2b23fab137, type: 2}
-  m_sharedMaterial: {fileID: 0}
+  m_sharedMaterial: {fileID: -5230352994548381814, guid: 128764be991cdf54c8388b2b23fab137,
+    type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -26642,8 +26648,8 @@ MonoBehaviour:
   m_outlineColor:
     serializedVersion: 2
     rgba: 4278190080
-  m_fontSize: 36
-  m_fontSizeBase: 36
+  m_fontSize: 28.6
+  m_fontSizeBase: 28.6
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -26680,7 +26686,7 @@ MonoBehaviour:
   m_firstVisibleCharacter: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: -557.4655, y: 0, z: -586.74756, w: -52.51013}
+  m_margin: {x: -320.3302, y: 0, z: -347.11603, w: -52.51013}
   m_textInfo:
     textComponent: {fileID: 4201647799182137341}
     characterCount: 22
@@ -26694,7 +26700,7 @@ MonoBehaviour:
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_spriteAnimator: {fileID: 0}
-  m_hasFontAssetChanged: 1
+  m_hasFontAssetChanged: 0
   m_subTextObjects:
   - {fileID: 0}
   - {fileID: 0}
