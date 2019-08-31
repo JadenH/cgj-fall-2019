@@ -12,8 +12,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bb4340e3d3d53bb49b021ce7930f4bcf, type: 3}
   m_Name: level_0000
   m_EditorClassIdentifier: 
-  PossibleTrueScenarios:
-  - {fileID: 11400000, guid: 6ee834ab85a6e864fa6de1347854247e, type: 2}
-  - {fileID: 11400000, guid: 9431769db8d1a934cacef495213d91fc, type: 2}
-  PossibleLieScenarios:
+  PossibleScenarios:
+  - {fileID: 11400000, guid: c608802fc0edb8d468f9502698bef8c6, type: 2}
   - {fileID: 11400000, guid: f8dda90b9f3afb6499f7e8d517417202, type: 2}
+  - {fileID: 11400000, guid: 788bfcd421c9f124995b2e1174616afc, type: 2}
+  - {fileID: 11400000, guid: 43cecfc828d52f846aefd2c48b58908d, type: 2}
+  - {fileID: 11400000, guid: 2ef31815e197ef94cbdf935e9cb40812, type: 2}
+  - {fileID: 11400000, guid: 4b551a761b26d41488672d46e76b2362, type: 2}
+  - {fileID: 11400000, guid: 6ee834ab85a6e864fa6de1347854247e, type: 2}
+  - {fileID: 11400000, guid: 003b3f5fa6f5ba140afa5db90d4b144a, type: 2}
+  - {fileID: 11400000, guid: e805e323223d05044b268b28d4ccdc71, type: 2}
+  - {fileID: 11400000, guid: a70e9a14c6e83c74a93d582c67d53137, type: 2}
+  - {fileID: 11400000, guid: 9431769db8d1a934cacef495213d91fc, type: 2}
+  - {fileID: 11400000, guid: 3a2100ec41b156a4694efd739a52a00a, type: 2}
+  - {fileID: 11400000, guid: e8459be182abc6844a571fe241051d3f, type: 2}
+  SetLieScenario: {fileID: 0}

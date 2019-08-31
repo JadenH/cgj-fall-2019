@@ -12,8 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bb4340e3d3d53bb49b021ce7930f4bcf, type: 3}
   m_Name: level_0002
   m_EditorClassIdentifier: 
-  PossibleTrueScenarios:
+  PossibleScenarios:
   - {fileID: 11400000, guid: f8dda90b9f3afb6499f7e8d517417202, type: 2}
+  - {fileID: 11400000, guid: 788bfcd421c9f124995b2e1174616afc, type: 2}
+  - {fileID: 11400000, guid: 43cecfc828d52f846aefd2c48b58908d, type: 2}
   - {fileID: 11400000, guid: a70e9a14c6e83c74a93d582c67d53137, type: 2}
-  PossibleLieScenarios:
-  - {fileID: 11400000, guid: c608802fc0edb8d468f9502698bef8c6, type: 2}
+  SetLieScenario: {fileID: 11400000, guid: c608802fc0edb8d468f9502698bef8c6, type: 2}
