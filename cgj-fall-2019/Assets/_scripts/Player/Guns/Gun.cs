@@ -53,7 +53,7 @@ public abstract class Gun : GameBehaviour
                 {
                     if (hit.transform.GetComponent<Health>())
                     {
-                        hit.transform.GetComponent<Health>().TakeDamage(10);
+                        hit.transform.GetComponent<Health>().TakeDamage(10, DamageType.Gun);
                         bullet.transform.position = hit.transform.position;
                     }
                     else

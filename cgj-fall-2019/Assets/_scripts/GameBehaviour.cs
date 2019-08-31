@@ -8,4 +8,5 @@ public abstract class GameBehaviour : MonoBehaviour
     public EnemyManager EnemyManager => Game.Instance.EnemyManager;
     public Level CurrentLevel => Game.Instance.CurrentLevel;
     public Game Game => Game.Instance;
+    public CameraController CameraController => Game.Instance.CameraController;
 }
