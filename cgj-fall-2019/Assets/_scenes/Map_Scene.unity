@@ -1295,7 +1295,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e04105b4c873fea41bd0c5ab6262b078, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  RightDoor: {fileID: 0}
 --- !u!114 &1167233651 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 5787231702038532699, guid: 76370abe159f91941a241c3f5ebdb227,
@@ -1417,7 +1416,32 @@ MonoBehaviour:
   Map: {fileID: 1167233651}
   EnemyManager: {fileID: 1490127925}
   LevelText: {fileID: 1895135815}
-  CurrentLevelNumber: 4
+  CameraController: {fileID: 1090676521}
+  DifficultyCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0.031786893
+      tangentMode: 5
+      weightedMode: 2
+      inWeight: 0
+      outWeight: 0.47826105
+    - serializedVersion: 3
+      time: 20
+      value: 20
+      inSlope: 3.4681141
+      outSlope: 2
+      tangentMode: 1
+      weightedMode: 3
+      inWeight: 0.09350767
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  CurrentLevelNumber: 15
   CurrentLevel: {fileID: 0}
 --- !u!4 &1490127924
 Transform:

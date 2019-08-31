@@ -16,6 +16,8 @@ public abstract class Enemy : GameBehaviour
         StartCell = startCell;
 
         GetComponent<Health>().HealthChanged.AddListener(HealthChanged);
+        GetComponent<Health>().SetMaxHealth(GetComponent<Health>().MaxHealth * Game.Multiplier());
+
         CurrentRoom.EnemyCreated();
 
         Player.ChangedRoom.AddListener(PlayerChangedRooms);

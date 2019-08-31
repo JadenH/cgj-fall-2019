@@ -10,6 +10,7 @@ public class Game : MonoBehaviour
     public EnemyManager EnemyManager;
     public TextMeshProUGUI LevelText;
     public CameraController CameraController;
+    public AnimationCurve DifficultyCurve;
 
     public int CurrentLevelNumber = 1;
     public Level CurrentLevel;
@@ -124,5 +125,10 @@ public class Game : MonoBehaviour
             CurrentLevelNumber = Mathf.Max(1, CurrentLevelNumber - 5);
             StartLevel(CurrentLevelNumber);
         }
+    }
+
+    public float Multiplier()
+    {
+        return CurrentLevelNumber <= 20 ? DifficultyCurve.Evaluate(CurrentLevelNumber) : CurrentLevelNumber;
     }
 }

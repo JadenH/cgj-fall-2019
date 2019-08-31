@@ -50,7 +50,7 @@ public class Bomber : Enemy
 
         if (Vector2.Distance(transform.position, Player.Character.transform.position) < Range)
         {
-            Player.Health.TakeDamage(Damage, DamageType.Bomb);
+            Player.Health.TakeDamage(Damage * Game.Multiplier(), DamageType.Bomb);
         }
 
         var effect = Instantiate(ExplosionEffect, null);
