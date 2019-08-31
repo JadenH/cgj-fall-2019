@@ -487,7 +487,7 @@ Animator:
   m_GameObject: {fileID: 6306065759913852686}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 4310eea26525a1b448a4b290c440c697, type: 2}
+  m_Controller: {fileID: 9100000, guid: 00372f2d0f3c3f943b2096ba7338f57b, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -585,7 +585,7 @@ GameObject:
   - component: {fileID: 8783207210169755600}
   - component: {fileID: 5836170449153460907}
   - component: {fileID: 1802014098928445568}
-  - component: {fileID: 2868749707578189608}
+  - component: {fileID: 2758477342638312603}
   m_Layer: 8
   m_Name: Skeleton
   m_TagString: Untagged
@@ -648,8 +648,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bac5f2b4aaa1c2c478bc64f3a2130583, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MaxHealth: 100
-  CurrentHealth: 100
+  MaxHealth: 500
+  CurrentHealth: 500
   HealthChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -696,7 +696,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Target: {fileID: 0}
   RepathDelay: 0.05
---- !u!114 &2868749707578189608
+--- !u!114 &2758477342638312603
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -705,8 +705,8 @@ MonoBehaviour:
   m_GameObject: {fileID: 8783207210169755594}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e65bd7222cecb1d459dc2cbeef977c28, type: 3}
+  m_Script: {fileID: 11500000, guid: 2d075a84964b5144783537b578d4c449, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  StartCell: {x: 1, y: 12}
+  StartCell: {x: 0, y: 0}
   CurrentRoom: {fileID: 0}

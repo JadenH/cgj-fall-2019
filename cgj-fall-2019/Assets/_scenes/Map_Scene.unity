@@ -1415,7 +1415,7 @@ MonoBehaviour:
   EnemyManager: {fileID: 1490127925}
   LevelText: {fileID: 1895135815}
   CameraController: {fileID: 1090676521}
-  CurrentLevelNumber: 3
+  CurrentLevelNumber: 4
   CurrentLevel: {fileID: 0}
 --- !u!4 &1490127924
 Transform:

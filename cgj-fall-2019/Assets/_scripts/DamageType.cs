@@ -5,5 +5,6 @@ public enum DamageType
 {
     Bomb,
     Gun,
-    Bite
+    Bite,
+    Heal
 }

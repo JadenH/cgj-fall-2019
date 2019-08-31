@@ -19,4 +19,10 @@ public class Health : MonoBehaviour
         CurrentHealth -= amount;
         HealthChanged?.Invoke(CurrentHealth, amount, damageType);
     }
+
+    public void AddHealth(float amount)
+    {
+        CurrentHealth = Mathf.Min(MaxHealth, CurrentHealth + amount);
+        HealthChanged?.Invoke(CurrentHealth, amount, DamageType.Heal);
+    }
 }
