@@ -7,10 +7,10 @@ public class Pathfinder : GameBehaviour
 {
     private struct CostCell
     {
-        public Vector2Int Cell;
-        public int Cost;
+        public readonly Vector2Int Cell;
+        public readonly float Cost;
 
-        public CostCell(Vector2Int cell, int cost = 0)
+        public CostCell(Vector2Int cell, float cost = 0)
         {
             Cell = cell;
             Cost = cost;
@@ -68,9 +68,9 @@ public class Pathfinder : GameBehaviour
         return result.ToArray();
     }
 
-    private int Heuristic(Vector2Int current, Vector2Int next)
+    private float Heuristic(Vector2Int current, Vector2Int next)
     {
-        return Mathf.FloorToInt(Vector2.Distance((Vector2)current, (Vector2)next));
+        return Vector2.Distance((Vector2)current, (Vector2)next);
     }
 
     private Vector2Int[] GetNeighbors(Vector2Int cell)
@@ -78,8 +78,12 @@ public class Pathfinder : GameBehaviour
         return new[]
         {
             cell + Vector2Int.up,
+            cell + Vector2Int.up + Vector2Int.right,
+            cell + Vector2Int.up + Vector2Int.left,
             cell + Vector2Int.right,
             cell + Vector2Int.down,
+            cell + Vector2Int.down + Vector2Int.right,
+            cell + Vector2Int.down + Vector2Int.left,
             cell + Vector2Int.left
         };
     }
