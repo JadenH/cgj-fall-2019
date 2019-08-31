@@ -1,25 +1,25 @@
 fileFormatVersion: 2
-guid: 6d0661501110d1948b1b89bf23d39915
+guid: 723c3b2b73a048942a0100fa0deb707a
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -559717383712155052
-    second: PlayerDL_0
+      213: 3819863760956344603
+    second: PlayerUL_0
   - first:
-      213: -1752792402000926844
-    second: PlayerDL_1
+      213: -8981127284814086814
+    second: PlayerUL_1
   - first:
-      213: -7401302314370240201
-    second: PlayerDL_2
+      213: 5132418023191355891
+    second: PlayerUL_2
   - first:
-      213: 4205534379503059601
-    second: PlayerDL_3
+      213: -2185847957171079616
+    second: PlayerUL_3
   - first:
-      213: -764480519796546235
-    second: PlayerDL_4
+      213: -3745236112825181388
+    second: PlayerUL_4
   - first:
-      213: -3882021697686588424
-    second: PlayerDL_5
+      213: 7418519697715474719
+    second: PlayerUL_5
   externalObjects: {}
   serializedVersion: 10
   mipmaps:
@@ -49,7 +49,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: -1
+    filterMode: 0
     aniso: -1
     mipBias: -100
     wrapU: 1
@@ -104,7 +104,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: PlayerDL_0
+      name: PlayerUL_0
       rect:
         serializedVersion: 2
         x: 0
@@ -118,14 +118,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: fc2b5ae2f84f82549b4362e67b306112
-      internalID: -559717383712155052
+      spriteID: ec1383142ec683544be48dd05478752d
+      internalID: 3819863760956344603
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: PlayerDL_1
+      name: PlayerUL_1
       rect:
         serializedVersion: 2
         x: 64
@@ -139,14 +139,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 377256cc788fa61499fe788851a67850
-      internalID: -1752792402000926844
+      spriteID: 099663dd91562db47aa3c630a2ed5903
+      internalID: -8981127284814086814
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: PlayerDL_2
+      name: PlayerUL_2
       rect:
         serializedVersion: 2
         x: 128
@@ -160,14 +160,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 83a315297c06af9459ee1c8fd2d0ef2a
-      internalID: -7401302314370240201
+      spriteID: 857d43dbbefc6e043ae5f67ef3d523e7
+      internalID: 5132418023191355891
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: PlayerDL_3
+      name: PlayerUL_3
       rect:
         serializedVersion: 2
         x: 192
@@ -181,14 +181,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: bc83ffb7f832b6e4b9d85e507b77bac3
-      internalID: 4205534379503059601
+      spriteID: 657cf61b5313819438439509e1a7365a
+      internalID: -2185847957171079616
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: PlayerDL_4
+      name: PlayerUL_4
       rect:
         serializedVersion: 2
         x: 256
@@ -202,14 +202,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 345465bfed809c144bf41ce4882eeb76
-      internalID: -764480519796546235
+      spriteID: 7a067c5d25382584a8be8a9d15eb6def
+      internalID: -3745236112825181388
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: PlayerDL_5
+      name: PlayerUL_5
       rect:
         serializedVersion: 2
         x: 320
@@ -223,8 +223,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 93cef6974b2d6174aa3c7a6ad0cd4ee4
-      internalID: -3882021697686588424
+      spriteID: 084a5b4e86224dd48aaa15d671a10e98
+      internalID: 7418519697715474719
       vertices: []
       indices: 
       edges: []
