@@ -23,7 +23,7 @@ public class Spawner : GameBehaviour
         if (!_spawned)
         {
             _spawned = true;
-            EnemyManager.CreateEnemy(_room);
+            EnemyManager.CreateEnemies(_room);
         }
     }
 }

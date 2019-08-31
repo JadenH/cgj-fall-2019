@@ -896,7 +896,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Canvas: {fileID: 2173745267254490952}
   Truth: 0
-  TextField: {fileID: 0}
+  TextField: {fileID: 2299664379212652590}
 --- !u!1 &3080014946023575854
 GameObject:
   m_ObjectHideFlags: 0
@@ -1805,7 +1805,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Canvas: {fileID: 4607361015058863615}
   Truth: 0
-  TextField: {fileID: 0}
+  TextField: {fileID: 532306149143615346}
 --- !u!1 &4603717047512556317
 GameObject:
   m_ObjectHideFlags: 0
@@ -2306,8 +2306,10 @@ MonoBehaviour:
   LeftDoor: {fileID: 6452190085581262340}
   ColliderTilemap: {fileID: 6452190087015727734}
   RenderTilemap: {fileID: 6452190085849905373}
-  Spawner: {fileID: 493736737469334120}
-  Portals: {fileID: 4683026578226516345}
+  Portals:
+  - {fileID: 4517735015571518429}
+  - {fileID: 3984620930834544560}
+  - {fileID: 8745530892671859580}
 --- !u!114 &493736737469334120
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -11211,7 +11213,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Canvas: {fileID: 1522338701311227638}
   Truth: 0
-  TextField: {fileID: 0}
+  TextField: {fileID: 4201647799182137341}
 --- !u!1 &7885627446649221638
 GameObject:
   m_ObjectHideFlags: 0

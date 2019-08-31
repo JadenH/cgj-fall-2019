@@ -18,11 +18,11 @@ public class Room : GameBehaviour
     public Tilemap ColliderTilemap;
     public Tilemap RenderTilemap;
 
-    public GameObject Portals;
+    public Portal[] Portals;
 
     private void Awake()
     {
-        if (Portals != null) Portals.SetActive(false);
+        SetPortalsActive(false);
     }
 
     private IEnumerable<Vector3Int> GetLocalCells()
@@ -141,7 +141,30 @@ public class Room : GameBehaviour
 
     public void CreatePortals()
     {
-        if (Portals != null) Portals.SetActive(true);
+        SetPortalsActive(true);
+        var randomIndex = Random.Range(0, Portals.Length);
+        for (var i = 0; i < Portals.Length; i++)
+        {
+            var portal = Portals[i];
+            if (randomIndex == i)
+            {
+                portal.SetText(CurrentLevel.RandomLie().TruthDescription);
+                portal.Truth = false;
+            }
+            else
+            {
+                portal.SetText(CurrentLevel.RandomTruth().TruthDescription);
+                portal.Truth = true;
+            }
+        }
+    }
+
+    private void SetPortalsActive(bool val)
+    {
+        foreach (var portal in Portals)
+        {
+            portal.gameObject.SetActive(val);
+        }
     }
 
     private void OnDrawGizmos()

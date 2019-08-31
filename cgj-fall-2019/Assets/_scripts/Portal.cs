@@ -1,15 +1,11 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using TMPro;
 using UnityEngine;
-using UnityEngine.UI;
 
 public class Portal : MonoBehaviour
 {
-
     public GameObject Canvas;
     public bool Truth = false;
-    public Text TextField;
-
+    public TextMeshProUGUI TextField;
 
     private bool _onPortal = false;    
    
@@ -25,6 +21,7 @@ public class Portal : MonoBehaviour
         _onPortal = true;
         Canvas.SetActive(true);
     }
+
     private void OnTriggerExit2D(Collider2D collision)
     {
         _onPortal = false;

@@ -5,7 +5,7 @@ public class EnemyManager : GameBehaviour
 {
     public Enemy[] EnemyPrefabs;
 
-    public void CreateEnemy(Room room)
+    public void CreateEnemies(Room room)
     {
         var randomEnemy = EnemyPrefabs[Random.Range(0, EnemyPrefabs.Length)];
         var randomCell = room.GetRandomPathableCell();

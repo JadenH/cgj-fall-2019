@@ -7,7 +7,8 @@ public class Game : MonoBehaviour
     public Map Map;
     public EnemyManager EnemyManager;
 
-    public int CurrentLevel = 1;
+    public int CurrentLevelNumber = 1;
+    public Level CurrentLevel;
 
     #region Singleton
 
@@ -20,12 +21,31 @@ public class Game : MonoBehaviour
 
     private void Start()
     {
-        StartLevel(CurrentLevel);
+        StartLevel(CurrentLevelNumber);
     }
 
-    private void StartLevel(int level)
+    private void StartLevel(int levelNumber)
     {
-        Map.Generate(level);
+        var levelName = $"level_{levelNumber.ToString().PadLeft(4, '0')}";
+        var level = Resources.Load<Level>($"Levels/{levelName}");
+
+        if (level)
+        {
+            Debug.Log($"Loaded Level: {levelName}");
+            StartLevel(CurrentLevelNumber, level);
+        }
+        else
+        {
+            Debug.Log($"Loaded Default Level");
+            level = Resources.Load<Level>($"Levels/level_0000");
+            StartLevel(CurrentLevelNumber, level);
+        }
+    }
+
+    private void StartLevel(int levelNumber, Level level)
+    {
+        CurrentLevel = level;
+        Map.Generate(levelNumber);
         Player.EnterRoom(Map.GetRoomForRoomCell(Vector2Int.zero));
     }
 }
