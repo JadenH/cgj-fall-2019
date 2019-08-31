@@ -13,12 +13,12 @@ public class Map : GameBehaviour
 
     private Room[] _rooms => _mapRoomCell.Values.ToArray();
 
-    public void Generate(int level)
+    public void Generate(int numberOfRooms)
     {
         // Destroy
 
-        // Number of rooms is equal to level
-        CreateMap(level);
+        // Number of rooms is equal to numberOfRooms
+        CreateMap(numberOfRooms);
         CreatePortals();
     }
 
@@ -66,6 +66,7 @@ public class Map : GameBehaviour
 
         _mapRoomCell.Add(roomCell, room);
         room.RoomCell = roomCell;
+        room.transform.SetParent(transform, true);
 
         foreach (var cell in room.GetWorldCells())
         {
