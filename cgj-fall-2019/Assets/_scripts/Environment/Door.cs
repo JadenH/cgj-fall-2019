@@ -47,7 +47,7 @@ public class Door : GameBehaviour
             if (ConnectingRoom && !Locked)
             {
                 CameraTarget.transform.position = ConnectingRoom.transform.position + new Vector3(0.5f, 0.5f);
-                Player.transform.position = ConnectingDoor.transform.position + Direction.V3();
+                Player.transform.position = ConnectingDoor.transform.position + Direction.V3() - (Vector3) Player.GetComponent<Collider2D>().offset;
                 Player.EnterRoom(ConnectingRoom);
             }
         }
