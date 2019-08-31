@@ -27,6 +27,22 @@ public class Room : GameBehaviour
     {
         SetPortalsActive(false);
         Scenario = Game.RandomTruth();
+        GenerateItems();
+    }
+
+    private void GenerateItems()
+    {
+        if (Scenario.ItemSpawns != null)
+        {
+            foreach (var itemSpawn in Scenario.ItemSpawns)
+            {
+                if (Random.Range(0f, 100f) <= itemSpawn.Chance)
+                {
+                    var cell = GetRandomPathableCell();
+                    Instantiate(itemSpawn.Item, Map.GetCellCenter(cell), Quaternion.identity, transform);
+                }
+            }
+        }
     }
 
     public void PlayerEntered()

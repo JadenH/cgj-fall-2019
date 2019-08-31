@@ -2,8 +2,9 @@
 using UnityEngine;
 
 [RequireComponent(typeof(AudioSource))]
-public abstract class Gun : GameBehaviour
+public abstract class Gun : Item
 {
+    public int Damage;
     [Tooltip("Seconds")]
     public float Cooldown;
     [HideInInspector]
@@ -53,7 +54,7 @@ public abstract class Gun : GameBehaviour
                 {
                     if (hit.transform.GetComponent<Health>())
                     {
-                        hit.transform.GetComponent<Health>().TakeDamage(10, DamageType.Gun);
+                        hit.transform.GetComponent<Health>().TakeDamage(Damage, DamageType.Gun);
                         bullet.transform.position = hit.transform.position;
                     }
                     else
