@@ -24,8 +24,9 @@ public class Portal : GameBehaviour
         Canvas.SetActive(true);
         Ani.SetBool("PortalOn", true);
         var emission = Parts.emission;
-
         emission.enabled = true;
+        Parts.time = 0;
+        Parts.Play();
     }
 
     private void OnTriggerExit2D(Collider2D collision)
@@ -34,11 +35,7 @@ public class Portal : GameBehaviour
         Canvas.SetActive(false);
         Ani.SetBool("PortalOn", false);
         var emission = Parts.emission;
-
         emission.enabled = false;
-
-
-
     }
 
     public void SetScenario(Scenario scenario)
