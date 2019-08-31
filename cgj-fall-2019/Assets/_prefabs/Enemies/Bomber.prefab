@@ -580,12 +580,11 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8783207210169755596}
+  - component: {fileID: 5663914634972300814}
   - component: {fileID: 8783207210169755597}
   - component: {fileID: 8783207210169755598}
-  - component: {fileID: 8783207210169755600}
   - component: {fileID: 5836170449153460907}
-  - component: {fileID: 1802014098928445568}
-  - component: {fileID: 2868749707578189608}
+  - component: {fileID: -423649188977172391}
   m_Layer: 8
   m_Name: Bomber
   m_TagString: Untagged
@@ -610,6 +609,47 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &5663914634972300814
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8783207210169755594}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ada71b8cd7d9f9648898b1e4d37b4be9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  StartCell: {x: 0, y: 0}
+  CurrentRoom: {fileID: 0}
+  Damage: 25
+  Range: 2
+  Animator: {fileID: 3306446067637649608}
+  ExplodeCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 1
+      value: 1.2055054
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!61 &8783207210169755597
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -648,27 +688,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bac5f2b4aaa1c2c478bc64f3a2130583, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MaxHealth: 100
-  CurrentHealth: 100
+  MaxHealth: 10
+  CurrentHealth: 10
   HealthChanged:
     m_PersistentCalls:
       m_Calls: []
     m_TypeName: Health+HealthUpdate, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
       PublicKeyToken=null
---- !u!114 &8783207210169755600
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8783207210169755594}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 23b12dd598d218e4c953088cff3fbcc0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Damage: 10
-  CoolDownSeconds: 5
 --- !u!114 &5836170449153460907
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -681,8 +707,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a177730ace3e28249994be16136bbc35, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Speed: 5
---- !u!114 &1802014098928445568
+  Speed: 8
+--- !u!114 &-423649188977172391
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -696,17 +722,3 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Target: {fileID: 0}
   RepathDelay: 0.05
---- !u!114 &2868749707578189608
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8783207210169755594}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e65bd7222cecb1d459dc2cbeef977c28, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  StartCell: {x: 1, y: 12}
-  CurrentRoom: {fileID: 0}

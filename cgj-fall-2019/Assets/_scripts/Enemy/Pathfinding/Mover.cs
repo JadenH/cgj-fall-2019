@@ -5,6 +5,7 @@ using UnityEngine;
 public class Mover : Pathfinder
 {
     public float Speed = .01f;
+    public bool Moving { get; private set; }
 
     public Queue<Vector2Int> CurrentPath { get; private set; }
     public Vector2Int? Next { get; private set; }
@@ -15,6 +16,7 @@ public class Mover : Pathfinder
         var path = Pathfind(start, dest);
         if (path != null && path.Any())
         {
+            Moving = true;
             CurrentPath = new Queue<Vector2Int>(path);
         }
     }
@@ -36,6 +38,10 @@ public class Mover : Pathfinder
         else if (CurrentPath != null && CurrentPath.Any())
         {
             Next = CurrentPath.Dequeue();
+        }
+        else
+        {
+            Moving = false;
         }
     }
 
