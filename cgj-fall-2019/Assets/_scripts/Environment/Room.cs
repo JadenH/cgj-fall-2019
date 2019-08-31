@@ -21,6 +21,7 @@ public class Room : GameBehaviour
     public Portal[] Portals;
 
     private int _enemyCount;
+    private bool _visited;
 
     private void Awake()
     {
@@ -30,10 +31,12 @@ public class Room : GameBehaviour
 
     public void PlayerEntered()
     {
-        if (Scenario.LockedWhileEnemies)
+        if (Scenario.LockedWhileEnemies && !_visited)
         {
             LockAllDoors();
         }
+
+        _visited = true;
     }
 
     private IEnumerable<Vector3Int> GetLocalCells()
