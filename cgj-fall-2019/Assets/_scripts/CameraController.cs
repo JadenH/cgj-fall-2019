@@ -1,25 +1,23 @@
 ﻿using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 
-public class CameraController : GameBehaviour
+public class CameraController : MonoBehaviour
 {
-    public void Shake(float duration = 0.5f, float shakeAmount = 0.2f)
+
+    public GameObject RightDoor;
+    
+    // Start is called before the first frame update
+    void Start()
     {
-        StartCoroutine(DoShake(duration, shakeAmount));
+        
     }
 
-    private IEnumerator DoShake(float duration, float shakeAmount)
+
+
+    // Update is called once per frame
+    void Update()
     {
-        var time = 0f;
-        var position = transform.localPosition;
-        while (time < duration)
-        {
-            transform.localPosition = position + Random.insideUnitSphere * shakeAmount;
-            time += Time.deltaTime;
-            yield return null;
-        }
-
-        transform.localPosition = position;
+        
     }
-
 }

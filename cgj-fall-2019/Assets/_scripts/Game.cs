@@ -9,7 +9,6 @@ public class Game : MonoBehaviour
     public Map Map;
     public EnemyManager EnemyManager;
     public TextMeshProUGUI LevelText;
-    public CameraController CameraController;
 
     public int CurrentLevelNumber = 1;
     public Level CurrentLevel;

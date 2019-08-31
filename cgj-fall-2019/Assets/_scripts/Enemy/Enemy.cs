@@ -22,7 +22,7 @@ public abstract class Enemy : GameBehaviour
         PlayerChangedRooms(room);
     }
 
-    private void HealthChanged(float current, float delta, DamageType damageType)
+    private void HealthChanged(float current, float max)
     {
         if (current <= 0)
         {

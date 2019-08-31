@@ -17,10 +17,10 @@ public class HealthSlider : MonoBehaviour
         Slider.maxValue = Health.MaxHealth;
         Slider.minValue = 0;
 
-        UpdateUI(Health.CurrentHealth, Health.MaxHealth, DamageType.Gun);
+        UpdateUI(Health.CurrentHealth, Health.MaxHealth);
     }
 
-    private void UpdateUI(float current, float delta, DamageType damageType)
+    private void UpdateUI(float current, float max)
     {
         StopAllCoroutines();
         StartCoroutine(Animate(current));

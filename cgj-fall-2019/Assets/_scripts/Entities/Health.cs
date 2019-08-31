@@ -10,19 +10,22 @@ public class Health : GameBehaviour
     public float CurrentHealth = 100;
 
     [Serializable]
-    public class HealthUpdate : UnityEvent<float, float, DamageType> { }
+    public class HealthUpdate : UnityEvent<float, float> { }
 
     public HealthUpdate HealthChanged;
 
-    public void TakeDamage(float amount, DamageType damageType)
+    // Start is called before the first frame update
+
+    private void UpdateHealth()
+    {
+        HealthChanged?.Invoke(CurrentHealth, MaxHealth);
+    }
+
+    public void TakeDamage(float amount)
     {
         CurrentHealth -= amount;
-<<<<<<< HEAD
         StartCoroutine(Damaged());
         UpdateHealth();
-=======
-        HealthChanged?.Invoke(CurrentHealth, amount, damageType);
->>>>>>> 3e4b506fb5cf2f914b4fafed23fc2eb1dc41e9f5
     }
 
     private IEnumerator Damaged()
