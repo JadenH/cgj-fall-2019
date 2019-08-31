@@ -63,8 +63,8 @@ public class Player : GameBehaviour
                 PlayerLife.CurrentLives--;
                 Game.CurrentLevelNumber = Mathf.Max(1, Game.CurrentLevelNumber - 1);
                 Game.StartLevel(Game.CurrentLevelNumber);
-                Game._answer = "Lost a life! Back to Level" + Game.CurrentLevelNumber;
-                StartCoroutine("WaitAndPrint");
+                Game._answer = "Lost a life! Back to Level " + Game.CurrentLevelNumber;
+                Game.StartCoroutine("WaitAndPrint");
                 ResetHealth();
             }
         }
