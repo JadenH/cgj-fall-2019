@@ -251,6 +251,7 @@ MonoBehaviour:
   CurrentRoom: {fileID: 0}
   Life: {fileID: 4718483996751928067}
   Health: {fileID: 5489462509640628333}
+  SentLifeData: 0
   ChangedRoom:
     m_PersistentCalls:
       m_Calls: []
@@ -273,6 +274,7 @@ MonoBehaviour:
   CurrentGun: {fileID: 3871142782867210603}
   PickupInterface: {fileID: 4611951649560956130}
   AudioSource: {fileID: 3705306859697332953}
+  Health: {fileID: 5489462509640628333}
 --- !u!50 &754922684415524770
 Rigidbody2D:
   serializedVersion: 4
@@ -359,7 +361,7 @@ AudioSource:
   m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
-  Loop: 0
+  Loop: 1
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
@@ -869,7 +871,8 @@ MonoBehaviour:
   m_text: '[E] Equip'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 128764be991cdf54c8388b2b23fab137, type: 2}
-  m_sharedMaterial: {fileID: 0}
+  m_sharedMaterial: {fileID: -5230352994548381814, guid: 128764be991cdf54c8388b2b23fab137,
+    type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []

@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using UnityEngine;
 
 public class Character : MonoBehaviour
@@ -16,6 +17,7 @@ public class Character : MonoBehaviour
     public Gun CurrentGun;
     public GameObject PickupInterface;
     public AudioSource AudioSource;
+    public Health Health;
 
     private void Start()
     {
@@ -26,6 +28,23 @@ public class Character : MonoBehaviour
         {
             CurrentGun.GetComponent<CircleCollider2D>().enabled = false;
         }
+
+        Health.HealthChanged.AddListener(HandleHealthChanged);
+    }
+
+    private void HandleHealthChanged(float current, float delta, DamageType damageType)
+    {
+        if (damageType != DamageType.Heal)
+        {
+            StartCoroutine(Damaged());
+        }
+    }
+
+    private IEnumerator Damaged()
+    {
+        _renderer.color = Color.red;
+        yield return new WaitForSeconds(.2f);
+        _renderer.color = Color.white;
     }
 
     private void Update()
