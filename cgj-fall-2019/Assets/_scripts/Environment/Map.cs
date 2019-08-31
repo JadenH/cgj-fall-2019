@@ -13,6 +13,17 @@ public class Map : GameBehaviour
 
     private Room[] _rooms => _mapRoomCell.Values.ToArray();
 
+    public void DestroyLevel()
+    {
+        foreach (Transform child in transform)
+        {
+            Destroy(child.gameObject);
+        }
+
+        _mapRoomCell = new Dictionary<Vector2Int, Room>();
+        _mapWorldCell = new Dictionary<Vector2Int, Room>();
+    }
+
     public void Generate(int numberOfRooms)
     {
         // Destroy

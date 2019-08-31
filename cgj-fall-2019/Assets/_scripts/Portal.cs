@@ -1,20 +1,13 @@
 ﻿using TMPro;
 using UnityEngine;
 
-public class Portal : MonoBehaviour
+public class Portal : GameBehaviour
 {
     public GameObject Canvas;
-    public bool Truth = false;
     public TextMeshProUGUI TextField;
 
-    private bool _onPortal = false;    
-   
-    
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    private bool _onPortal = false;
+    private Scenario _scenario;
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
@@ -28,17 +21,17 @@ public class Portal : MonoBehaviour
         Canvas.SetActive(false);
     }
 
-    public void SetText(string lie)
+    public void SetScenario(Scenario scenario)
     {
-        TextField.text = lie;
+        _scenario = scenario;
+        TextField.text = scenario.TruthDescription;
     }
 
-    // Update is called once per frame
-    void Update()
+    private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Space))
+        if (_onPortal && Input.GetKeyDown(KeyCode.Space))
         {
-
+            Game.ChooseScenario(_scenario);
         }
     }
 
