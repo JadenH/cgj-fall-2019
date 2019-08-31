@@ -1,31 +1,25 @@
 fileFormatVersion: 2
-guid: 8e795503bd2ca484a8227aa07d989d4a
+guid: e09c216b92943ea458a1ceaf1789f11d
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -1638321742997542311
-    second: IdleD_0
+      213: 4354231566380549168
+    second: Skeleton_0
   - first:
-      213: -202021256433267294
-    second: IdleD_1
+      213: 5809030516613042957
+    second: Skeleton_1
   - first:
-      213: 1122237703053921089
-    second: IdleD_2
+      213: 6682473901004932845
+    second: Skeleton_2
   - first:
-      213: 8883104703462690153
-    second: IdleD_3
+      213: -6895646428441557691
+    second: Skeleton_3
   - first:
-      213: -120025689483751075
-    second: IdleD_4
+      213: 8681928648562347177
+    second: Skeleton_4
   - first:
-      213: 139225099550663524
-    second: IdleD_5
-  - first:
-      213: -7780806453962104226
-    second: IdleD_6
-  - first:
-      213: 2091944757361280016
-    second: IdleD_7
+      213: -6534455043122499310
+    second: Skeleton_5
   externalObjects: {}
   serializedVersion: 10
   mipmaps:
@@ -110,7 +104,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: IdleD_0
+      name: Skeleton_0
       rect:
         serializedVersion: 2
         x: 0
@@ -124,14 +118,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 36bbbb27cf2b2684d82964396eaada7d
-      internalID: -1638321742997542311
+      spriteID: 06262eea78e975c4e929621cfaebcfec
+      internalID: 4354231566380549168
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: IdleD_1
+      name: Skeleton_1
       rect:
         serializedVersion: 2
         x: 64
@@ -145,14 +139,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: cde71a91b14b5a44194d6b11651b76e7
-      internalID: -202021256433267294
+      spriteID: 9f97fd6bcc642d8499c903830a868e24
+      internalID: 5809030516613042957
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: IdleD_2
+      name: Skeleton_2
       rect:
         serializedVersion: 2
         x: 128
@@ -166,14 +160,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 1d2ea5ab75de8c2439603d73813a8450
-      internalID: 1122237703053921089
+      spriteID: e3b8ea04bc18d464c8dff5edc2e7471f
+      internalID: 6682473901004932845
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: IdleD_3
+      name: Skeleton_3
       rect:
         serializedVersion: 2
         x: 192
@@ -187,14 +181,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 64deb70842c91164f9a21329bd30a2d6
-      internalID: 8883104703462690153
+      spriteID: c6792dfa99923914396aef880f24034d
+      internalID: -6895646428441557691
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: IdleD_4
+      name: Skeleton_4
       rect:
         serializedVersion: 2
         x: 256
@@ -208,14 +202,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 26289f69798ab754b9b1ad82d43742bd
-      internalID: -120025689483751075
+      spriteID: 24a67b6389a0f6f46afd63c9ad0a86a4
+      internalID: 8681928648562347177
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: IdleD_5
+      name: Skeleton_5
       rect:
         serializedVersion: 2
         x: 320
@@ -229,50 +223,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: fab752019a7d4d641a4fa9a145b0e4ac
-      internalID: 139225099550663524
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: IdleD_6
-      rect:
-        serializedVersion: 2
-        x: 384
-        y: 0
-        width: 64
-        height: 64
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 4349fb78d8d8ef745942fe2b763766ef
-      internalID: -7780806453962104226
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: IdleD_7
-      rect:
-        serializedVersion: 2
-        x: 448
-        y: 0
-        width: 64
-        height: 64
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 3b8a9302099a38d4bb88327ab839f645
-      internalID: 2091944757361280016
+      spriteID: 429d67fbd44981142a5200d24bf48bd1
+      internalID: -6534455043122499310
       vertices: []
       indices: 
       edges: []
