@@ -141,7 +141,7 @@ public class Game : MonoBehaviour
 
     public float Multiplier()
     {
-        return CurrentLevelNumber <= 20 ? DifficultyCurve.Evaluate(CurrentLevelNumber) : CurrentLevelNumber;
+        return CurrentLevelNumber <= 20 ? DifficultyCurve.Evaluate(CurrentLevelNumber) : CurrentLevelNumber - 18;
     }
 
 
