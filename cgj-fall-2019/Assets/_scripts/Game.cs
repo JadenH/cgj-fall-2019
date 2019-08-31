@@ -126,16 +126,15 @@ public class Game : MonoBehaviour
             StartLevel(++CurrentLevelNumber);
             _answer = "Correct! On to Level: " + CurrentLevelNumber;
             StartCoroutine("WaitAndPrint");
-
         }
         else
         {
             // Incorrect
             Debug.Log("INCORRECT");
             PlayerLife.CurrentLives--;
-            CurrentLevelNumber = Mathf.Max(1, CurrentLevelNumber - 5);
+            CurrentLevelNumber = Mathf.Max(1, CurrentLevelNumber - 1);
             StartLevel(CurrentLevelNumber);
-            _answer = "Incorrect! Back to Level: " + CurrentLevelNumber + " Life -1";
+            _answer = "Incorrect! Back to Level: " + CurrentLevelNumber + ". Lost 1 life.";
             StartCoroutine("WaitAndPrint");
         }
     }
