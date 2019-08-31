@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 
-public class Health : MonoBehaviour
+public class Health : GameBehaviour
 {
     public float MaxHealth = 100;
     public float CurrentHealth = 100;
@@ -24,6 +24,14 @@ public class Health : MonoBehaviour
     public void TakeDamage(float amount)
     {
         CurrentHealth -= amount;
+        StartCoroutine(Damaged());
         UpdateHealth();
+    }
+
+    private IEnumerator Damaged()
+    {
+        Player.GetComponentInChildren<SpriteRenderer>().color = Color.red;
+        yield return new WaitForSeconds(.1f);
+        Player.GetComponentInChildren<SpriteRenderer>().color = Color.white;
     }
 }

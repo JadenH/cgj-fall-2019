@@ -15,13 +15,13 @@ public class Weapon : GameBehaviour
         {
             _cooldown = true;
             Player.Health.TakeDamage(Damage);
-            StartCoroutine(Cooldown());
         }
     }
 
-    private IEnumerator Cooldown()
+    private IEnumerator Damaged()
     {
-        yield return new WaitForSeconds(CoolDownSeconds);
-        _cooldown = false;
+        Player.GetComponentInChildren<SpriteRenderer>().color = Color.red;
+        yield return new WaitForSeconds(.1f);
+        Player.GetComponentInChildren<SpriteRenderer>().color = Color.white;
     }
 }
